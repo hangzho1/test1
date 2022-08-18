@@ -1,0 +1,14 @@
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/install/strip.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/install.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/install/local.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/list_install_components.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/edit_cache.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/CMakeFiles/rebuild_cache.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/install/strip.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/install/local.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/hello.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/hello_static.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/edit_cache.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/rebuild_cache.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/list_install_components.dir
+/home/sfdev/hangz/cmkehz/cmake02/build/bin/CMakeFiles/install.dir

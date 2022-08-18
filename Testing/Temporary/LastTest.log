@@ -1,0 +1,1369 @@
+Start testing: Aug 12 01:11 EDT
+----------------------------------------------------------
+2/4 Testing: test_dummy_gated
+2/4 Test: test_dummy_gated
+Command: "/usr/bin/bash" "-c" "rm -rf $TEST_PREFIX''logs-dummy_gated && mkdir -p $TEST_PREFIX''logs-dummy_gated && cd $TEST_PREFIX''logs-dummy_gated && TESTCASE=test_dummy_gated PLATFORM=ICX IMAGEARCH=linux/amd64 WORKLOAD=dummy RELEASE=:latest REGISTRY=10.67.121.79:5000/ TIMEOUT=28800,600 BACKEND=kubernetes SCRIPT='/home/sfdev/applications.benchmarking.benchmark.platform-hero-features/script' REGISTRY_AUTH= '/home/sfdev/applications.benchmarking.benchmark.platform-hero-features/workload/dummy/validate.sh' 2000"
+Directory: /home/sfdev/applications.benchmarking.benchmark.platform-hero-features/build/workload/dummy
+"test_dummy_gated" start time: Aug 12 01:11 EDT
+Output:
+----------------------------------------------------------
+Tunables: scale:2000;return_value:0;sleep_time:0
+Labels: 
+EVENT_TRACE_PARAMS=
+namespace/hangzho1-4db529e267f5 created
+job.batch/dummy-benchmark created
+/run_test.sh: line 10: time: command not found
+tar: status: time stamp 2022-08-12 01:26:34 is 886.448502053 s in the future
+tar: output.logs: time stamp 2022-08-12 01:26:34 is 886.448289364 s in the future
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "projectcalico.org/IPv4Address": "192.168.88.9/24",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2022-02-24T04:30:37Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "wiealex0",
+                    "kubernetes.io/os": "linux",
+                    "node-role.kubernetes.io/control-plane": "",
+                    "node-role.kubernetes.io/master": "",
+                    "node.kubernetes.io/exclude-from-external-load-balancers": "",
+                    "tpcdsNode": "master"
+                },
+                "name": "wiealex0",
+                "resourceVersion": "26169521",
+                "uid": "658e5160-0070-49b8-90d7-d34d1c9eed68"
+            },
+            "spec": {
+                "podCIDR": "10.244.0.0/24",
+                "podCIDRs": [
+                    "10.244.0.0/24"
+                ],
+                "taints": [
+                    {
+                        "effect": "NoSchedule",
+                        "key": "node.kubernetes.io/unschedulable",
+                        "timeAdded": "2022-06-12T00:28:26Z"
+                    }
+                ],
+                "unschedulable": true
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.67.126.155",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "wiealex0",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "36",
+                    "ephemeral-storage": "69193606235",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "196355244Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "36",
+                    "ephemeral-storage": "75079868Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "196457644Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2022-08-03T07:47:55Z",
+                        "lastTransitionTime": "2022-08-03T07:47:55Z",
+                        "message": "Calico is running on this node",
+                        "reason": "CalicoIsUp",
+                        "status": "False",
+                        "type": "NetworkUnavailable"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:43Z",
+                        "lastTransitionTime": "2022-02-24T04:30:35Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:43Z",
+                        "lastTransitionTime": "2022-05-27T14:56:39Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:43Z",
+                        "lastTransitionTime": "2022-02-24T04:30:35Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:43Z",
+                        "lastTransitionTime": "2022-05-23T13:05:33Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "10.166.32.98:5000/hibench-client@sha256:db51382db3de894e64ee3c8491f6169e0306a34b78be7fb96ee48a3310fab327",
+                            "10.67.121.79:5000/hibench-client@sha256:db51382db3de894e64ee3c8491f6169e0306a34b78be7fb96ee48a3310fab327",
+                            "10.166.32.98:5000/hibench-client:master",
+                            "10.67.121.79:5000/hibench-client:master",
+                            "hibench-client:master"
+                        ],
+                        "sizeBytes": 3396019906
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/hibench-client@sha256:abccc533a8d7a5d6565e66d91bc9053b1ef2d5d32529577707ed0578d795545f",
+                            "10.67.121.79:5000/hibench-client:latest",
+                            "hibench-client:latest"
+                        ],
+                        "sizeBytes": 3396018800
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/hibench@sha256:065149a593b45c7c7655d6acee025d1667211ba403a85812b3bb8d3d7373097a",
+                            "10.67.121.79:5000/hibench:latest",
+                            "hibench:latest"
+                        ],
+                        "sizeBytes": 2052492651
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/hibench@sha256:47c774394e078c1da2bd8ce9830d1d12c0894ec627208d5b88b1ca89841fd7d2",
+                            "10.67.121.79:5000/hibench@sha256:47c774394e078c1da2bd8ce9830d1d12c0894ec627208d5b88b1ca89841fd7d2",
+                            "10.166.32.98:5000/hibench:master",
+                            "10.67.121.79:5000/hibench:master",
+                            "hibench:master"
+                        ],
+                        "sizeBytes": 2052491552
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-gcp@sha256:bbeaec912bbd20cbbcec687d4d32ddd108d82b2530f57d7d15e8224a7c2e5ce0",
+                            "10.166.32.98:5000/cumulus-gcp:master",
+                            "cumulus-gcp:latest",
+                            "cumulus-gcp:master"
+                        ],
+                        "sizeBytes": 1684317506
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-gcp@sha256:addc1f65fc0d651edb309aeb98485cfbb127ad979d60c9fc85efd4232d4cdfc8",
+                            "10.166.32.98:5000/cumulus-gcp:latest"
+                        ],
+                        "sizeBytes": 1633127782
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb-arm64@sha256:164bb73ddf5d3bf155527610395f55b15dbc41135e684bd01d25cf8c61537d4f",
+                            "10.166.32.98:5000/ycsb-arm64:master",
+                            "ycsb-arm64:latest",
+                            "ycsb-arm64:master"
+                        ],
+                        "sizeBytes": 1527869981
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb-arm64@sha256:9c8a3e47ebe9d8332a66fe5bcf1d8340db7785ae816ecc4a0a69eabb9729017b",
+                            "10.166.32.98:5000/ycsb-arm64:latest",
+                            "10.166.32.98:5000/ycsb-arm64:mongo_arm",
+                            "10.166.32.98:5000/ycsb-arm64:mongo_arm_2n",
+                            "ycsb-arm64:mongo_arm"
+                        ],
+                        "sizeBytes": 1510351364
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:7448c48003963a0b98ae7a37bc68e974700b2635d3cd8b37a0a97a688e8d430d",
+                            "10.67.121.79:5000/ycsb@sha256:7448c48003963a0b98ae7a37bc68e974700b2635d3cd8b37a0a97a688e8d430d",
+                            "10.166.32.98:5000/ycsb:master",
+                            "10.67.121.79:5000/ycsb:master",
+                            "ycsb:master"
+                        ],
+                        "sizeBytes": 1487825853
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:a6c4d76969f30657a9f5530ff92d1f5e810c870fbba1187e8aee1a13f5021df8",
+                            "10.67.121.79:5000/ycsb@sha256:a6c4d76969f30657a9f5530ff92d1f5e810c870fbba1187e8aee1a13f5021df8",
+                            "10.166.32.98:5000/ycsb:latest",
+                            "10.67.121.79:5000/ycsb:latest",
+                            "ycsb:latest"
+                        ],
+                        "sizeBytes": 1487825853
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:e7235a9b2ce0af4b84b6c5b0d9e0c3bf280d3ea6c94ddbc5797ae4fe5e80b1a9",
+                            "10.67.121.79:5000/ycsb@sha256:e7235a9b2ce0af4b84b6c5b0d9e0c3bf280d3ea6c94ddbc5797ae4fe5e80b1a9",
+                            "10.166.32.98:5000/ycsb:mongo_stressng",
+                            "10.67.121.79:5000/ycsb:mongo_stressng",
+                            "ycsb:mongo_stressng"
+                        ],
+                        "sizeBytes": 1487775096
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:08cc94a0f54ab056298c542f95d6e925499375aa0a17b38484607eeb90d7d0bd",
+                            "10.67.121.79:5000/ycsb@sha256:08cc94a0f54ab056298c542f95d6e925499375aa0a17b38484607eeb90d7d0bd"
+                        ],
+                        "sizeBytes": 1487772930
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:c97355260b2153335b4492212cddc554fb5b7c4bae6b1bc3b17b0833814e3735",
+                            "10.67.121.79:5000/ycsb@sha256:c97355260b2153335b4492212cddc554fb5b7c4bae6b1bc3b17b0833814e3735",
+                            "10.166.32.98:5000/ycsb:mongo_amd",
+                            "ycsb:mongo_amd"
+                        ],
+                        "sizeBytes": 1487772838
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:51fb360b42318004d01df93dd5b18893b7e13ca713e257b40a5ef4a7a6fa589a"
+                        ],
+                        "sizeBytes": 1076666945
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk11@sha256:52d78edcb24ab5aba617f44a00b0b3a989839c237bdb3077df8b7dd1e1818c8b"
+                        ],
+                        "sizeBytes": 1069283142
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:fd56f0d91702e2c9e8d4766d5578d1f217c6427606b6859babcc9107762dc210"
+                        ],
+                        "sizeBytes": 1068634427
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk11@sha256:d1f2c50688740f4c52d64c693362e5439c0888fd07834e137c2bb039853ff13b"
+                        ],
+                        "sizeBytes": 1061250624
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/cumulus-aws@sha256:0982fe38eb66be016f82ba3f9a96cd0427f0e90bbe049f3a1a384a3cc5c50e9a",
+                            "10.67.121.79:5000/cumulus-aws:v22.18",
+                            "cumulus-aws:v22.18"
+                        ],
+                        "sizeBytes": 1055768884
+                    },
+                    {
+                        "names": [
+                            "cumulus-cloud:v22.18"
+                        ],
+                        "sizeBytes": 1040145370
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client@sha256:f342ee8745c84afe14a1dbe44c57720070f2e12ab9f44297cd760da9eceb26e0",
+                            "10.67.121.79:5000/kafka-client:latest",
+                            "kafka-client:latest"
+                        ],
+                        "sizeBytes": 1033254923
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client@sha256:f4c3c51deb5ed7e6450bcc36f269aee29cfb4e231bd1ba70a039a30aee4c39f7"
+                        ],
+                        "sizeBytes": 1033254856
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client@sha256:7a5ae5bbf19cf159ed7380ddcb252e421f1a69d623716fa1c38e62b63d4856c0"
+                        ],
+                        "sizeBytes": 1016359879
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/cumulus-aws@sha256:95fae6be17696a50619395374951cb0397af2ab15eda21c9d2f1cc05a5fa82e7",
+                            "10.67.121.79:5000/cumulus-aws:v22.33",
+                            "cumulus-aws:latest",
+                            "cumulus-aws:v22.33"
+                        ],
+                        "sizeBytes": 1014129980
+                    },
+                    {
+                        "names": [
+                            "cumulus-cloud:latest",
+                            "cumulus-cloud:v22.33"
+                        ],
+                        "sizeBytes": 999085393
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk8@sha256:13f2ee35b0753dd1e1f633a3b85dd3617fc5d55d45e666432655abcd054cacac"
+                        ],
+                        "sizeBytes": 951709554
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/cumulus-static@sha256:e75f021fd1220725d98dc6ae73106356e47421d01372597fbcac10ba2b838b0f",
+                            "10.67.121.79:5000/cumulus-static:v22.33",
+                            "cumulus-static:latest",
+                            "cumulus-static:v22.33"
+                        ],
+                        "sizeBytes": 948573497
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk8@sha256:26c3fb0f2ae1699a74e47e32146df75715fb122a5f1eb471f6eb7df8672e629f"
+                        ],
+                        "sizeBytes": 943677036
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:0fbd91a965a83ed801418e49417b4040a93c69ead0e153f8e6b73e349f587111"
+                        ],
+                        "sizeBytes": 919438422
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:a390cd865256d2a266bda9daffbbc4253738d0a802362cd06dbce998026330fc",
+                            "10.67.121.79:5000/cumulus-aws@sha256:a390cd865256d2a266bda9daffbbc4253738d0a802362cd06dbce998026330fc",
+                            "10.166.32.98:5000/cumulus-aws:mongo_stressng",
+                            "10.67.121.79:5000/cumulus-aws:mongo_stressng",
+                            "cumulus-aws:mongo_stressng"
+                        ],
+                        "sizeBytes": 867129499
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:bc7ce085cdb7762c4843ef012241f48503bcbeb2472a8a99222f46b2b2603d84"
+                        ],
+                        "sizeBytes": 860903124
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk11@sha256:5e971872f17851a1cc9ba933d22518b478c43df6a653104fe77cd13b8e26bf31"
+                        ],
+                        "sizeBytes": 853519321
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:94b8ff6e370fbe61d950d965fe2e09ca74495bc2781bc231e1baac192a7a26c0"
+                        ],
+                        "sizeBytes": 851219144
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:c694e279f21284bde5b01e94128f839a4a8b3ae7c1e0a3439fc8d8502a53cbe8",
+                            "10.67.121.79:5000/cumulus-aws@sha256:c694e279f21284bde5b01e94128f839a4a8b3ae7c1e0a3439fc8d8502a53cbe8",
+                            "10.166.32.98:5000/cumulus-aws:master",
+                            "10.67.121.79:5000/cumulus-aws:hammerDB",
+                            "cumulus-aws:hammerDB"
+                        ],
+                        "sizeBytes": 850733956
+                    },
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 835679989
+                    },
+                    {
+                        "names": [
+                            "cumulus-cloud:hammerDB",
+                            "cumulus-cloud:master"
+                        ],
+                        "sizeBytes": 835196406
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server@sha256:11eae326b1ad96595c1aba779b3a54ed3b76b47bf40a77c3b0fc997b5233e58c",
+                            "10.67.121.79:5000/zookeeper-kafka-server:latest",
+                            "zookeeper-kafka-server:latest"
+                        ],
+                        "sizeBytes": 818633245
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:daf31beb7d6b73ce60f463e2e0e696cbc4a41abdc593f4a7284592286dcb047f",
+                            "10.166.32.98:5000/cumulus-aws:test_monitor"
+                        ],
+                        "sizeBytes": 800688042
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:a52eed0b41a880e1283475bfb1d281c75743af86d332e036a9a8115a944d831e",
+                            "10.67.121.79:5000/cumulus-aws@sha256:a52eed0b41a880e1283475bfb1d281c75743af86d332e036a9a8115a944d831e",
+                            "10.166.32.98:5000/cumulus-aws:mongo_amd",
+                            "10.67.121.79:5000/cumulus-aws:master",
+                            "cumulus-aws:mongo_amd"
+                        ],
+                        "sizeBytes": 800028589
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:2e849f933e408c049855db067c49d0cd2bb0f82f6e226c8e8d10b59115c27673",
+                            "10.166.32.98:5000/cumulus-aws:latest",
+                            "10.166.32.98:5000/cumulus-aws:mongo_arm",
+                            "10.166.32.98:5000/cumulus-aws:mongo_arm_2n",
+                            "cumulus-aws:mongo_arm"
+                        ],
+                        "sizeBytes": 799897104
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-aws@sha256:8acdb3c9a1637eb64e5338c2047f03db12a713ebc45e7332910eb942a14bb728",
+                            "10.166.32.98:5000/cumulus-aws:Mongo_AMD_2n"
+                        ],
+                        "sizeBytes": 799693103
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:c1a551894c9fc9f2b87ac996619ccf30ae757db6ead4b09b480e1921873ff721"
+                        ],
+                        "sizeBytes": 785168093
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:a53f8a3dbe4bc9548efa6a4549c31be05d2e031f1c2b621277104d0ed36c5074",
+                            "10.67.121.79:5000/cumulus-static@sha256:a53f8a3dbe4bc9548efa6a4549c31be05d2e031f1c2b621277104d0ed36c5074",
+                            "10.166.32.98:5000/cumulus-static:master",
+                            "10.67.121.79:5000/cumulus-static:hammerDB",
+                            "cumulus-static:hammerDB"
+                        ],
+                        "sizeBytes": 784684510
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:70bd331555283ad476215d2216a3df6f6a3a659dfaefdb6b9e83082fa74b317d",
+                            "10.67.121.79:5000/cumulus-static@sha256:70bd331555283ad476215d2216a3df6f6a3a659dfaefdb6b9e83082fa74b317d",
+                            "10.166.32.98:5000/cumulus-static:latest",
+                            "10.166.32.98:5000/cumulus-static:mongo_amd",
+                            "cumulus-static:mongo_amd"
+                        ],
+                        "sizeBytes": 784490543
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:5c7ed321f9d70ea14f21b265301e097f161c15f0bdb78cfa25d24bd911f2da23",
+                            "10.67.121.79:5000/cumulus-static@sha256:5c7ed321f9d70ea14f21b265301e097f161c15f0bdb78cfa25d24bd911f2da23"
+                        ],
+                        "sizeBytes": 784434028
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:e9bcc410fb440c57ce832b12ec3fee0087dbf1104fd1a376024149fe57b0c4b0",
+                            "10.67.121.79:5000/cumulus-static@sha256:e9bcc410fb440c57ce832b12ec3fee0087dbf1104fd1a376024149fe57b0c4b0",
+                            "10.166.32.98:5000/cumulus-static:mongo_stressng",
+                            "10.67.121.79:5000/cumulus-static:mongo_stressng",
+                            "cumulus-static:mongo_stressng"
+                        ],
+                        "sizeBytes": 784433910
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:6b9d09d9dc40217d35063e0d612a2dbc37be40e92a055021240b985bc9a73032",
+                            "10.166.32.98:5000/cumulus-static:mongo_arm",
+                            "10.166.32.98:5000/cumulus-static:mongo_arm_2n",
+                            "cumulus-static:mongo_arm",
+                            "cumulus-static:mongo_arm_2n"
+                        ],
+                        "sizeBytes": 784369718
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-basic@sha256:f5899e63b976ad1734f2bdec8cfa421660ef6b7b1aeeade8c7e853c2471b0247",
+                            "10.67.121.79:5000/kafka-basic:latest",
+                            "kafka-basic:latest"
+                        ],
+                        "sizeBytes": 782196457
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/cumulus-static@sha256:e4136b1cedb5084de5dc172392759f92c7f62f689c814d172b1f7cab2eafbe9e"
+                        ],
+                        "sizeBytes": 755014103
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/cumulus-static@sha256:87412cb18202851492d09051f5f7e0c23a502adf00455e9f5e0ddaaf40eaf9c8",
+                            "10.67.121.79:5000/cumulus-static:master"
+                        ],
+                        "sizeBytes": 755014103
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:dedbbdf63a9f47a8d4efe2daaa2e39968a8a8faf2c5635d99712b6ae112720e5"
+                        ],
+                        "sizeBytes": 739110025
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "898fab09-afaa-4821-81a6-b2801e6188cc",
+                    "containerRuntimeVersion": "docker://20.10.12",
+                    "kernelVersion": "4.19.91-23.4.an8.x86_64",
+                    "kubeProxyVersion": "v1.23.2",
+                    "kubeletVersion": "v1.23.2",
+                    "machineID": "492bcf6e36d24067b918b7b552041020",
+                    "operatingSystem": "linux",
+                    "osImage": "Anolis OS 8.4",
+                    "systemUUID": "8005dbfb-2fc3-e711-906e-00163566263e"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "projectcalico.org/IPv4Address": "192.168.88.27/24",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2022-02-24T04:45:01Z",
+                "labels": {
+                    "HAS-SETUP-CENTOS8": "yes",
+                    "HAS-SETUP-DISK-MOUNT-1": "yes",
+                    "HAS-SETUP-HUGEPAGE-2048kB-4096": "yes",
+                    "HAS-SETUP-KERNEL-V0512": "yes",
+                    "HAS-SETUP-MODULE-MSR": "yes",
+                    "HAS-SETUP-QAT-V200": "yes",
+                    "KFK_C": "yes",
+                    "NGINX_SERVER": "yes",
+                    "Nginx_server": "yes",
+                    "REDIS_CLIENT": "yes",
+                    "REDIS_NODE": "node5",
+                    "Redis_Memtier": "yes",
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "wiealex05sh",
+                    "kubernetes.io/os": "linux",
+                    "node": "node5",
+                    "node-role.kubernetes.io/worker": "worker",
+                    "tpcdsNode": "node01"
+                },
+                "name": "wiealex05sh",
+                "resourceVersion": "26169819",
+                "uid": "079943b5-5789-4a38-9760-424c52b1fd07"
+            },
+            "spec": {
+                "podCIDR": "10.244.1.0/24",
+                "podCIDRs": [
+                    "10.244.1.0/24"
+                ]
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "192.168.88.27",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "wiealex05sh",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "128",
+                    "ephemeral-storage": "382521142254",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "8Gi",
+                    "memory": "519527840Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "128",
+                    "ephemeral-storage": "415062004Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "8Gi",
+                    "memory": "528018848Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2022-08-03T07:29:42Z",
+                        "lastTransitionTime": "2022-08-03T07:29:42Z",
+                        "message": "Calico is running on this node",
+                        "reason": "CalicoIsUp",
+                        "status": "False",
+                        "type": "NetworkUnavailable"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:25:50Z",
+                        "lastTransitionTime": "2022-07-27T02:57:17Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:25:50Z",
+                        "lastTransitionTime": "2022-08-02T01:26:18Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:25:50Z",
+                        "lastTransitionTime": "2022-07-27T02:57:17Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:25:50Z",
+                        "lastTransitionTime": "2022-07-27T02:57:17Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "\u003cnone\u003e@\u003cnone\u003e",
+                            "\u003cnone\u003e:\u003cnone\u003e"
+                        ],
+                        "sizeBytes": 6656144420
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/ycsb@sha256:d41508e18df9bf71fdde106e6c4c40437082959220b34c580fcabe6f0f9dc0ee",
+                            "10.166.32.98:5000/ycsb:latest"
+                        ],
+                        "sizeBytes": 1487378396
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:e9ce12aa4ce8d9544ac8f5e4896c71016c802138fee4c468d2c9acc293bb6700",
+                            "10.67.121.79:5000/kafka-client-jdk17:kailiu"
+                        ],
+                        "sizeBytes": 888960824
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:911af68a1c8daff59da4f635beec648be476aa119e19ccc663b6915b9abe4bfb"
+                        ],
+                        "sizeBytes": 888960794
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:e4425c061b4470ab6881934e9f68eb676bede895c9afb3a13feba2e4d48a2fcb"
+                        ],
+                        "sizeBytes": 888960793
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:337a46b67c778cb5e6d917f420deebb009a6887c783cba74e5620cafcb1fb215",
+                            "10.67.121.79:5000/kafka-client-jdk17:latest"
+                        ],
+                        "sizeBytes": 888960790
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:48820d0b5be97825d488c868944252af6b3af8a83cbb32b73733bcd98bca630e"
+                        ],
+                        "sizeBytes": 888960736
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:24d6f58bf6ae598706dabac4cd7930343c5b6189ebb08f34a32de24ad12eb5cc"
+                        ],
+                        "sizeBytes": 888960732
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:0eaf126290d7f2c6941e8f5960296387719454a298cc9b85ffefcb72eb65c973"
+                        ],
+                        "sizeBytes": 888960700
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:1a4647df0db3d4816557eae594f540b61f5f9a6ce4433f7dca17a9ca563caa48"
+                        ],
+                        "sizeBytes": 888960699
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:6b07627f7e4af392b9e7faa7fad5bfeba9f4158402dca0c2fe8694445c2aa5f4"
+                        ],
+                        "sizeBytes": 888960648
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:dec4d7e7dbca6a081104a32d7252743fd233d028e8207a8c2a5ad8e48cf5da74",
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17:latest"
+                        ],
+                        "sizeBytes": 888960150
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk11@sha256:86d6bcaab7f1f34b56c7dafad0d901901ac6622340af1b2d3dbb8e9114b2aa23"
+                        ],
+                        "sizeBytes": 881576946
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk11@sha256:ea902bbebb5b2ac4851f337fcfc0d47d2415eb4f8db2011b1b2ed23f598600f7"
+                        ],
+                        "sizeBytes": 881576884
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk11@sha256:ec43094d1f1baca0ea35c8343cfde2c70bec81d18e1206ca8345a66d7f0d44e9",
+                            "10.67.121.79:5000/kafka-client-jdk11:kailiu"
+                        ],
+                        "sizeBytes": 881576852
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk8@sha256:f6ae343fd53789d9e7688f2e61c718a537f2324a67c4654c9cdc5b4ff8804728"
+                        ],
+                        "sizeBytes": 764002107
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk8@sha256:d913774a3a957943e6b8a7fbeda818c34b6a1512c8a0ef85283beeb8ad92f5c1",
+                            "10.67.121.79:5000/kafka-client-jdk8:kailiu"
+                        ],
+                        "sizeBytes": 764002012
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:86b7efbbf5925cac96e690e37c77974ef88436b5fb4ced6dc30e162d96a40efc"
+                        ],
+                        "sizeBytes": 713702361
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:dc2735833895e634f8b599165c2582fd6b20a1b468cbb4ae478f7a4c3f40d1a7"
+                        ],
+                        "sizeBytes": 713702360
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:f71c8e4dc5313ab8e7408d254ebb44736d03472bce3b8f772136c878d29b04d0"
+                        ],
+                        "sizeBytes": 713702279
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:f86a79abf0cad3e9528046fe8d46410c20602d73b1d9bb4b6d9272d8242e94b3"
+                        ],
+                        "sizeBytes": 713702224
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:85cdba10adf282136e70fa7c2d60f80d53ee1309030dfcc30f482ceac7af6915"
+                        ],
+                        "sizeBytes": 713702179
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk11@sha256:830fd2055cb74f89abbb076d709592d3d64f4da1906f0dfb721c58e32e4886d2"
+                        ],
+                        "sizeBytes": 706318431
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/mongodb@sha256:a77c7b6c19591464076a7c4f5d3a0a99bbbbe83901b4b11c6439c63162496720",
+                            "10.166.32.98:5000/mongodb:latest"
+                        ],
+                        "sizeBytes": 688736698
+                    },
+                    {
+                        "names": [
+                            "calico/cni@sha256:36acb85e6080a3a894ea5f92f20dabd1179061f5ecb079a49913bbdfb714ad09",
+                            "calico/cni:v3.21.4"
+                        ],
+                        "sizeBytes": 235441445
+                    },
+                    {
+                        "names": [
+                            "calico/node@sha256:acb402642ba8a9a28eda86d9cd3eef97976dd339c11e33863faeae4e00682e12",
+                            "calico/node:v3.21.4"
+                        ],
+                        "sizeBytes": 211897777
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/dummy@sha256:daf76a474d45976b2a58cc1ad5135a169072a6dffccc21a79260a8518c830067",
+                            "10.67.121.79:5000/dummy:latest"
+                        ],
+                        "sizeBytes": 209301293
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/mongo-server-env@sha256:54f6836a75017827e17c093039f00ce433f6548ef652b391618503d792ca721c",
+                            "10.166.32.98:5000/mongo-server-env:latest"
+                        ],
+                        "sizeBytes": 142091285
+                    },
+                    {
+                        "names": [
+                            "10.166.32.98:5000/redis-server@sha256:84418e0ddafa275f36ad3f1f649dc6f6359b1cf87ba053029d454770991e547b",
+                            "10.166.32.98:5000/redis-server:latest"
+                        ],
+                        "sizeBytes": 123032322
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/kube-proxy@sha256:30116c7218264d95623d3918a50da703675755cae866cd4c324586611fcd50ea",
+                            "k8s.gcr.io/kube-proxy:v1.23.4"
+                        ],
+                        "sizeBytes": 112328846
+                    },
+                    {
+                        "names": [
+                            "calico/pod2daemon-flexvol@sha256:baeaa86e59194d2707be3b708b5ef157fe09738605bdabffc5a4a7cc7560b7d7",
+                            "calico/pod2daemon-flexvol:v3.21.4"
+                        ],
+                        "sizeBytes": 21374321
+                    },
+                    {
+                        "names": [
+                            "busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47",
+                            "busybox:1.28"
+                        ],
+                        "sizeBytes": 1146369
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/pause@sha256:3d380ca8864549e74af4b29c10f9cb0956236dfb01c40ca076fb6c37253234db",
+                            "k8s.gcr.io/pause:3.6"
+                        ],
+                        "sizeBytes": 682696
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "5e5cbdbb-79c5-41c7-815f-f51513c96347",
+                    "containerRuntimeVersion": "docker://20.10.12",
+                    "kernelVersion": "4.19.91-23.4.an8.x86_64",
+                    "kubeProxyVersion": "v1.23.4",
+                    "kubeletVersion": "v1.23.4",
+                    "machineID": "3430ed79dd684634a0591bec95b1014d",
+                    "operatingSystem": "linux",
+                    "osImage": "Anolis OS 8.4",
+                    "systemUUID": "80cad1c5-1e9e-eb11-9bc7-a4bf01880690"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "projectcalico.org/IPv4Address": "192.168.88.21/24",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2022-02-24T04:53:49Z",
+                "labels": {
+                    "HAS-SETUP-DISK-MOUNT-1": "yes",
+                    "HAS-SETUP-HUGEPAGE-2048kB-512": "yes",
+                    "HAS-SETUP-MODULE-MSR": "yes",
+                    "HAS-SETUP-WP-CLIENT": "yes",
+                    "KFK_P": "yes",
+                    "MONGODB-SERVER": "yes",
+                    "REDIS_NODE": "node2",
+                    "WRK2": "yes",
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "wiealex2",
+                    "kubernetes.io/os": "linux",
+                    "node": "node2",
+                    "node-role.kubernetes.io/worker": "worker",
+                    "tpcdsNode": "node03"
+                },
+                "name": "wiealex2",
+                "resourceVersion": "26169430",
+                "uid": "ebe11476-eec1-4d00-bcc8-d550c0d4c513"
+            },
+            "spec": {
+                "podCIDR": "10.244.3.0/24",
+                "podCIDRs": [
+                    "10.244.3.0/24"
+                ]
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "192.168.88.21",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "wiealex2",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "128",
+                    "ephemeral-storage": "378189703362",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "527654332Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "128",
+                    "ephemeral-storage": "410362092Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "0",
+                    "memory": "527756732Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2022-08-03T07:29:42Z",
+                        "lastTransitionTime": "2022-08-03T07:29:42Z",
+                        "message": "Calico is running on this node",
+                        "reason": "CalicoIsUp",
+                        "status": "False",
+                        "type": "NetworkUnavailable"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:21:46Z",
+                        "lastTransitionTime": "2022-07-21T01:46:36Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:21:46Z",
+                        "lastTransitionTime": "2022-08-04T08:41:05Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:21:46Z",
+                        "lastTransitionTime": "2022-07-21T01:46:36Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:21:46Z",
+                        "lastTransitionTime": "2022-07-21T01:46:46Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:e9ce12aa4ce8d9544ac8f5e4896c71016c802138fee4c468d2c9acc293bb6700",
+                            "10.67.121.79:5000/kafka-client-jdk17:kailiu"
+                        ],
+                        "sizeBytes": 888960824
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/hammerdb-mysql@sha256:a35df420b2de4e85170ca44d8a6a99adb59c2c4548d6a1d2363f004f1e61b7bb",
+                            "10.67.121.79:5000/hammerdb-mysql:latest"
+                        ],
+                        "sizeBytes": 819413284
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:86b7efbbf5925cac96e690e37c77974ef88436b5fb4ced6dc30e162d96a40efc"
+                        ],
+                        "sizeBytes": 713702361
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:dc2735833895e634f8b599165c2582fd6b20a1b468cbb4ae478f7a4c3f40d1a7"
+                        ],
+                        "sizeBytes": 713702360
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:8792e0dca6a3e33e1d33b1b9133ba244c63dc05fb1a4d010ee4fbe2aceed3ef0",
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17:kailiu"
+                        ],
+                        "sizeBytes": 713702113
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/sunny/rsmonitor@sha256:f234da321aec8a6d959541476c7465a2ba074d8d89ebfb5f086184db90356b8f",
+                            "10.67.121.79:5000/sunny/rsmonitor:latest"
+                        ],
+                        "sizeBytes": 357198655
+                    },
+                    {
+                        "names": [
+                            "calico/cni@sha256:36acb85e6080a3a894ea5f92f20dabd1179061f5ecb079a49913bbdfb714ad09",
+                            "calico/cni:v3.21.4"
+                        ],
+                        "sizeBytes": 235441445
+                    },
+                    {
+                        "names": [
+                            "calico/node@sha256:acb402642ba8a9a28eda86d9cd3eef97976dd339c11e33863faeae4e00682e12",
+                            "calico/node:v3.21.4"
+                        ],
+                        "sizeBytes": 211897777
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/kube-proxy@sha256:30116c7218264d95623d3918a50da703675755cae866cd4c324586611fcd50ea",
+                            "k8s.gcr.io/kube-proxy:v1.23.4"
+                        ],
+                        "sizeBytes": 112328846
+                    },
+                    {
+                        "names": [
+                            "calico/pod2daemon-flexvol@sha256:baeaa86e59194d2707be3b708b5ef157fe09738605bdabffc5a4a7cc7560b7d7",
+                            "calico/pod2daemon-flexvol:v3.21.4"
+                        ],
+                        "sizeBytes": 21374321
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/pause@sha256:3d380ca8864549e74af4b29c10f9cb0956236dfb01c40ca076fb6c37253234db",
+                            "k8s.gcr.io/pause:3.6"
+                        ],
+                        "sizeBytes": 682696
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "bd7dbdd1-ee33-4288-869f-c76f6c03af8e",
+                    "containerRuntimeVersion": "docker://20.10.12",
+                    "kernelVersion": "4.19.91-23.4.an8.x86_64",
+                    "kubeProxyVersion": "v1.23.2",
+                    "kubeletVersion": "v1.23.2",
+                    "machineID": "fa760d56237f4d538769ef6506ff50bc",
+                    "operatingSystem": "linux",
+                    "osImage": "Anolis OS 8.4",
+                    "systemUUID": "0014f5f8-f1b9-eb11-9bc7-a4bf01886d86"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                    "node.alpha.kubernetes.io/ttl": "0",
+                    "projectcalico.org/IPv4Address": "192.168.88.25/24",
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2022-02-24T04:56:54Z",
+                "labels": {
+                    "CONFIG_CENTER": "yes",
+                    "HAS-SETUP-HUGEPAGE-2048kB-512": "yes",
+                    "HAS-SETUP-MODULE-MSR": "yes",
+                    "HAS-SETUP-WP-DATABASE": "yes",
+                    "KFK_P": "yes",
+                    "MONGODB-CLIENT": "yes",
+                    "REDIS_NODE": "node3",
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/arch": "amd64",
+                    "kubernetes.io/hostname": "wiealex3",
+                    "kubernetes.io/os": "linux",
+                    "node": "node3",
+                    "node-role.kubernetes.io/worker": "worker",
+                    "tpcdsNode": "node04"
+                },
+                "name": "wiealex3",
+                "resourceVersion": "26169537",
+                "uid": "cd59499a-f66a-479f-a832-b9bd4d1e27b4"
+            },
+            "spec": {
+                "podCIDR": "10.244.4.0/24",
+                "podCIDRs": [
+                    "10.244.4.0/24"
+                ]
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "192.168.88.25",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "wiealex3",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "128",
+                    "ephemeral-storage": "378189703362",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "16392Mi",
+                    "memory": "510868524Ki",
+                    "pods": "110"
+                },
+                "capacity": {
+                    "cpu": "128",
+                    "ephemeral-storage": "410362092Ki",
+                    "hugepages-1Gi": "0",
+                    "hugepages-2Mi": "16392Mi",
+                    "memory": "527756332Ki",
+                    "pods": "110"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2022-08-04T06:36:51Z",
+                        "lastTransitionTime": "2022-08-04T06:36:51Z",
+                        "message": "Calico is running on this node",
+                        "reason": "CalicoIsUp",
+                        "status": "False",
+                        "type": "NetworkUnavailable"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:53Z",
+                        "lastTransitionTime": "2022-07-21T01:47:09Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:53Z",
+                        "lastTransitionTime": "2022-08-04T12:00:23Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:53Z",
+                        "lastTransitionTime": "2022-07-21T01:47:09Z",
+                        "message": "kubelet has sufficient PID available",
+                        "reason": "KubeletHasSufficientPID",
+                        "status": "False",
+                        "type": "PIDPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2022-08-12T05:22:53Z",
+                        "lastTransitionTime": "2022-07-21T01:47:09Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:eae6475b5e9b28b936d0083ab193e583ee5017e3c7e03e3353e5c2ee9f9c3ba8",
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17:kailiu"
+                        ],
+                        "sizeBytes": 888961571
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:e9ce12aa4ce8d9544ac8f5e4896c71016c802138fee4c468d2c9acc293bb6700",
+                            "10.67.121.79:5000/kafka-client-jdk17:kailiu"
+                        ],
+                        "sizeBytes": 888960824
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:86b7efbbf5925cac96e690e37c77974ef88436b5fb4ced6dc30e162d96a40efc"
+                        ],
+                        "sizeBytes": 713702361
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/kafka-client-jdk17@sha256:dc2735833895e634f8b599165c2582fd6b20a1b468cbb4ae478f7a4c3f40d1a7"
+                        ],
+                        "sizeBytes": 713702360
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:c2f71069f3d9af6d35ee25fce07208d46af2ca1967d82c12978f1181472917a2"
+                        ],
+                        "sizeBytes": 713702276
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:41e8f169fe184dbccd5ad0add4d446dcf11a615fcda40d233b01b3351f6802f2"
+                        ],
+                        "sizeBytes": 713702268
+                    },
+                    {
+                        "names": [
+                            "10.67.121.79:5000/zookeeper-kafka-server-jdk17@sha256:8792e0dca6a3e33e1d33b1b9133ba244c63dc05fb1a4d010ee4fbe2aceed3ef0"
+                        ],
+                        "sizeBytes": 713702113
+                    },
+                    {
+                        "names": [
+                            "calico/node@sha256:acb402642ba8a9a28eda86d9cd3eef97976dd339c11e33863faeae4e00682e12",
+                            "calico/node:v3.21.4"
+                        ],
+                        "sizeBytes": 211897777
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/kube-proxy@sha256:30116c7218264d95623d3918a50da703675755cae866cd4c324586611fcd50ea",
+                            "k8s.gcr.io/kube-proxy:v1.23.4"
+                        ],
+                        "sizeBytes": 112328846
+                    },
+                    {
+                        "names": [
+                            "busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47",
+                            "busybox:1.28"
+                        ],
+                        "sizeBytes": 1146369
+                    },
+                    {
+                        "names": [
+                            "k8s.gcr.io/pause@sha256:3d380ca8864549e74af4b29c10f9cb0956236dfb01c40ca076fb6c37253234db",
+                            "k8s.gcr.io/pause:3.6"
+                        ],
+                        "sizeBytes": 682696
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "35f3b983-4ee5-499b-ae57-2004900c48f9",
+                    "containerRuntimeVersion": "docker://20.10.12",
+                    "kernelVersion": "4.19.91-23.4.an8.x86_64",
+                    "kubeProxyVersion": "v1.23.2",
+                    "kubeletVersion": "v1.23.2",
+                    "machineID": "5379a72c959b455d94a9e186997d2a7b",
+                    "operatingSystem": "linux",
+                    "osImage": "Anolis OS 8.4",
+                    "systemUUID": "80abec58-5bb9-eb11-9bc7-a4bf01886fc3"
+                }
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": ""
+    }
+}
+Name:         dummy-benchmark-khfvz
+Namespace:    hangzho1-4db529e267f5
+Priority:     0
+Node:         wiealex05sh/192.168.88.27
+Start Time:   Fri, 12 Aug 2022 01:26:34 -0400
+Labels:       controller-uid=fffe2bd5-82bc-43e1-89a7-1518504066ec
+              job-name=dummy-benchmark
+Annotations:  cni.projectcalico.org/containerID: ef8e317bc1c83527e594c0b0601d0c9a1d35bfaa840c23306fa4981225bb802e
+              cni.projectcalico.org/podIP: 10.244.130.120/32
+              cni.projectcalico.org/podIPs: 10.244.130.120/32
+Status:       Running
+IP:           10.244.130.120
+IPs:
+  IP:           10.244.130.120
+Controlled By:  Job/dummy-benchmark
+Containers:
+  dummy-benchmark:
+    Container ID:   docker://1fd2bdfbbb8a10a772c599aa3fedfee987f14c4a4791ab5fcd42edca12879b4d
+    Image:          10.67.121.79:5000/dummy:latest
+    Image ID:       docker-pullable://10.67.121.79:5000/dummy@sha256:daf76a474d45976b2a58cc1ad5135a169072a6dffccc21a79260a8518c830067
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Fri, 12 Aug 2022 01:26:34 -0400
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      SCALE:         2000
+      RETURN_VALUE:  0
+      SLEEP_TIME:    0
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-c47tf (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-c47tf:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age        From               Message
+  ----    ------     ----       ----               -------
+  Normal  Scheduled  <invalid>  default-scheduler  Successfully assigned hangzho1-4db529e267f5/dummy-benchmark-khfvz to wiealex05sh
+  Normal  Pulling    <invalid>  kubelet            Pulling image "10.67.121.79:5000/dummy:latest"
+  Normal  Pulled     <invalid>  kubelet            Successfully pulled image "10.67.121.79:5000/dummy:latest" in 8.671799ms
+  Normal  Created    <invalid>  kubelet            Created container dummy-benchmark
+  Normal  Started    <invalid>  kubelet            Started container dummy-benchmark
+job.batch "dummy-benchmark" deleted
+namespace "hangzho1-4db529e267f5" deleted
+rpc error: code = Unknown desc = Error: No such container: 1fd2bdfbbb8a10a772c599aa3fedfee987f14c4a4791ab5fcd42edca12879b4dFailure reported in: /home/sfdev/applications.benchmarking.benchmark.platform-hero-features/build/workload/dummy/logs-dummy_gated/dummy-benchmark-khfvz/status
+<end of output>
+Test time =  51.81 sec
+----------------------------------------------------------
+Test Failed.
+"test_dummy_gated" end time: Aug 12 01:12 EDT
+"test_dummy_gated" time elapsed: 00:00:51
+----------------------------------------------------------
+
+End testing: Aug 12 01:12 EDT

@@ -1,0 +1,5 @@
+/home/sfdev/hangz/cmkehz/cmake03/build/CMakeFiles/rebuild_cache.dir
+/home/sfdev/hangz/cmkehz/cmake03/build/CMakeFiles/edit_cache.dir
+/home/sfdev/hangz/cmkehz/cmake03/build/bin/CMakeFiles/rebuild_cache.dir
+/home/sfdev/hangz/cmkehz/cmake03/build/bin/CMakeFiles/hello.dir
+/home/sfdev/hangz/cmkehz/cmake03/build/bin/CMakeFiles/edit_cache.dir

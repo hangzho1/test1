@@ -1,0 +1,65 @@
+.
+├── checkout_sh_log.log
+├── CMakeFiles
+│   ├── bom_dummy.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   ├── build_dummy.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   ├── CMakeDirectoryInformation.cmake
+│   ├── kpi_dummy.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   ├── kpi_dummy_gated.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   ├── kpi_dummy_pi_pkm.dir
+│   │   ├── build.make
+│   │   ├── cmake_clean.cmake
+│   │   ├── compiler_depend.make
+│   │   ├── compiler_depend.ts
+│   │   ├── DependInfo.cmake
+│   │   └── progress.make
+│   └── progress.marks
+├── cmake_install.cmake
+├── ctest.sh -> ../../../script/benchmark/ctest.sh
+├── CTestTestfile.cmake
+├── debug.sh -> ../../../script/benchmark/debug.sh
+├── dummyTree.txt
+├── list-kpi.sh -> ../../../script/benchmark/list-kpi.sh
+├── logs-dummy_gated
+│   ├── hangzho1-d0f644339c34
+│   │   ├── output.logs
+│   │   └── status
+│   ├── kpi.sh
+│   └── workload-config.yaml
+├── logs-dummy_pi_pkm
+│   ├── hangzho1-ded5bc690bd3
+│   │   ├── output.logs
+│   │   └── status
+│   ├── kpi.sh
+│   └── workload-config.yaml
+├── Makefile
+└── Testing
+    └── Temporary
+        ├── CTestCostData.txt
+        └── LastTest.log
+
+12 directories, 50 files
