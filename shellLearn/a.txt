@@ -1,5 +1,0 @@
-total 12
--rw-rw-r-- 1 sfdev sfdev    0 Aug  8 01:12 a.txt
--rwxr--r-- 1 sfdev sfdev 1205 Aug  6 04:24 Hello.sh
--rwxr--r-- 1 sfdev sfdev 2022 Aug  3 21:02 HugePages.sh
--rwxrwxr-x 1 sfdev sfdev  380 Jul 25 22:59 sample.txt
