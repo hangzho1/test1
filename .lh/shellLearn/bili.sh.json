@@ -1,0 +1,102 @@
+{
+    "sourceFile": "shellLearn/bili.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1661134098375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1661134124849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,43 @@\n-#\n\\ No newline at end of file\n+#!/bin/bash\n+\n+#!/bin/bash\n+function cpu() {\n+    NUM=1\n+    while [ $NUM -le 3 ]; do\n+        util=`vmstat |awk '{if(NR==3)print 100-$15\"%\"}'`\n+        user=`vmstat |awk '{if(NR==3)print $13\"%\"}'`\n+        sys=`vmstat |awk '{if(NR==3)print $14\"%\"}'`\n+        iowait=`vmstat |awk '{if(NR==3)print $16\"%\"}'`\n+        echo \"CPU - 使用率: $util , 等待磁盘IO响应使用率: $iowait\"\n+        let NUM++\n+        sleep 1\n+    done\n+}\n+\n+function memory() {\n+    total=`free -m |awk '{if(NR==2)printf \"%.1f\",$2/1024}'`\n+    used=`free -m |awk '{if(NR==2) printf \"%.1f\",($2-$NF)/1024}'`\n+    available=`free -m |awk '{if(NR==2) printf \"%.1f\",$NF/1024}'`\n+    echo \"内存 - 总大小: ${total}G , 使用: ${used}G , 剩余: ${available}G\"\n+}\n+\n+function disk() {\n+    fs=$(df -h |awk '/^\\/dev/{print $1}')\n+    for p in $fs; do\n+        mounted=$(df -h |awk '$1==\"'$p'\"{print $NF}')\n+        size=$(df -h |awk '$1==\"'$p'\"{print $2}')\n+        used=$(df -h |awk '$1==\"'$p'\"{print $3}')\n+        used_percent=$(df -h |awk '$1==\"'$p'\"{print $5}')\n+        echo \"硬盘 - 挂载点: $mounted , 总大小: $size , 使用: $used , 使用率: $used_percent\"\n+    done\n+}\n+\n+function tcp_status() {\n+    summary=$(ss -antp |awk '{status[$1]++}END{for(i in status) printf i\":\"status[i]\" \"}')\n+    echo \"TCP连接状态 - $summary\"\n+}\n+\n+cpu\n+memory\n+disk\n+tcp_status\n"
+                },
+                {
+                    "date": 1661135378665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,43 +0,0 @@\n-#!/bin/bash\n-\n-#!/bin/bash\n-function cpu() {\n-    NUM=1\n-    while [ $NUM -le 3 ]; do\n-        util=`vmstat |awk '{if(NR==3)print 100-$15\"%\"}'`\n-        user=`vmstat |awk '{if(NR==3)print $13\"%\"}'`\n-        sys=`vmstat |awk '{if(NR==3)print $14\"%\"}'`\n-        iowait=`vmstat |awk '{if(NR==3)print $16\"%\"}'`\n-        echo \"CPU - 使用率: $util , 等待磁盘IO响应使用率: $iowait\"\n-        let NUM++\n-        sleep 1\n-    done\n-}\n-\n-function memory() {\n-    total=`free -m |awk '{if(NR==2)printf \"%.1f\",$2/1024}'`\n-    used=`free -m |awk '{if(NR==2) printf \"%.1f\",($2-$NF)/1024}'`\n-    available=`free -m |awk '{if(NR==2) printf \"%.1f\",$NF/1024}'`\n-    echo \"内存 - 总大小: ${total}G , 使用: ${used}G , 剩余: ${available}G\"\n-}\n-\n-function disk() {\n-    fs=$(df -h |awk '/^\\/dev/{print $1}')\n-    for p in $fs; do\n-        mounted=$(df -h |awk '$1==\"'$p'\"{print $NF}')\n-        size=$(df -h |awk '$1==\"'$p'\"{print $2}')\n-        used=$(df -h |awk '$1==\"'$p'\"{print $3}')\n-        used_percent=$(df -h |awk '$1==\"'$p'\"{print $5}')\n-        echo \"硬盘 - 挂载点: $mounted , 总大小: $size , 使用: $used , 使用率: $used_percent\"\n-    done\n-}\n-\n-function tcp_status() {\n-    summary=$(ss -antp |awk '{status[$1]++}END{for(i in status) printf i\":\"status[i]\" \"}')\n-    echo \"TCP连接状态 - $summary\"\n-}\n-\n-cpu\n-memory\n-disk\n-tcp_status\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661135387201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +0,0 @@\n-\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661135395796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,27 @@\n-\n+#!/bin/bash\n+HOST_INFO=host.info\n+for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n+\t#取出用户名和端口\n+    USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)\n+    PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)\n+\t#创建临时文件，保存信息\n+    TMP_FILE=/tmp/disk.tmp\n+\t#通过公钥登录获取主机磁盘信息\n+    ssh -p $PORT $USER@$IP 'df -h' > $TMP_FILE\n+\t#分析磁盘占用空间\n+    USE_RATE_LIST=$(awk 'BEGIN{OFS=\"=\"}/^\\/dev/{print $NF,int($5)}' $TMP_FILE)\n+\t#循环磁盘列表，进行判断\n+    for USE_RATE in $USE_RATE_LIST; do\n+\t\t#取出等号（=）右边的值 挂载点名称\n+        PART_NAME=${USE_RATE%=*}  \n+\t\t#取出等号（=）左边的值  磁盘利用率\n+        USE_RATE=${USE_RATE#*=}\n+\t\t#进行判断\n+        if [ $USE_RATE -ge 80 ]; then\n+            echo \"Warning: $PART_NAME Partition usage $USE_RATE%!\"\n+            echo \"服务器$IP的磁盘空间占用过高，请及时处理\" | mail -s \"空间不足警告\" 你的qq@qq.com\n+\t\telse\n+\t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n+        fi\n+    done\n+done\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661137810069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,27 @@\n #!/bin/bash\n-HOST_INFO=host.info\n-for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n-\t#取出用户名和端口\n-    USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)\n-    PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)\n-\t#创建临时文件，保存信息\n-    TMP_FILE=/tmp/disk.tmp\n-\t#通过公钥登录获取主机磁盘信息\n-    ssh -p $PORT $USER@$IP 'df -h' > $TMP_FILE\n-\t#分析磁盘占用空间\n-    USE_RATE_LIST=$(awk 'BEGIN{OFS=\"=\"}/^\\/dev/{print $NF,int($5)}' $TMP_FILE)\n-\t#循环磁盘列表，进行判断\n-    for USE_RATE in $USE_RATE_LIST; do\n-\t\t#取出等号（=）右边的值 挂载点名称\n-        PART_NAME=${USE_RATE%=*}  \n-\t\t#取出等号（=）左边的值  磁盘利用率\n-        USE_RATE=${USE_RATE#*=}\n-\t\t#进行判断\n-        if [ $USE_RATE -ge 80 ]; then\n-            echo \"Warning: $PART_NAME Partition usage $USE_RATE%!\"\n-            echo \"服务器$IP的磁盘空间占用过高，请及时处理\" | mail -s \"空间不足警告\" 你的qq@qq.com\n-\t\telse\n-\t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n-        fi\n-    done\n-done\n\\ No newline at end of file\n+# HOST_INFO=host.info\n+# for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n+# \t#取出用户名和端口\n+#     USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)\n+#     PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)\n+# \t#创建临时文件，保存信息\n+#     TMP_FILE=/tmp/disk.tmp\n+# \t#通过公钥登录获取主机磁盘信息\n+#     ssh -p $PORT $USER@$IP 'df -h' > $TMP_FILE\n+# \t#分析磁盘占用空间\n+#     USE_RATE_LIST=$(awk 'BEGIN{OFS=\"=\"}/^\\/dev/{print $NF,int($5)}' $TMP_FILE)\n+# \t#循环磁盘列表，进行判断\n+#     for USE_RATE in $USE_RATE_LIST; do\n+# \t\t#取出等号（=）右边的值 挂载点名称\n+#         PART_NAME=${USE_RATE%=*}  \n+# \t\t#取出等号（=）左边的值  磁盘利用率\n+#         USE_RATE=${USE_RATE#*=}\n+# \t\t#进行判断\n+#         if [ $USE_RATE -ge 80 ]; then\n+#             echo \"Warning: $PART_NAME Partition usage $USE_RATE%!\"\n+#             echo \"服务器$IP的磁盘空间占用过高，请及时处理\" | mail -s \"空间不足警告\" 你的qq@qq.com\n+# \t\telse\n+# \t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n+#         fi\n+#     done\n+# done\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661137820214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,5 +23,8 @@\n # \t\telse\n # \t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n #         fi\n #     done\n-# done\n\\ No newline at end of file\n+# done\n+\n+\n+#\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661137829745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n #     done\n # done\n \n \n-#\n\\ No newline at end of file\n+HOST_INFO=host.info\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661137907901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n #     done\n # done\n \n \n-HOST_INFO=host.info\n\\ No newline at end of file\n+HOST_INFO=host.info\n"
+                },
+                {
+                    "date": 1661137913520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,4 +27,5 @@\n # done\n \n \n HOST_INFO=host.info\n+for\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1661137936083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,5 +27,7 @@\n # done\n \n \n HOST_INFO=host.info\n-for\n\\ No newline at end of file\n+for item in {a..z}; do\n+    echo \"${item}\"\n+done\n"
+                },
+                {
+                    "date": 1661137948590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,8 @@\n # \t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n #         fi\n #     done\n # done\n-\n-\n HOST_INFO=host.info\n-for item in {a..z}; do\n+for iin {a..z}; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137958631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for iin {a..z}; do\n+for IP in $(awk{a..z}; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137966687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for IP in $(awk{a..z}; do\n+for IP in $(awk '/^[{a..z}; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137973468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for IP in $(awk '/^[{a..z}; do\n+for IP in $(awk '/^[^#]{a..z}; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137980125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for IP in $(awk '/^[^#]{a..z}; do\n+for IP in $(awk '/^[^#]/{print()}; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137987240,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for IP in $(awk '/^[^#]/{print()}; do\n+for IP in $(awk '/^[^#]/{print $1}'; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661137993255,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,7 +25,7 @@\n #         fi\n #     done\n # done\n HOST_INFO=host.info\n-for IP in $(awk '/^[^#]/{print $1}'; do\n+for IP in $(awk '/^[^#]/{print $1}' $HOST_I; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661138018407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,10 @@\n # \t\t\techo \"服务器$IP的$PART_NAME目录空间良好\"\n #         fi\n #     done\n # done\n+\n+\n HOST_INFO=host.info\n-for IP in $(awk '/^[^#]/{print $1}' $HOST_I; do\n+for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO; do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661138045653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n #!/bin/bash\n+\n # HOST_INFO=host.info\n # for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n # \t#取出用户名和端口\n #     USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)\n@@ -27,7 +28,7 @@\n # done\n \n \n HOST_INFO=host.info\n-for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO; do\n+for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n     echo \"${item}\"\n done\n"
+                },
+                {
+                    "date": 1661138054374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,6 @@\n \n \n HOST_INFO=host.info\n for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n-    echo \"${}\"\n+    echo \"${I}\"\n done\n"
+                },
+                {
+                    "date": 1661138105762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,8 @@\n \n \n HOST_INFO=host.info\n for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do\n+\n     \n     echo \"${IP}\"\n done\n"
+                }
+            ],
+            "date": 1661134098375,
+            "name": "Commit-0",
+            "content": "#"
+        }
+    ]
+}
