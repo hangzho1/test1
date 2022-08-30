@@ -41,5 +41,27 @@
 
 
 ###output: /home/sfdev/hangz/shellLearn
-DIR="$(cd "$(dirname "$0")" &>/dev/null && pwd)"
-echo $DIR
+# DIR="$(cd "$(dirname "$0")" &>/dev/null && pwd)"
+# echo $DIR
+
+
+
+Required_HugePage=$1
+Required_Size=$2
+
+HugePages_Total=$(grep HugePages_Total /proc/meminfo | awk '{print $2}')
+Hugepagesize=$(grep Hugepagesize /proc/meminfo | awk '{print $2}')
+HugePages_Free=$(grep HugePages_Free /proc/meminfo | awk '{print $2}')
+# testTotal=10000000
+# free=100000000
+
+echo $HugePages_Total $Hugepagesize $HugePages_Free 
+
+
+if [[ ${Hugepagesize} -ne ${Required_Size} || ${HugePages_Total} -lt ${Required_Size} ]]; then
+
+    # sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=${Required_SiRze}kB" && sudo reboot     
+    sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=${Required_Size}kB hugpagesz=${Required_Size}kB hugepages=${Required_HugePage}" && sudo reboot     
+    # sudo grubby --update-kernel=DEFAULT --args="hugepages=${Required_Size}" && sudo reboot     
+
+fi

@@ -1,0 +1,2151 @@
+2022-08-28 20:59:47,308 p=120564 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 20:59:48,994 p=120564 u=root n=ansible | 10.67.119.66 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: hangzhou@10.67.119.66: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2022-08-28 21:20:47,012 p=122575 u=root n=ansible | # /usr/share/ansible/roles
+2022-08-28 21:20:47,012 p=122575 u=root n=ansible | # /etc/ansible/roles
+2022-08-28 21:20:47,013 p=122575 u=root n=ansible | [WARNING]: - the configured path /root/.ansible/roles does not exist.
+
+2022-08-28 21:39:46,020 p=125127 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 21:39:46,030 p=125127 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: l--version
+
+2022-08-28 21:39:46,030 p=125127 u=root n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2022-08-28 21:39:46,034 p=125127 u=root n=ansible | ERROR! No argument passed to command module
+2022-08-28 21:56:11,452 p=127882 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 21:56:11,461 p=127882 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: hangzhoou-test
+
+2022-08-28 21:56:11,461 p=127882 u=root n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2022-08-28 21:57:11,137 p=128199 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 21:57:13,547 p=128199 u=root n=ansible | 10.67.119.66 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.67.119.66: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2022-08-28 21:57:46,804 p=128417 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 21:57:58,022 p=128417 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for
+more information.
+
+2022-08-28 21:57:58,023 p=128417 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-28 22:19:27,089 p=133063 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 22:19:29,087 p=133063 u=root n=ansible | 10.67.119.66 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.67.119.66: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2022-08-28 22:19:38,323 p=133170 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 22:19:46,828 p=133170 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for
+more information.
+
+2022-08-28 22:19:46,829 p=133170 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-28 22:34:12,205 p=138307 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 22:34:12,214 p=138307 u=root n=ansible |   hosts (2):
+2022-08-28 22:34:12,214 p=138307 u=root n=ansible |     10.67.119.66
+2022-08-28 22:34:12,214 p=138307 u=root n=ansible |     10.166.32.93
+2022-08-28 22:34:41,701 p=138523 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-28 22:34:41,711 p=138523 u=root n=ansible |   hosts (3):
+2022-08-28 22:34:41,711 p=138523 u=root n=ansible |     10.67.119.66
+2022-08-28 22:34:41,711 p=138523 u=root n=ansible |     10.166.32.93
+2022-08-28 22:34:41,711 p=138523 u=root n=ansible |     10.45.43.1
+2022-08-29 03:47:50,468 p=174697 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 03:47:50,784 p=174697 u=root n=ansible | 10.166.32.93 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.166.32.93: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).",
+    "unreachable": true
+}
+2022-08-29 03:47:52,488 p=174697 u=root n=ansible | 10.67.119.66 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.67.119.66: Permission denied (publickey,password).",
+    "unreachable": true
+}
+2022-08-29 03:48:30,319 p=175210 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 03:48:39,890 p=175210 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 03:48:39,891 p=175210 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false
+}
+2022-08-29 04:04:21,123 p=177629 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 04:04:30,846 p=177629 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 04:04:30,847 p=177629 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false
+}
+2022-08-29 04:04:59,112 p=178371 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 04:05:06,758 p=178371 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 04:05:06,784 p=178371 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.67.119.66",
+            "172.18.0.1"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::98a1:e703:1d56:6eb6"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "03/26/2020",
+        "ansible_bios_vendor": "Intel Corporation",
+        "ansible_bios_version": "SE5C620.86B.02.01.0011.032620200659",
+        "ansible_board_asset_tag": "Base Board Asset Tag",
+        "ansible_board_name": "S2600WFQ",
+        "ansible_board_serial": "NA",
+        "ansible_board_vendor": "Intel Corporation",
+        "ansible_board_version": "H87178-882",
+        "ansible_chassis_asset_tag": "....................",
+        "ansible_chassis_serial": "NA",
+        "ansible_chassis_vendor": "...............................",
+        "ansible_chassis_version": "..................",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "(hd0,gpt2)/vmlinuz-5.16.13-1.el8.elrepo.x86_64",
+            "crashkernel": "auto",
+            "default_hugepagesz": "kB",
+            "quiet": true,
+            "rd.lvm.lv": "ao/swap",
+            "resume": "/dev/mapper/ao-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/ao-root"
+        },
+        "ansible_date_time": {
+            "date": "2022-08-29",
+            "day": "29",
+            "epoch": "1661761358",
+            "epoch_int": "1661761358",
+            "hour": "04",
+            "iso8601": "2022-08-29T08:22:38Z",
+            "iso8601_basic": "20220829T042238489177",
+            "iso8601_basic_short": "20220829T042238",
+            "iso8601_micro": "2022-08-29T08:22:38.489177Z",
+            "minute": "22",
+            "month": "08",
+            "second": "38",
+            "time": "04:22:38",
+            "tz": "EDT",
+            "tz_dst": "EDT",
+            "tz_offset": "-0400",
+            "weekday": "Monday",
+            "weekday_number": "1",
+            "weeknumber": "35",
+            "year": "2022"
+        },
+        "ansible_default_ipv4": {
+            "address": "10.67.119.66",
+            "alias": "ens787f0",
+            "broadcast": "10.67.119.255",
+            "gateway": "10.67.118.1",
+            "interface": "ens787f0",
+            "macaddress": "b4:96:91:8a:e1:10",
+            "mtu": 1500,
+            "netmask": "255.255.254.0",
+            "network": "10.67.118.0",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {
+                "dm-0": [
+                    "dm-name-ao-root",
+                    "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23Upy1RH3IsM3AsW9fVPc3bFpP64NSDqJG"
+                ],
+                "dm-1": [
+                    "dm-name-ao-swap",
+                    "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23ESCjj0xe7dSaWbqv83XiInuCLSrFoo8p"
+                ],
+                "dm-2": [
+                    "dm-name-ao-home",
+                    "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23D6dp7JHF8Scb3Obdn81Jxdzo7nqnE0SF"
+                ],
+                "sda": [
+                    "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L",
+                    "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L",
+                    "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L",
+                    "scsi-355cd2e4152984121",
+                    "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L",
+                    "wwn-0x55cd2e4152984121"
+                ],
+                "sda1": [
+                    "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part1",
+                    "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part1",
+                    "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part1",
+                    "scsi-355cd2e4152984121-part1",
+                    "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part1",
+                    "wwn-0x55cd2e4152984121-part1"
+                ],
+                "sda2": [
+                    "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part2",
+                    "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part2",
+                    "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part2",
+                    "scsi-355cd2e4152984121-part2",
+                    "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part2",
+                    "wwn-0x55cd2e4152984121-part2"
+                ],
+                "sda3": [
+                    "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part3",
+                    "lvm-pv-uuid-0ih2KQ-S4wD-hgSj-J1gB-1r3K-tK0F-eC1LEi",
+                    "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part3",
+                    "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part3",
+                    "scsi-355cd2e4152984121-part3",
+                    "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part3",
+                    "wwn-0x55cd2e4152984121-part3"
+                ]
+            },
+            "labels": {},
+            "masters": {
+                "sda3": [
+                    "dm-0",
+                    "dm-1",
+                    "dm-2"
+                ]
+            },
+            "uuids": {
+                "dm-0": [
+                    "547146e7-cccb-4352-9714-d499990f929c"
+                ],
+                "dm-1": [
+                    "426c46a7-a98b-4a82-8fa4-0a13a180d48f"
+                ],
+                "dm-2": [
+                    "90888ced-b6a1-42d7-aa52-442ab935c18f"
+                ],
+                "sda1": [
+                    "0E3A-2A46"
+                ],
+                "sda2": [
+                    "785dbadf-adfe-4ab7-a744-7869909bd762"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "dm-0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-ao-root",
+                        "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23Upy1RH3IsM3AsW9fVPc3bFpP64NSDqJG"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "547146e7-cccb-4352-9714-d499990f929c"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "104857600",
+                "sectorsize": "512",
+                "size": "50.00 GB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "dm-1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-ao-swap",
+                        "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23ESCjj0xe7dSaWbqv83XiInuCLSrFoo8p"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "426c46a7-a98b-4a82-8fa4-0a13a180d48f"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "8388608",
+                "sectorsize": "512",
+                "size": "4.00 GB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "dm-2": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [
+                        "dm-name-ao-home",
+                        "dm-uuid-LVM-SKdlpGvvnTqUXc0S34flQMi5IRU28t23D6dp7JHF8Scb3Obdn81Jxdzo7nqnE0SF"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": [
+                        "90888ced-b6a1-42d7-aa52-442ab935c18f"
+                    ]
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "",
+                "sectors": "1758806016",
+                "sectorsize": "512",
+                "size": "838.66 GB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sda": {
+                "holders": [],
+                "host": "SATA controller: Intel Corporation C620 Series Chipset Family SSATA Controller [AHCI mode] (rev 04)",
+                "links": {
+                    "ids": [
+                        "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L",
+                        "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L",
+                        "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L",
+                        "scsi-355cd2e4152984121",
+                        "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L",
+                        "wwn-0x55cd2e4152984121"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "INTEL SSDSCKKB96",
+                "partitions": {
+                    "sda1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part1",
+                                "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part1",
+                                "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part1",
+                                "scsi-355cd2e4152984121-part1",
+                                "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part1",
+                                "wwn-0x55cd2e4152984121-part1"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "0E3A-2A46"
+                            ]
+                        },
+                        "sectors": "1228800",
+                        "sectorsize": 512,
+                        "size": "600.00 MB",
+                        "start": "2048",
+                        "uuid": "0E3A-2A46"
+                    },
+                    "sda2": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part2",
+                                "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part2",
+                                "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part2",
+                                "scsi-355cd2e4152984121-part2",
+                                "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part2",
+                                "wwn-0x55cd2e4152984121-part2"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "785dbadf-adfe-4ab7-a744-7869909bd762"
+                            ]
+                        },
+                        "sectors": "2097152",
+                        "sectorsize": 512,
+                        "size": "1.00 GB",
+                        "start": "1230848",
+                        "uuid": "785dbadf-adfe-4ab7-a744-7869909bd762"
+                    },
+                    "sda3": {
+                        "holders": [
+                            "ao-swap",
+                            "ao-home",
+                            "ao-root"
+                        ],
+                        "links": {
+                            "ids": [
+                                "ata-INTEL_SSDSCKKB960G8_BTYH019101C3960L-part3",
+                                "lvm-pv-uuid-0ih2KQ-S4wD-hgSj-J1gB-1r3K-tK0F-eC1LEi",
+                                "scsi-0ATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part3",
+                                "scsi-1ATA_INTEL_SSDSCKKB960G8_BTYH019101C3960L-part3",
+                                "scsi-355cd2e4152984121-part3",
+                                "scsi-SATA_INTEL_SSDSCKKB96_BTYH019101C3960L-part3",
+                                "wwn-0x55cd2e4152984121-part3"
+                            ],
+                            "labels": [],
+                            "masters": [
+                                "dm-0",
+                                "dm-1",
+                                "dm-2"
+                            ],
+                            "uuids": []
+                        },
+                        "sectors": "1872056320",
+                        "sectorsize": 512,
+                        "size": "892.67 GB",
+                        "start": "3328000",
+                        "uuid": null
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "1875385008",
+                "sectorsize": "512",
+                "size": "894.25 GB",
+                "support_discard": "4096",
+                "vendor": "ATA",
+                "virtual": 1,
+                "wwn": "0x55cd2e4152984121"
+            }
+        },
+        "ansible_distribution": "Anolis",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/redhat-release",
+        "ansible_distribution_file_variety": "RedHat",
+        "ansible_distribution_major_version": "8",
+        "ansible_distribution_release": "NA",
+        "ansible_distribution_version": "8.5",
+        "ansible_dns": {
+            "nameservers": [
+                "10.248.2.5",
+                "10.239.27.228",
+                "172.17.6.9"
+            ],
+            "search": [
+                "sh.intel.com"
+            ]
+        },
+        "ansible_docker0": {
+            "active": false,
+            "device": "docker0",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "off [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "on",
+                "tx_fcoe_segmentation": "on",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "on",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "on",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "on",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "on",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "id": "8000.02427fe66094",
+            "interfaces": [],
+            "ipv4": {
+                "address": "172.18.0.1",
+                "broadcast": "172.18.255.255",
+                "netmask": "255.255.0.0",
+                "network": "172.18.0.0"
+            },
+            "macaddress": "02:42:7f:e6:60:94",
+            "mtu": 1500,
+            "promisc": false,
+            "speed": -1,
+            "stp": false,
+            "timestamping": [],
+            "type": "bridge"
+        },
+        "ansible_domain": "sh.intel.com",
+        "ansible_effective_group_id": 1002,
+        "ansible_effective_user_id": 1001,
+        "ansible_ens787f0": {
+            "active": true,
+            "device": "ens787f0",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off",
+                "receive_hashing": "on",
+                "rx_all": "off",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "10.67.119.66",
+                "broadcast": "10.67.119.255",
+                "netmask": "255.255.254.0",
+                "network": "10.67.118.0"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::98a1:e703:1d56:6eb6",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "b4:96:91:8a:e1:10",
+            "module": "igb",
+            "mtu": 1500,
+            "pciid": "0000:88:00.0",
+            "phc_index": 0,
+            "promisc": false,
+            "speed": 1000,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens787f1": {
+            "active": false,
+            "device": "ens787f1",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off",
+                "receive_hashing": "on",
+                "rx_all": "off",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "b4:96:91:8a:e1:11",
+            "module": "igb",
+            "mtu": 1500,
+            "pciid": "0000:88:00.1",
+            "phc_index": 1,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens787f2": {
+            "active": false,
+            "device": "ens787f2",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off",
+                "receive_hashing": "on",
+                "rx_all": "off",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "b4:96:91:8a:e1:12",
+            "module": "igb",
+            "mtu": 1500,
+            "pciid": "0000:88:00.2",
+            "phc_index": 2,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens787f3": {
+            "active": false,
+            "device": "ens787f3",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off",
+                "receive_hashing": "on",
+                "rx_all": "off",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "b4:96:91:8a:e1:13",
+            "module": "igb",
+            "mtu": 1500,
+            "pciid": "0000:88:00.3",
+            "phc_index": 3,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens802f0": {
+            "active": false,
+            "device": "ens802f0",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "on",
+                "receive_hashing": "on",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "on",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on",
+                "tx_checksum_ipv6": "on",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "3c:fd:fe:cf:71:a8",
+            "module": "i40e",
+            "mtu": 1500,
+            "pciid": "0000:af:00.0",
+            "phc_index": 6,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens802f1": {
+            "active": false,
+            "device": "ens802f1",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "on",
+                "receive_hashing": "on",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "on",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on",
+                "tx_checksum_ipv6": "on",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "3c:fd:fe:cf:71:a9",
+            "module": "i40e",
+            "mtu": 1500,
+            "pciid": "0000:af:00.1",
+            "phc_index": 7,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens803f0": {
+            "active": false,
+            "device": "ens803f0",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "on",
+                "receive_hashing": "on",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "on",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on",
+                "tx_checksum_ipv6": "on",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "3c:fd:fe:cf:6e:f8",
+            "module": "i40e",
+            "mtu": 1500,
+            "pciid": "0000:86:00.0",
+            "phc_index": 4,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_ens803f1": {
+            "active": false,
+            "device": "ens803f1",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "on",
+                "l2_fwd_offload": "off",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "on",
+                "receive_hashing": "on",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "on",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on",
+                "tx_checksum_ipv6": "on",
+                "tx_checksum_sctp": "on",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "on",
+                "tx_gre_segmentation": "on",
+                "tx_gso_list": "off [fixed]",
+                "tx_gso_partial": "on",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "on",
+                "tx_ipxip6_segmentation": "on",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "on",
+                "tx_udp_tnl_segmentation": "on",
+                "tx_vlan_offload": "on",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "macaddress": "3c:fd:fe:cf:6e:f9",
+            "module": "i40e",
+            "mtu": 1500,
+            "pciid": "0000:86:00.1",
+            "phc_index": 5,
+            "promisc": false,
+            "speed": -1,
+            "timestamping": [],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "BASH_FUNC_which%%": "() {  ( alias;\n eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot \"$@\"\n}",
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1001/bus",
+            "HISTTIMEFORMAT": "%F %T hangzhou ",
+            "HOME": "/home/hangzhou",
+            "LANG": "en_US.UTF-8",
+            "LESSOPEN": "||/usr/bin/lesspipe.sh %s",
+            "LOGNAME": "hangzhou",
+            "LS_COLORS": "rs=0:di=38;5;33:ln=38;5;51:mh=00:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=01;05;37;41:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;40:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.zst=38;5;9:*.tzst=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.wim=38;5;9:*.swm=38;5;9:*.dwm=38;5;9:*.esd=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.mjpg=38;5;13:*.mjpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.m4a=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.oga=38;5;45:*.opus=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",
+            "PATH": "/home/hangzhou/.local/bin:/home/hangzhou/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin",
+            "PWD": "/home/hangzhou",
+            "SHELL": "/bin/bash",
+            "SHLVL": "2",
+            "SSH_CLIENT": "10.166.31.106 55038 22",
+            "SSH_CONNECTION": "10.166.31.106 55038 10.67.119.66 22",
+            "SSH_TTY": "/dev/pts/2",
+            "TERM": "xterm-256color",
+            "USER": "hangzhou",
+            "XDG_RUNTIME_DIR": "/run/user/1001",
+            "XDG_SESSION_ID": "78",
+            "_": "/usr/bin/python3.9",
+            "http_proxy": "http://child-prc.intel.com:913",
+            "https_proxy": "http://child-prc.intel.com:913",
+            "no_proxy": "10.67.121.79,flex-npg-workload.bj.intel.com,127.0.0.1,localhost,10.67.116.242,10.67.0.0/16,10.96.0.0/12,10.244.0.0/16,flex-npg-workload.sh.intel.com,intel.com,01.org",
+            "which_declare": "declare -f"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Rack Mount Chassis",
+        "ansible_fqdn": "wiejunjunzhclx07.sh.intel.com",
+        "ansible_hostname": "wiejunjunzhclx07",
+        "ansible_hostnqn": "",
+        "ansible_interfaces": [
+            "docker0",
+            "ens787f1",
+            "ens787f3",
+            "ens803f1",
+            "lo",
+            "ens802f0",
+            "ens787f0",
+            "ens787f2",
+            "ens803f0",
+            "ens802f1"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "",
+        "ansible_kernel": "5.16.13-1.el8.elrepo.x86_64",
+        "ansible_kernel_version": "#1 SMP PREEMPT Tue Mar 8 08:33:30 EST 2022",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hsr_dup_offload": "off [fixed]",
+                "hsr_fwd_offload": "off [fixed]",
+                "hsr_tag_ins_offload": "off [fixed]",
+                "hsr_tag_rm_offload": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "macsec_hw_offload": "off [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_gro_list": "off",
+                "rx_udp_gro_forwarding": "off",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_list": "on",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+                "tx_udp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [],
+            "type": "loopback"
+        },
+        "ansible_local": {},
+        "ansible_lsb": {},
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "3d6b60341dfd4592a1460db5e5170ed4",
+        "ansible_memfree_mb": 183442,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 188559,
+                "used": 3540
+            },
+            "real": {
+                "free": 183442,
+                "total": 192099,
+                "used": 8657
+            },
+            "swap": {
+                "cached": 0,
+                "free": 0,
+                "total": 0,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 192099,
+        "ansible_mounts": [
+            {
+                "block_available": 4143912,
+                "block_size": 4096,
+                "block_total": 13100800,
+                "block_used": 8956888,
+                "device": "/dev/mapper/ao-root",
+                "fstype": "xfs",
+                "inode_available": 25627615,
+                "inode_total": 26214400,
+                "inode_used": 586785,
+                "mount": "/",
+                "options": "rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 16973463552,
+                "size_total": 53660876800,
+                "uuid": "547146e7-cccb-4352-9714-d499990f929c"
+            },
+            {
+                "block_available": 217755913,
+                "block_size": 4096,
+                "block_total": 219743403,
+                "block_used": 1987490,
+                "device": "/dev/mapper/ao-home",
+                "fstype": "xfs",
+                "inode_available": 439653202,
+                "inode_total": 439701504,
+                "inode_used": 48302,
+                "mount": "/home",
+                "options": "rw,relatime,attr2,inode64,logbufs=8,logbsize=32k,noquota",
+                "size_available": 891928219648,
+                "size_total": 900068978688,
+                "uuid": "90888ced-b6a1-42d7-aa52-442ab935c18f"
+            },
+            {
+                "block_available": 182631,
+                "block_size": 4096,
+                "block_total": 249830,
+                "block_used": 67199,
+                "device": "/dev/sda2",
+                "fstype": "ext4",
+                "inode_available": 65503,
+                "inode_total": 65536,
+                "inode_used": 33,
+                "mount": "/boot",
+                "options": "rw,relatime",
+                "size_available": 748056576,
+                "size_total": 1023303680,
+                "uuid": "785dbadf-adfe-4ab7-a744-7869909bd762"
+            },
+            {
+                "block_available": 151822,
+                "block_size": 4096,
+                "block_total": 153296,
+                "block_used": 1474,
+                "device": "/dev/sda1",
+                "fstype": "vfat",
+                "inode_available": 0,
+                "inode_total": 0,
+                "inode_used": 0,
+                "mount": "/boot/efi",
+                "options": "rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=ascii,shortname=winnt,errors=remount-ro",
+                "size_available": 621862912,
+                "size_total": 627900416,
+                "uuid": "0E3A-2A46"
+            }
+        ],
+        "ansible_nodename": "wiejunjunzhclx07",
+        "ansible_os_family": "Anolis",
+        "ansible_pkg_mgr": "dnf",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "(hd0,gpt2)/vmlinuz-5.16.13-1.el8.elrepo.x86_64",
+            "crashkernel": "auto",
+            "default_hugepagesz": "kB",
+            "quiet": true,
+            "rd.lvm.lv": [
+                "ao/root",
+                "ao/swap"
+            ],
+            "resume": "/dev/mapper/ao-swap",
+            "rhgb": true,
+            "ro": true,
+            "root": "/dev/mapper/ao-root"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "1",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "2",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "3",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "4",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "5",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "6",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "7",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "8",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "9",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "10",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "11",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "12",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "13",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "14",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "15",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "16",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "17",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "18",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "19",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "20",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "21",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "22",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "23",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "24",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "25",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "26",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "27",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "28",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "29",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "30",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "31",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "32",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "33",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "34",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "35",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "36",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "37",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "38",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "39",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "40",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "41",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "42",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "43",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "44",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "45",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "46",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "47",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "48",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "49",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "50",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "51",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "52",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "53",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "54",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "55",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "56",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "57",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "58",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "59",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "60",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "61",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "62",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "63",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "64",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "65",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "66",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "67",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "68",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "69",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "70",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "71",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "72",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "73",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "74",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "75",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "76",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "77",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "78",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "79",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "80",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "81",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "82",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "83",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "84",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "85",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "86",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "87",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "88",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "89",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "90",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "91",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "92",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "93",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "94",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz",
+            "95",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Gold 6252N CPU @ 2.30GHz"
+        ],
+        "ansible_processor_cores": 24,
+        "ansible_processor_count": 2,
+        "ansible_processor_nproc": 96,
+        "ansible_processor_threads_per_core": 2,
+        "ansible_processor_vcpus": 96,
+        "ansible_product_name": "S2600WFQ",
+        "ansible_product_serial": "NA",
+        "ansible_product_uuid": "NA",
+        "ansible_product_version": "R2208WFQZSR",
+        "ansible_python": {
+            "executable": "/usr/bin/python3.9",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 7,
+                "minor": 9,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                9,
+                7,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.9.7",
+        "ansible_real_group_id": 1002,
+        "ansible_real_user_id": 1001,
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNJUsY4mvCF/khMuPrO8aRliUrpDbiHp8Rx0u3Sfbhyfk4L0ZcCRztOBzaM2E7gbRMAy18U6mOi91pGyHjGvgzU=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIFj36WkhrexN/jlGFxbWeMv3U1olB5IYSEmheZLsnV81",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDirpYrnmJ6QnndNXbsrcEl1H0KbwYcYWM3PLiM634jYxlMNxGQUHifUekRPqw+jMZCmQEpgCJOOBQOVngevxOfvjnb35erYy9dW3JJuri3jNKHvK0Nh19HZl8/xlbY2c6ypyRPYoZaBjjccC0Th9b8vbQSSP79Uy2x+9qWrloDU3Sqnobz3k+8dlcYGAUYUsYq5Ae/tyRPwx3f4RlBbNGkE5SvJIzLOvJd8XJbT3WvXc0G2ZUuorSi2RYBhKDQUUr0wWj9YSoX2X3DWa7lD3bHnWLkHVMy75jYTqbZPGXOOfB+nnl2c+2MIaHdZEC5+dLmNURjtd/IcXWetJqOmToDkbXhSDplGdncIf0l7vVtOI3mOyiFxF5kBc9wQvqRgF3IvGCmWjk7iI/jESIGVnlyg3+jBqPBjSGeY6k3qgXVgW2n+evs/FraYX5xD4NJC19pGZFExW2xWdrugA2fF8fqwOI0EKHF4E1Xb4uOfMz8ABmusEHbrZmZW0KY2UsupAM=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 0,
+        "ansible_swaptotal_mb": 0,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_system_vendor": "Intel Corporation",
+        "ansible_uptime_seconds": 281186,
+        "ansible_user_dir": "/home/hangzhou",
+        "ansible_user_gecos": "",
+        "ansible_user_gid": 1002,
+        "ansible_user_id": "hangzhou",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1001,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "NA",
+        "ansible_virtualization_tech_guest": [],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "NA",
+        "discovered_interpreter_python": "/usr/bin/python3.9",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
+}
+2022-08-29 04:09:20,097 p=179165 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 04:09:29,378 p=179165 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 04:09:29,379 p=179165 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false
+}
+2022-08-29 04:09:36,096 p=179514 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2022-08-29 04:09:42,459 p=179514 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2022-08-29 04:09:50,199 p=179926 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2022-08-29 04:09:57,456 p=179926 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python
+interpreter at /usr/bin/python3.9, but future installation of another Python
+interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 04:09:57,457 p=179926 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false
+}
+2022-08-29 22:28:16,111 p=292189 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:28:24,507 p=292189 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:28:24,508 p=292189 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-29 22:33:46,068 p=292876 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:33:54,227 p=292876 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:33:54,228 p=292876 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-29 22:34:16,857 p=293082 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:34:17,192 p=293082 u=root n=ansible | 10.166.32.93 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.166.32.93: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).",
+    "unreachable": true
+}
+2022-08-29 22:34:40,423 p=293310 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:34:46,546 p=293310 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:34:46,546 p=293310 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-29 22:35:03,327 p=293479 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:35:09,395 p=293479 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:35:09,396 p=293479 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-29 22:35:16,137 p=293607 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:35:16,479 p=293607 u=root n=ansible | 10.67.11.66 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.67.11.66 port 22: No route to host",
+    "unreachable": true
+}
+2022-08-29 22:35:33,960 p=293700 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:35:40,011 p=293700 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:35:40,012 p=293700 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-29 22:36:16,311 p=294021 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:36:16,320 p=294021 u=root n=ansible | ERROR! this task 'commod' has extra params, which is only allowed in the following modules: ansible.builtin.win_command, ansible.builtin.include_vars, ansible.builtin.script, import_tasks, include, ansible.builtin.include_tasks, ansible.legacy.add_host, ansible.legacy.shell, ansible.legacy.win_shell, command, win_shell, ansible.legacy.include_vars, ansible.builtin.include_role, include_tasks, ansible.legacy.include, ansible.legacy.set_fact, ansible.legacy.include_tasks, shell, ansible.builtin.group_by, ansible.legacy.win_command, ansible.legacy.raw, ansible.legacy.script, ansible.builtin.include, ansible.windows.win_shell, import_role, group_by, set_fact, ansible.builtin.set_fact, ansible.legacy.group_by, ansible.windows.win_command, add_host, ansible.legacy.command, ansible.legacy.import_tasks, ansible.builtin.import_tasks, ansible.builtin.shell, ansible.builtin.add_host, ansible.builtin.meta, raw, ansible.legacy.import_role, meta, include_role, win_command, ansible.builtin.import_role, ansible.builtin.command, ansible.legacy.include_role, ansible.builtin.win_shell, ansible.builtin.raw, include_vars, script, ansible.legacy.meta
+2022-08-29 22:36:48,831 p=294219 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:36:57,449 p=294219 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:36:57,450 p=294219 u=root n=ansible | 10.67.119.66 | CHANGED | rc=0 >>
+.
+..
+.ansible
+ansible.cfg
+applications.benchmarking.benchmark.platform-hero-features
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+bin
+BIOSManager
+.cache
+.config
+.docker
+dt
+.gitconfig
+hangz
+.ipython
+.kube
+.lh
+.local
+.netrc
+.ssh
+.tmux.conf
+.viminfo
+.vscode-server
+.wget-hsts
+wie-test-platform
+
+2022-08-29 22:37:21,355 p=294437 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:37:27,811 p=294437 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:37:27,812 p=294437 u=root n=ansible | 10.67.119.66 | CHANGED | rc=0 >>
+.
+..
+.ansible
+ansible.cfg
+applications.benchmarking.benchmark.platform-hero-features
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+bin
+BIOSManager
+.cache
+.config
+.docker
+dt
+.gitconfig
+hangz
+.ipython
+.kube
+.lh
+.local
+.netrc
+.ssh
+.tmux.conf
+.viminfo
+.vscode-server
+.wget-hsts
+wie-test-platform
+
+2022-08-29 22:39:43,324 p=294820 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:39:51,510 p=294820 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:39:51,510 p=294820 u=root n=ansible | 10.67.119.66 | FAILED | rc=2 >>
+ls: cannot open directory '/root': Permission deniednon-zero return code
+
+2022-08-29 22:40:25,357 p=295146 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 22:40:31,497 p=295146 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the
+meaning of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 22:40:31,498 p=295146 u=root n=ansible | 10.67.119.66 | CHANGED | rc=0 >>
+ansible.cfg
+applications.benchmarking.benchmark.platform-hero-features
+bin
+BIOSManager
+dt
+hangz
+wie-test-platform
+
+2022-08-29 23:02:46,146 p=298788 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see
+details
+
+2022-08-29 23:02:46,249 p=298788 u=root n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 2, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: hangzhou-test
+  tasks:
+       ^ here
+
+2022-08-29 23:06:41,690 p=299269 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 23:06:41,798 p=299269 u=root n=ansible | PLAY [hangzhou-test] ******************************************************************************
+2022-08-29 23:06:41,817 p=299269 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-08-29 23:06:51,567 p=299269 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning
+of that path. See https://docs.ansible.com/ansible-
+core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-08-29 23:06:51,567 p=299269 u=root n=ansible | ok: [10.67.119.66]
+2022-08-29 23:06:51,593 p=299269 u=root n=ansible | TASK [create log file] ****************************************************************************
+2022-08-29 23:06:51,614 p=299269 u=root n=ansible | fatal: [10.67.119.66]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible_test' is undefined\n\nThe error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 3, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  tasks:\n    - name: create log file\n      ^ here\n"}
+2022-08-29 23:06:51,616 p=299269 u=root n=ansible | PLAY RECAP ****************************************************************************************
+2022-08-29 23:06:51,617 p=299269 u=root n=ansible | 10.67.119.66               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-08-29 23:10:32,171 p=299868 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 23:10:32,291 p=299868 u=root n=ansible | PLAY [hangzhou-test] *****************************************************************************************
+2022-08-29 23:10:32,306 p=299868 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************
+2022-08-29 23:10:42,822 p=299868 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 23:10:42,822 p=299868 u=root n=ansible | ok: [10.67.119.66]
+2022-08-29 23:10:42,853 p=299868 u=root n=ansible | TASK [create log file] ***************************************************************************************
+2022-08-29 23:10:47,934 p=299868 u=root n=ansible | fatal: [10.67.119.66]: FAILED! => {"changed": false, "msg": "Error, could not touch target: [Errno 2] No such file or directory: b'/home/hangzhou/ansible/aaa'", "path": "/home/hangzhou/ansible/aaa"}
+2022-08-29 23:10:47,935 p=299868 u=root n=ansible | PLAY RECAP ***************************************************************************************************
+2022-08-29 23:10:47,936 p=299868 u=root n=ansible | 10.67.119.66               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-08-29 23:11:48,860 p=300175 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-29 23:11:48,972 p=300175 u=root n=ansible | PLAY [hangzhou-test] *****************************************************************************************
+2022-08-29 23:11:48,985 p=300175 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************
+2022-08-29 23:11:58,304 p=300175 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at
+/usr/bin/python3.9, but future installation of another Python interpreter could change the meaning of that
+path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more
+information.
+
+2022-08-29 23:11:58,304 p=300175 u=root n=ansible | ok: [10.67.119.66]
+2022-08-29 23:11:58,332 p=300175 u=root n=ansible | TASK [create log file] ***************************************************************************************
+2022-08-29 23:12:03,218 p=300175 u=root n=ansible | changed: [10.67.119.66]
+2022-08-29 23:12:03,252 p=300175 u=root n=ansible | PLAY RECAP ***************************************************************************************************
+2022-08-29 23:12:03,252 p=300175 u=root n=ansible | 10.67.119.66               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-08-30 01:19:41,983 p=314823 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-30 01:19:42,243 p=314823 u=root n=ansible | 10.166.32.93 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: root@10.166.32.93: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).",
+    "unreachable": true
+}
+2022-08-30 01:19:49,036 p=314951 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-30 01:19:56,119 p=314951 u=root n=ansible | 10.166.32.93 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2022-08-30 01:24:24,901 p=315654 u=root n=ansible | ERROR! the playbook: test.yaml could not be found
+2022-08-30 01:24:48,099 p=315819 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-08-30 01:24:48,216 p=315819 u=root n=ansible | PLAY [10.166.32.93] ******************************************************************************************
+2022-08-30 01:24:48,230 p=315819 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************
+2022-08-30 01:24:55,785 p=315819 u=root n=ansible | ok: [10.166.32.93]
+2022-08-30 01:24:55,825 p=315819 u=root n=ansible | TASK [copy log file] *****************************************************************************************
+2022-08-30 01:25:07,888 p=315819 u=root n=ansible | changed: [10.166.32.93]
+2022-08-30 01:25:07,917 p=315819 u=root n=ansible | PLAY RECAP ***************************************************************************************************
+2022-08-30 01:25:07,917 p=315819 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

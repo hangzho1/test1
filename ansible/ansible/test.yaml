@@ -1,0 +1,19 @@
+
+
+
+# - hosts: hangzhou-test
+#   tasks:
+#     - name: create log file
+#       file: name=/home/hangzhou/{{ ansible_test }} state=touch
+
+
+'''
+# 复制远程文件
+- hosts: 10.166.32.93
+  remote_user: sfdev
+  tasks:
+    - name: copy log file
+      copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang
+
+'''
+
