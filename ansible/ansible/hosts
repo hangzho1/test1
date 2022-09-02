@@ -44,4 +44,4 @@
 [hangzhou-test]
 10.67.119.66 ansible_ssh_user=hangzhou ansible_ssh_pass=123
 [senhuidev]
-10.166.32.93
+10.166.32.93 ansible_ssh_user=sfdev

@@ -1,0 +1,2 @@
+- name: config file  
+  copy: src=httpd.conf dest=/etc/httpd/conf/ backup=yes

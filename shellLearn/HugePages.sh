@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 
-
 Required_HugePage=$1
 Required_Size=$2
 
@@ -39,34 +38,5 @@ HugePaegs_judge(){
 }
 
 HugePaegs_judge
-
-
-# HugePaegs_judge(){
-
-#     if [[ $(expr ${HugePages_Total} \* ${Hugepagesize}) -le $(expr ${Required_HugePage} \* ${Required_Size}) ]]; then
-#         echo "Beyond the total memory"
-#         return 
-#     fi
-
-#     if [[ ${Hugepagesize} -ne ${Required_Size} ]]; then
-#         if [[ ${Hugepagesize} -ne 2048 ]]; then
-#             sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=2048" && sudo reboot     
-#             # sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=${Required_Size}" && sudo reboot     
-#             # sudo grubby --update-kernel=DEFAULT --args="hugepages=${Required_Size}" && sudo reboot     
-#         else  
-#             sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=1G" && sudo reboot 
-
-#     fi
-#     if [[ ${HugePages_Free} -le ${Required_HugePage} ]]; then
-#         sudo reboot
-#     fi
-
-#     echo "The configuration meets the requirements"
-
-
-# }
-
-# HugePaegs_judge
-
 
 

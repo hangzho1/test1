@@ -7,13 +7,23 @@
 #       file: name=/home/hangzhou/{{ ansible_test }} state=touch
 
 
-'''
+# '''
 # 复制远程文件
 - hosts: 10.166.32.93
   remote_user: sfdev
   tasks:
-    - name: copy log file
-      copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang
+    # - name: copy log file
+    #   copy: src=/home/sfdev/hangz/shellLearn/cat.sh dest=/home/sfdev/hang/
+    # - name: run shell
+    #   shell: cd /home/sfdev/hang; chmod +x *.sh; ./cat.sh
 
-'''
+
+
+    - name: copy shell file
+      script: /home/sfdev/hangz/shellLearn/cat.sh
+
+
+      # copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang
+
+# '''
 

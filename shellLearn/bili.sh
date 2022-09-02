@@ -36,3 +36,5 @@ for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
     # PORT=$(awk '{print $3}' $HOST_INFO)
     echo "${IP}" $USER $PORT
 done
+
+
