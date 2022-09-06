@@ -12,8 +12,13 @@ Hugepagesize=$(grep Hugepagesize /proc/meminfo | awk '{print $2}')
 HugePages_Free=$(grep HugePages_Free /proc/meminfo | awk '{print $2}')
 
 
+touch a.txt
 echo $HugePages_Total $Hugepagesize $HugePages_Free 
 
 echo $Required_HugePage $Required_Size
+
+touch b.txt
+
+
 
 

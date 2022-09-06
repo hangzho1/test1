@@ -1,0 +1,18 @@
+{
+    "sourceFile": "shellLearn/HugePages.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1662425995013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1662425995013,
+            "name": "Commit-0",
+            "content": "#!/usr/bin/env bash\n\n\nRequired_HugePage=$1\nRequired_Size=$2\n\nHugePages_Total=$(grep HugePages_Total /proc/meminfo | awk '{print $2}')\nHugepagesize=$(grep Hugepagesize /proc/meminfo | awk '{print $2}')\nHugePages_Free=$(grep HugePages_Free /proc/meminfo | awk '{print $2}')\n# testTotal=10000000\n# free=100000000\n\necho $HugePages_Total $Hugepagesize $HugePages_Free \n\nHugePaegs_judge(){\n\n    # if [[ $(expr ${HugePages_Total} \\* ${Hugepagesize}) -le $(expr ${Required_HugePage} \\* ${Required_Size}) ]]; then\n    #     echo \"Beyond the total memory\"\n    #     return \n    # fi\n\n    if [[ ${Hugepagesize} -ne ${Required_Size} || ${HugePages_Total} -lt ${Required_Size} ]]; then\n\n        # sudo grubby --update-kernel=DEFAULT --args=\"default_hugepagesz=${Required_SiRze}kB\" && sudo reboot     \n        sudo grubby --update-kernel=DEFAULT --args=\"default_hugepagesz=${Required_Size}kB hugpagesz=${Required_Size}kB hugepages=${Required_HugePage}\"\n        exit 0\n          \n        # sudo grubby --update-kernel=DEFAULT --args=\"hugepages=${Required_Size}\" && sudo reboot     \n\n    fi\n\n    if [[ ${HugePages_Free} -lt ${Required_HugePage} ]]; then\n        echo \"There is not enough free memory to restart\"\n        # sudo reboot\n    fi\n    \n    echo \"The configuration meets the requirements\"\n\n\n}\n\nHugePaegs_judge\n\n\n"
+        }
+    ]
+}

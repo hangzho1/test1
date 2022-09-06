@@ -7909,3 +7909,573 @@ core/2.12/reference_appendices/interpreter_discovery.html for more information.
     },
     "changed": false
 }
+2022-09-02 03:02:03,123 p=215187 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 03:02:08,439 p=215187 u=root n=ansible | 10.166.32.93 | CHANGED => {
+    "changed": true,
+    "rc": 0,
+    "stderr": "Shared connection to 10.166.32.93 closed.\r\n",
+    "stderr_lines": [
+        "Shared connection to 10.166.32.93 closed."
+    ],
+    "stdout": "/home/sfdev\r\nowrlnxor0002.amr.corp.intel.com\r\n4 1048576 4\r\n4 2\r\n",
+    "stdout_lines": [
+        "/home/sfdev",
+        "owrlnxor0002.amr.corp.intel.com",
+        "4 1048576 4",
+        "4 2"
+    ]
+}
+2022-09-02 03:02:53,396 p=215491 u=root n=ansible | ERROR! the playbook: ./hangz/ansible/ansible/test.yaml could not be found
+2022-09-02 03:03:13,291 p=215636 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 03:03:13,406 p=215636 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************
+2022-09-02 03:03:13,420 p=215636 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2022-09-02 03:03:20,991 p=215636 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 03:03:21,016 p=215636 u=root n=ansible | TASK [copy log file] ************************************************************************************************
+2022-09-02 03:03:30,547 p=215636 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 03:03:30,564 p=215636 u=root n=ansible | TASK [run shell] ****************************************************************************************************
+2022-09-02 03:03:35,521 p=215636 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 03:03:35,548 p=215636 u=root n=ansible | PLAY RECAP **********************************************************************************************************
+2022-09-02 03:03:35,548 p=215636 u=root n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-02 03:21:32,265 p=217882 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 03:21:40,330 p=217882 u=root n=ansible | 10.166.32.93 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_os_family": "RedHat",
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false
+}
+2022-09-02 03:21:41,455 p=217882 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but
+future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-09-02 03:21:41,455 p=217882 u=root n=ansible | 10.67.119.66 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_os_family": "Anolis",
+        "discovered_interpreter_python": "/usr/bin/python3.9"
+    },
+    "changed": false
+}
+2022-09-02 03:24:52,936 p=218732 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 03:25:00,032 p=218732 u=root n=ansible | 10.166.32.93 | CHANGED | rc=0 >>
+CentOS Stream release 8
+
+2022-09-02 03:25:01,197 p=218732 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but
+future installation of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html for more information.
+
+2022-09-02 03:25:01,197 p=218732 u=root n=ansible | 10.67.119.66 | CHANGED | rc=0 >>
+Anolis OS release 8.5
+
+2022-09-02 04:55:55,625 p=228600 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 04:56:00,617 p=228600 u=root n=ansible | 10.166.32.93 | CHANGED => {
+    "changed": true,
+    "rc": 0,
+    "stderr": "Shared connection to 10.166.32.93 closed.\r\n",
+    "stderr_lines": [
+        "Shared connection to 10.166.32.93 closed."
+    ],
+    "stdout": "/home/sfdev\r\nowrlnxor0002.amr.corp.intel.com\r\n4 1048576 4\r\n4 2\r\n",
+    "stdout_lines": [
+        "/home/sfdev",
+        "owrlnxor0002.amr.corp.intel.com",
+        "4 1048576 4",
+        "4 2"
+    ]
+}
+2022-09-02 04:57:24,551 p=228982 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 04:57:29,335 p=228982 u=root n=ansible | 10.166.32.93 | FAILED! => {
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.166.32.93 port 22: Connection refused"
+}
+2022-09-02 05:02:08,607 p=230052 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 05:02:14,078 p=230052 u=root n=ansible | 10.166.32.93 | CHANGED => {
+    "changed": true,
+    "rc": 0,
+    "stderr": "Shared connection to 10.166.32.93 closed.\r\n",
+    "stderr_lines": [
+        "Shared connection to 10.166.32.93 closed."
+    ],
+    "stdout": "0 2048 0\r\nhello world\r\nThere is not enough free memory to restart\r\nThe configuration meets the requirements\r\n",
+    "stdout_lines": [
+        "0 2048 0",
+        "hello world",
+        "There is not enough free memory to restart",
+        "The configuration meets the requirements"
+    ]
+}
+2022-09-02 05:04:41,468 p=230537 u=root n=ansible | ERROR! the playbook: ./hangz/ansible/ansible/test.yaml could not be found
+2022-09-02 05:05:02,333 p=230652 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 05:05:02,460 p=230652 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************
+2022-09-02 05:05:02,486 p=230652 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2022-09-02 05:05:10,518 p=230652 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 05:05:10,546 p=230652 u=root n=ansible | TASK [copy log file] ************************************************************************************************
+2022-09-02 05:05:20,607 p=230652 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 05:05:20,629 p=230652 u=root n=ansible | TASK [run shell] ****************************************************************************************************
+2022-09-02 05:05:26,110 p=230652 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 05:05:26,136 p=230652 u=root n=ansible | PLAY RECAP **********************************************************************************************************
+2022-09-02 05:05:26,136 p=230652 u=root n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-02 05:08:07,848 p=231297 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 05:08:07,972 p=231297 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************
+2022-09-02 05:08:07,988 p=231297 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************
+2022-09-02 05:08:16,918 p=231297 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 05:08:16,943 p=231297 u=root n=ansible | TASK [copy log file] ************************************************************************************************
+2022-09-02 05:08:26,696 p=231297 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 05:08:26,711 p=231297 u=root n=ansible | TASK [run shell] ****************************************************************************************************
+2022-09-02 05:08:31,950 p=231297 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 05:08:31,976 p=231297 u=root n=ansible | PLAY RECAP **********************************************************************************************************
+2022-09-02 05:08:31,976 p=231297 u=root n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-02 05:12:32,500 p=232315 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 05:12:38,005 p=232315 u=root n=ansible | 10.166.32.93 | CHANGED => {
+    "changed": true,
+    "rc": 0,
+    "stderr": "Shared connection to 10.166.32.93 closed.\r\n",
+    "stderr_lines": [
+        "Shared connection to 10.166.32.93 closed."
+    ],
+    "stdout": "0 2048 0\r\nhello world\r\nThere is not enough free memory to restart\r\nThe configuration meets the requirements\r\n",
+    "stdout_lines": [
+        "0 2048 0",
+        "hello world",
+        "There is not enough free memory to restart",
+        "The configuration meets the requirements"
+    ]
+}
+2022-09-02 19:35:25,047 p=92726 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:35:30,529 p=92726 u=root n=ansible | 10.166.32.93 | FAILED! => {
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.166.32.93 port 22: Connection refused"
+}
+2022-09-02 19:37:35,588 p=93153 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:37:39,505 p=93153 u=root n=ansible | 10.166.32.93 | FAILED! => {
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.166.32.93 port 22: Connection refused"
+}
+2022-09-02 19:39:06,976 p=93393 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:39:12,347 p=93393 u=root n=ansible | 10.166.32.93 | CHANGED => {
+    "changed": true,
+    "rc": 0,
+    "stderr": "Shared connection to 10.166.32.93 closed.\r\n",
+    "stderr_lines": [
+        "Shared connection to 10.166.32.93 closed."
+    ],
+    "stdout": "2 2048 2\r\nhello world\r\nThere is not enough free memory to restart\r\nThe configuration meets the requirements\r\n",
+    "stdout_lines": [
+        "2 2048 2",
+        "hello world",
+        "There is not enough free memory to restart",
+        "The configuration meets the requirements"
+    ]
+}
+2022-09-02 19:44:38,734 p=94273 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:44:38,858 p=94273 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.legacy.group_by, win_command, ansible.builtin.meta, include_tasks, include_vars, ansible.legacy.include, ansible.builtin.add_host, ansible.builtin.import_tasks, script, add_host, set_fact, ansible.builtin.include_tasks, meta, include_role, ansible.legacy.set_fact, import_tasks, ansible.builtin.include, ansible.legacy.meta, ansible.legacy.win_shell, shell, ansible.builtin.win_shell, ansible.builtin.import_role, ansible.legacy.command, ansible.builtin.set_fact, ansible.legacy.import_role, ansible.windows.win_command, ansible.builtin.raw, win_shell, ansible.builtin.win_command, group_by, ansible.legacy.raw, include, ansible.legacy.include_tasks, ansible.windows.win_shell, ansible.legacy.shell, ansible.legacy.add_host, import_role, ansible.legacy.import_tasks, raw, ansible.builtin.shell, ansible.builtin.group_by, ansible.legacy.script, ansible.builtin.script, ansible.legacy.include_vars, ansible.builtin.include_vars, ansible.builtin.command, ansible.builtin.include_role, command, ansible.legacy.include_role, ansible.legacy.win_command
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:45:23,911 p=94397 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:45:23,972 p=94397 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.legacy.include_vars, add_host, ansible.builtin.include_vars, ansible.legacy.import_tasks, ansible.builtin.win_shell, ansible.windows.win_command, ansible.legacy.import_role, ansible.legacy.meta, ansible.builtin.import_role, set_fact, ansible.legacy.raw, ansible.builtin.raw, include_vars, ansible.legacy.include_tasks, group_by, ansible.builtin.win_command, import_tasks, win_command, ansible.legacy.add_host, ansible.builtin.include_role, include_role, import_role, include_tasks, ansible.legacy.win_shell, ansible.builtin.add_host, ansible.builtin.script, ansible.builtin.set_fact, ansible.legacy.command, ansible.legacy.include_role, ansible.windows.win_shell, command, include, ansible.builtin.group_by, script, ansible.legacy.win_command, ansible.builtin.include, ansible.builtin.include_tasks, ansible.legacy.group_by, meta, ansible.legacy.script, ansible.builtin.import_tasks, ansible.builtin.meta, ansible.builtin.shell, ansible.builtin.command, ansible.legacy.set_fact, shell, raw, ansible.legacy.shell, win_shell, ansible.legacy.include
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:47:34,216 p=94744 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:47:34,342 p=94744 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:47:34,411 p=94744 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:47:44,005 p=94744 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:47:44,040 p=94744 u=root n=ansible | TASK [copy log file] ************************************************************************************************************************************
+2022-09-02 19:47:49,305 p=94744 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 19:47:49,340 p=94744 u=root n=ansible | TASK [run shell] ****************************************************************************************************************************************
+2022-09-02 19:47:54,659 p=94744 u=root n=ansible | skipping: [10.166.32.93]
+2022-09-02 19:47:54,694 p=94744 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:47:54,694 p=94744 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-09-02 19:48:56,733 p=95164 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:48:56,794 p=95164 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.builtin.import_tasks, include_role, ansible.legacy.include, ansible.builtin.import_role, ansible.builtin.raw, ansible.legacy.import_tasks, ansible.builtin.meta, set_fact, ansible.builtin.include_role, add_host, ansible.builtin.win_command, shell, include, include_vars, ansible.legacy.include_tasks, ansible.builtin.script, ansible.legacy.group_by, ansible.legacy.include_vars, group_by, raw, ansible.legacy.meta, ansible.legacy.script, ansible.windows.win_shell, meta, ansible.legacy.win_shell, ansible.legacy.include_role, command, ansible.legacy.command, win_command, ansible.legacy.win_command, ansible.builtin.include_tasks, ansible.builtin.add_host, ansible.legacy.add_host, ansible.legacy.raw, ansible.builtin.include_vars, ansible.legacy.shell, import_tasks, win_shell, ansible.legacy.import_role, ansible.builtin.include, ansible.legacy.set_fact, import_role, ansible.builtin.set_fact, include_tasks, script, ansible.windows.win_command, ansible.builtin.shell, ansible.builtin.command, ansible.builtin.win_shell, ansible.builtin.group_by
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:51:42,973 p=95584 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:51:43,081 p=95584 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:51:43,096 p=95584 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:51:51,050 p=95584 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:51:51,076 p=95584 u=root n=ansible | TASK [copy shell file] **********************************************************************************************************************************
+2022-09-02 19:51:53,728 p=95584 u=root n=ansible | skipping: [10.166.32.93]
+2022-09-02 19:51:53,757 p=95584 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:51:53,757 p=95584 u=root n=ansible | 10.166.32.93               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-09-02 19:52:00,540 p=95761 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:52:00,651 p=95761 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:52:00,667 p=95761 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:52:08,536 p=95761 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:52:08,566 p=95761 u=root n=ansible | TASK [copy shell file] **********************************************************************************************************************************
+2022-09-02 19:52:13,915 p=95761 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 19:52:13,947 p=95761 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:52:13,947 p=95761 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-02 19:55:33,580 p=96853 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:55:33,649 p=96853 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.legacy.meta, ansible.builtin.import_tasks, ansible.legacy.raw, ansible.legacy.include_vars, import_role, ansible.builtin.win_shell, command, add_host, ansible.legacy.import_tasks, ansible.legacy.script, ansible.builtin.win_command, import_tasks, script, include_vars, include_tasks, ansible.builtin.include_role, ansible.builtin.command, ansible.legacy.win_command, meta, ansible.builtin.set_fact, ansible.legacy.import_role, ansible.builtin.include, ansible.legacy.include, include_role, ansible.builtin.raw, ansible.legacy.win_shell, ansible.builtin.shell, ansible.legacy.add_host, ansible.legacy.command, ansible.legacy.include_role, ansible.legacy.set_fact, group_by, ansible.legacy.shell, ansible.legacy.include_tasks, ansible.builtin.meta, ansible.builtin.import_role, ansible.builtin.include_vars, raw, ansible.builtin.script, ansible.windows.win_shell, win_shell, ansible.builtin.group_by, win_command, shell, ansible.legacy.group_by, ansible.builtin.include_tasks, ansible.windows.win_command, include, set_fact, ansible.builtin.add_host
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:55:42,603 p=96941 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:55:42,671 p=96941 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: command, ansible.legacy.script, ansible.builtin.command, include, ansible.legacy.meta, ansible.builtin.group_by, shell, ansible.legacy.command, import_role, ansible.builtin.raw, ansible.legacy.group_by, ansible.builtin.script, ansible.legacy.include, ansible.builtin.win_command, ansible.legacy.win_shell, ansible.builtin.include_vars, ansible.builtin.import_tasks, include_role, ansible.legacy.import_tasks, ansible.legacy.include_tasks, ansible.builtin.include_role, include_vars, ansible.legacy.include_vars, ansible.legacy.set_fact, win_shell, ansible.windows.win_shell, ansible.legacy.win_command, win_command, ansible.legacy.raw, ansible.builtin.set_fact, script, ansible.builtin.shell, ansible.windows.win_command, ansible.builtin.import_role, ansible.legacy.include_role, raw, ansible.builtin.include, group_by, ansible.builtin.add_host, add_host, ansible.legacy.import_role, ansible.builtin.include_tasks, ansible.builtin.meta, meta, ansible.legacy.shell, ansible.builtin.win_shell, ansible.legacy.add_host, import_tasks, include_tasks, set_fact
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:55:54,914 p=97027 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:55:54,990 p=97027 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.builtin.command, group_by, include_tasks, command, ansible.legacy.include_vars, ansible.legacy.include_role, ansible.legacy.set_fact, include_vars, import_tasks, include_role, ansible.legacy.include, ansible.legacy.raw, ansible.legacy.win_command, ansible.builtin.meta, ansible.builtin.import_role, ansible.builtin.win_shell, ansible.builtin.add_host, ansible.legacy.shell, set_fact, ansible.windows.win_command, include, win_shell, ansible.legacy.meta, ansible.builtin.shell, ansible.legacy.add_host, ansible.builtin.include_role, ansible.legacy.command, add_host, ansible.builtin.import_tasks, ansible.builtin.win_command, ansible.windows.win_shell, script, ansible.legacy.import_role, ansible.builtin.set_fact, meta, ansible.legacy.win_shell, raw, ansible.legacy.include_tasks, ansible.legacy.group_by, ansible.builtin.raw, ansible.builtin.script, import_role, ansible.builtin.group_by, ansible.legacy.import_tasks, ansible.legacy.script, shell, ansible.builtin.include_vars, win_command, ansible.builtin.include_tasks, ansible.builtin.include
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:56:00,981 p=97081 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:56:01,050 p=97081 u=root n=ansible | ERROR! this task 'copy' has extra params, which is only allowed in the following modules: ansible.builtin.include_vars, meta, ansible.legacy.script, ansible.legacy.meta, ansible.legacy.group_by, ansible.windows.win_command, ansible.builtin.include_tasks, ansible.legacy.command, ansible.builtin.script, ansible.legacy.add_host, ansible.builtin.include, ansible.legacy.include, include_vars, import_tasks, script, ansible.builtin.import_role, ansible.builtin.win_command, shell, raw, add_host, ansible.builtin.set_fact, ansible.builtin.shell, ansible.legacy.include_role, ansible.builtin.import_tasks, include_role, win_shell, ansible.legacy.win_shell, ansible.legacy.import_role, ansible.builtin.add_host, ansible.legacy.raw, ansible.windows.win_shell, ansible.legacy.win_command, ansible.builtin.command, win_command, import_role, include_tasks, ansible.legacy.shell, set_fact, ansible.legacy.include_tasks, ansible.builtin.include_role, ansible.builtin.raw, include, command, ansible.legacy.import_tasks, ansible.legacy.set_fact, ansible.legacy.include_vars, ansible.builtin.meta, ansible.builtin.group_by, ansible.builtin.win_shell, group_by
+
+The error appears to be in '/home/sfdev/hangz/ansible/ansible/test.yaml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copy log file
+      ^ here
+
+2022-09-02 19:56:14,561 p=97167 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:56:14,687 p=97167 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:56:14,705 p=97167 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:56:22,710 p=97167 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:56:22,742 p=97167 u=root n=ansible | TASK [copy log file] ************************************************************************************************************************************
+2022-09-02 19:56:25,177 p=97167 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "src (or content) is required"}
+2022-09-02 19:56:25,179 p=97167 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:56:25,180 p=97167 u=root n=ansible | 10.166.32.93               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 19:57:05,094 p=97384 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:57:05,216 p=97384 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:57:05,231 p=97384 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:57:12,958 p=97384 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:57:12,986 p=97384 u=root n=ansible | TASK [copy log file] ************************************************************************************************************************************
+2022-09-02 19:57:15,549 p=97384 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "src (or content) is required"}
+2022-09-02 19:57:15,552 p=97384 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:57:15,552 p=97384 u=root n=ansible | 10.166.32.93               : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 19:58:44,399 p=97939 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:58:44,568 p=97939 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:58:44,586 p=97939 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:58:52,315 p=97939 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:58:52,345 p=97939 u=root n=ansible | TASK [copy log file] ************************************************************************************************************************************
+2022-09-02 19:58:57,792 p=97939 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 19:58:57,814 p=97939 u=root n=ansible | TASK [run shell] ****************************************************************************************************************************************
+2022-09-02 19:59:03,133 p=97939 u=root n=ansible | skipping: [10.166.32.93]
+2022-09-02 19:59:03,166 p=97939 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:59:03,166 p=97939 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-09-02 19:59:07,973 p=98167 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 19:59:08,091 p=98167 u=root n=ansible | PLAY [10.166.32.93] *************************************************************************************************************************************
+2022-09-02 19:59:08,105 p=98167 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 19:59:16,185 p=98167 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 19:59:16,211 p=98167 u=root n=ansible | TASK [copy log file] ************************************************************************************************************************************
+2022-09-02 19:59:25,858 p=98167 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 19:59:25,875 p=98167 u=root n=ansible | TASK [run shell] ****************************************************************************************************************************************
+2022-09-02 19:59:31,515 p=98167 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 19:59:31,547 p=98167 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 19:59:31,547 p=98167 u=root n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-02 21:04:35,842 p=105685 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 21:04:43,431 p=105685 u=root n=ansible | 10.166.32.93 | FAILED | rc=1 >>
+Repository extras is listed more than once in the configuration
+Error: This command has to be run with superuser privileges (under the root user on most systems).non-zero return code
+
+2022-09-02 21:04:44,121 p=105685 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html
+for more information.
+
+2022-09-02 21:04:44,121 p=105685 u=root n=ansible | 10.67.119.66 | FAILED | rc=1 >>
+Repository epel is listed more than once in the configuration
+Error: This command has to be run with superuser privileges (under the root user on most systems).non-zero return code
+
+2022-09-02 21:04:51,355 p=105882 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 21:04:57,833 p=105882 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html
+for more information.
+
+2022-09-02 21:04:57,834 p=105882 u=root n=ansible | 10.67.119.66 | CHANGED | rc=0 >>
+No match for argument: nginx
+Dependencies resolved.
+Nothing to do.
+Complete!Repository epel is listed more than once in the configuration
+No packages marked for removal.
+
+2022-09-02 21:04:59,158 p=105882 u=root n=ansible | 10.166.32.93 | CHANGED | rc=0 >>
+No match for argument: nginx
+Dependencies resolved.
+Nothing to do.
+Complete!Repository extras is listed more than once in the configuration
+No packages marked for removal.
+
+2022-09-02 21:05:34,701 p=106177 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 21:05:40,795 p=106177 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html
+for more information.
+
+2022-09-02 21:05:40,796 p=106177 u=root n=ansible | 10.67.119.66 | FAILED | rc=2 >>
+non-zero return code
+
+2022-09-02 21:05:41,551 p=106177 u=root n=ansible | 10.166.32.93 | FAILED | rc=2 >>
+non-zero return code
+
+2022-09-02 21:06:05,715 p=106383 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 21:06:11,799 p=106383 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html
+for more information.
+
+2022-09-02 21:06:11,799 p=106383 u=root n=ansible | 10.67.119.66 | FAILED | rc=6 >>
+userdel: user 'nginx' does not existnon-zero return code
+
+2022-09-02 21:06:12,433 p=106383 u=root n=ansible | 10.166.32.93 | FAILED | rc=6 >>
+userdel: user 'nginx' does not existnon-zero return code
+
+2022-09-02 22:02:10,534 p=119445 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:02:10,592 p=119445 u=root n=ansible | ERROR! role definitions must contain a role name
+
+The error appears to be in '/home/sfdev/hangz/ansible/nginx_roles.yml': line 3, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - roles: nginx
+      ^ here
+
+2022-09-02 22:02:21,255 p=119536 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:02:21,320 p=119536 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:02:21,356 p=119536 u=root n=ansible | ERROR! Unable to retrieve file contents
+Could not find or access '/home/sfdev/hangz/ansible/yum.yml' on the Ansible Controller.
+If you are using a module and expect the file to exist on the remote, see the remote_src option
+2022-09-02 22:04:00,893 p=119750 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:04:00,969 p=119750 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:04:01,036 p=119750 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: senhuitest
+
+2022-09-02 22:04:01,037 p=119750 u=root n=ansible | PLAY [senhuitest] ***************************************************************************************************************************************
+2022-09-02 22:04:01,037 p=119750 u=root n=ansible | skipping: no hosts matched
+2022-09-02 22:04:01,038 p=119750 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:04:41,793 p=119990 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:04:41,862 p=119990 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:04:41,926 p=119990 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:04:41,944 p=119990 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:04:50,165 p=119990 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:04:50,193 p=119990 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:04:55,563 p=119990 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:04:55,582 p=119990 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:05:01,016 p=119990 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (user) module: id. Supported parameters include: remove, local, password_expire_max, append, generate_ssh_key, groups, expires, non_unique, ssh_key_passphrase, comment, state, ssh_key_bits, update_password, password_lock, move_home, password_expire_min, force, ssh_key_type, create_home (createhome), group, skeleton, seuser, system, home, ssh_key_comment, login_class, authorization, role, umask, hidden, name (user), profile, shell, ssh_key_file, uid, password."}
+2022-09-02 22:05:01,019 p=119990 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:05:01,020 p=119990 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 22:05:29,670 p=120318 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:05:29,737 p=120318 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:05:29,796 p=120318 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:05:29,813 p=120318 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:05:37,766 p=120318 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:05:37,791 p=120318 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:05:42,838 p=120318 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:05:42,858 p=120318 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:05:48,145 p=120318 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (user) module: id. Supported parameters include: seuser, name (user), uid, home, role, remove, force, ssh_key_file, login_class, system, skeleton, expires, ssh_key_type, ssh_key_comment, create_home (createhome), password_expire_min, update_password, comment, append, non_unique, move_home, groups, password_expire_max, generate_ssh_key, authorization, local, group, ssh_key_passphrase, umask, shell, state, password_lock, password, hidden, ssh_key_bits, profile."}
+2022-09-02 22:05:48,147 p=120318 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:05:48,148 p=120318 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 22:10:23,968 p=121126 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:10:24,036 p=121126 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:10:24,095 p=121126 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:10:24,111 p=121126 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:10:33,338 p=121126 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:10:33,366 p=121126 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:10:38,635 p=121126 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:10:38,649 p=121126 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:10:44,177 p=121126 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (user) module: id. Supported parameters include: password_lock, umask, name (user), password_expire_min, groups, ssh_key_passphrase, move_home, ssh_key_file, password_expire_max, update_password, create_home (createhome), state, ssh_key_comment, remove, skeleton, login_class, force, non_unique, generate_ssh_key, password, authorization, comment, ssh_key_type, profile, system, ssh_key_bits, expires, local, group, uid, append, hidden, shell, role, seuser, home."}
+2022-09-02 22:10:44,180 p=121126 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:10:44,180 p=121126 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 22:12:17,910 p=121653 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:12:17,983 p=121653 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:12:18,050 p=121653 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:12:18,069 p=121653 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:12:26,121 p=121653 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:12:26,150 p=121653 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:12:31,267 p=121653 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:12:31,287 p=121653 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:12:36,733 p=121653 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:12:36,775 p=121653 u=root n=ansible | TASK [nginx : install package] **************************************************************************************************************************
+2022-09-02 22:13:20,424 p=121653 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:13:20,452 p=121653 u=root n=ansible | TASK [nginx : copy conf] ********************************************************************************************************************************
+2022-09-02 22:13:25,662 p=121653 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:13:25,701 p=121653 u=root n=ansible | TASK [nginx : start service] ****************************************************************************************************************************
+2022-09-02 22:13:31,536 p=121653 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Could not find the requested service nginx: host"}
+2022-09-02 22:13:31,539 p=121653 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:13:31,539 p=121653 u=root n=ansible | 10.166.32.93               : ok=5    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 22:19:06,893 p=122712 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:19:06,962 p=122712 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:19:07,023 p=122712 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:19:07,040 p=122712 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:19:14,896 p=122712 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:19:14,920 p=122712 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:19:20,728 p=122712 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:19:20,746 p=122712 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:19:25,993 p=122712 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Group nginx does not exist"}
+2022-09-02 22:19:25,996 p=122712 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:19:25,996 p=122712 u=root n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-02 22:20:22,318 p=123139 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-02 22:20:22,391 p=123139 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-02 22:20:22,456 p=123139 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-02 22:20:22,475 p=123139 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-02 22:20:30,356 p=123139 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:20:30,380 p=123139 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-02 22:20:35,704 p=123139 u=root n=ansible | ok: [10.166.32.93]
+2022-09-02 22:20:35,723 p=123139 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-02 22:20:41,127 p=123139 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:20:41,141 p=123139 u=root n=ansible | TASK [nginx : install package] **************************************************************************************************************************
+2022-09-02 22:20:48,736 p=123139 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:20:48,756 p=123139 u=root n=ansible | TASK [nginx : copy conf] ********************************************************************************************************************************
+2022-09-02 22:20:53,920 p=123139 u=root n=ansible | changed: [10.166.32.93]
+2022-09-02 22:20:53,938 p=123139 u=root n=ansible | TASK [nginx : start service] ****************************************************************************************************************************
+2022-09-02 22:20:59,569 p=123139 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Could not find the requested service nginx: host"}
+2022-09-02 22:20:59,572 p=123139 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-02 22:20:59,572 p=123139 u=root n=ansible | 10.166.32.93               : ok=5    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-03 20:59:01,568 p=254651 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-03 20:59:01,642 p=254651 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-03 20:59:01,707 p=254651 u=root n=ansible | PLAY [senhuidev] ****************************************************************************************************************************************
+2022-09-03 20:59:01,725 p=254651 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-03 20:59:09,885 p=254651 u=root n=ansible | ok: [10.166.32.93]
+2022-09-03 20:59:09,911 p=254651 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-03 20:59:15,232 p=254651 u=root n=ansible | ok: [10.166.32.93]
+2022-09-03 20:59:15,249 p=254651 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-03 20:59:20,732 p=254651 u=root n=ansible | changed: [10.166.32.93]
+2022-09-03 20:59:20,750 p=254651 u=root n=ansible | TASK [nginx : install package] **************************************************************************************************************************
+2022-09-03 20:59:29,260 p=254651 u=root n=ansible | changed: [10.166.32.93]
+2022-09-03 20:59:29,279 p=254651 u=root n=ansible | TASK [nginx : copy conf] ********************************************************************************************************************************
+2022-09-03 20:59:34,492 p=254651 u=root n=ansible | changed: [10.166.32.93]
+2022-09-03 20:59:34,509 p=254651 u=root n=ansible | TASK [nginx : start service] ****************************************************************************************************************************
+2022-09-03 20:59:40,150 p=254651 u=root n=ansible | fatal: [10.166.32.93]: FAILED! => {"changed": false, "msg": "Could not find the requested service nginx: host"}
+2022-09-03 20:59:40,152 p=254651 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-03 20:59:40,152 p=254651 u=root n=ansible | 10.166.32.93               : ok=5    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-03 21:18:00,924 p=257328 u=root n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-03 21:18:01,000 p=257328 u=root n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be removed in version 2.16. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2022-09-03 21:18:01,069 p=257328 u=root n=ansible | PLAY [hangzhou-test] ************************************************************************************************************************************
+2022-09-03 21:18:01,089 p=257328 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************
+2022-09-03 21:18:10,517 p=257328 u=root n=ansible | [WARNING]: Platform linux on host 10.67.119.66 is using the discovered Python interpreter at /usr/bin/python3.9, but future installation of another
+Python interpreter could change the meaning of that path. See https://docs.ansible.com/ansible-core/2.12/reference_appendices/interpreter_discovery.html
+for more information.
+
+2022-09-03 21:18:10,518 p=257328 u=root n=ansible | ok: [10.67.119.66]
+2022-09-03 21:18:10,546 p=257328 u=root n=ansible | TASK [nginx : create group] *****************************************************************************************************************************
+2022-09-03 21:18:15,424 p=257328 u=root n=ansible | changed: [10.67.119.66]
+2022-09-03 21:18:15,442 p=257328 u=root n=ansible | TASK [nginx : create user] ******************************************************************************************************************************
+2022-09-03 21:18:20,371 p=257328 u=root n=ansible | changed: [10.67.119.66]
+2022-09-03 21:18:20,392 p=257328 u=root n=ansible | TASK [nginx : install package] **************************************************************************************************************************
+2022-09-03 21:20:24,424 p=257328 u=root n=ansible | changed: [10.67.119.66]
+2022-09-03 21:20:24,444 p=257328 u=root n=ansible | TASK [nginx : copy conf] ********************************************************************************************************************************
+2022-09-03 21:20:29,502 p=257328 u=root n=ansible | changed: [10.67.119.66]
+2022-09-03 21:20:29,526 p=257328 u=root n=ansible | TASK [nginx : start service] ****************************************************************************************************************************
+2022-09-03 21:20:34,883 p=257328 u=root n=ansible | fatal: [10.67.119.66]: FAILED! => {"changed": false, "msg": "Could not find the requested service nginx: host"}
+2022-09-03 21:20:34,887 p=257328 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************
+2022-09-03 21:20:34,888 p=257328 u=root n=ansible | 10.67.119.66               : ok=5    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-09-05 21:18:51,584 p=558553 u=sfdev n=ansible | ERROR! the playbook: /home/sfdev/hangz/test-env/roles/phy_hugepages does not appear to be a file
+2022-09-05 21:19:21,882 p=558645 u=sfdev n=ansible | ERROR! the playbook: /home/sfdev/hangz/test-env/roles/phy_hugepages does not appear to be a file
+2022-09-05 21:19:37,122 p=558711 u=sfdev n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-05 21:19:37,333 p=558711 u=sfdev n=ansible | PLAY [senhuidev] *******************************************************************************************************
+2022-09-05 21:19:37,348 p=558711 u=sfdev n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2022-09-05 21:19:45,329 p=558711 u=sfdev n=ansible | ok: [10.166.32.93]
+2022-09-05 21:19:45,364 p=558711 u=sfdev n=ansible | TASK [phy_hugepages : copy script file] ********************************************************************************
+2022-09-05 21:19:50,500 p=558711 u=sfdev n=ansible | changed: [10.166.32.93]
+2022-09-05 21:19:50,518 p=558711 u=sfdev n=ansible | TASK [phy_hugepages : run shell] ***************************************************************************************
+2022-09-05 21:19:55,732 p=558711 u=sfdev n=ansible | skipping: [10.166.32.93]
+2022-09-05 21:19:55,773 p=558711 u=sfdev n=ansible | PLAY RECAP *************************************************************************************************************
+2022-09-05 21:19:55,773 p=558711 u=sfdev n=ansible | 10.166.32.93               : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-09-05 21:20:12,686 p=558936 u=sfdev n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-05 21:20:12,815 p=558936 u=sfdev n=ansible | PLAY [senhuidev] *******************************************************************************************************
+2022-09-05 21:20:12,832 p=558936 u=sfdev n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2022-09-05 21:20:21,702 p=558936 u=sfdev n=ansible | ok: [10.166.32.93]
+2022-09-05 21:20:21,733 p=558936 u=sfdev n=ansible | TASK [phy_hugepages : copy script file] ********************************************************************************
+2022-09-05 21:20:31,406 p=558936 u=sfdev n=ansible | changed: [10.166.32.93]
+2022-09-05 21:20:31,419 p=558936 u=sfdev n=ansible | TASK [phy_hugepages : run shell] ***************************************************************************************
+2022-09-05 21:20:36,969 p=558936 u=sfdev n=ansible | changed: [10.166.32.93]
+2022-09-05 21:20:37,011 p=558936 u=sfdev n=ansible | PLAY RECAP *************************************************************************************************************
+2022-09-05 21:20:37,012 p=558936 u=sfdev n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

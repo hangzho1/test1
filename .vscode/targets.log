@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 18 08:15:46 2022
+# Make data base, printed on Mon Sep  5 20:49:40 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ LESSOPEN = ||/usr/bin/lesspipe.sh %s
 # environment
 VSCODE_CWD = /home/sfdev
 # environment
-SSH_CONNECTION = 10.67.65.235 53827 10.166.31.106 22
+SSH_CONNECTION = 10.67.65.239 58734 10.166.31.106 22
 # environment
 PATH = /home/sfdev/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/bin/remote-cli:/home/sfdev/.local/bin:/home/sfdev/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
 # environment
@@ -57,7 +57,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-768a3d8d-6e9d-44ad-861c-c990efc35141.sock
+VSCODE_IPC_HOOK_CLI = /run/user/1000/vscode-ipc-764287e7-0611-4934-8e02-8a12761b75d4.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # automatic
@@ -87,7 +87,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-HOSTNAME = owrlnxor0002.amr.corp.intel.com
+HOSTNAME = fm1caaskvsan14.amr.corp.intel.com
 # environment
 MAKELEVEL := 0
 # default
@@ -97,7 +97,7 @@ MAKECMDGOALS := all
 # environment
 SHLVL = 5
 # environment
-XDG_SESSION_ID = 22
+XDG_SESSION_ID = 12
 # environment
 USER = sfdev
 # makefile
@@ -115,7 +115,7 @@ MAKEFLAGS = pqrR
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_CLIENT = 10.67.65.235 53827 22
+SSH_CLIENT = 10.67.65.239 58734 22
 # environment
 MAIL = /var/spool/mail/sfdev
 # automatic
@@ -167,9 +167,9 @@ which_declare = declare -f
 
 # Directories
 
-# . (device 64769, inode 402983057): 13 files, no impossibilities.
+# . (device 64769, inode 402983057): 11 files, no impossibilities.
 
-# 13 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -219,12 +219,12 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 21 / storage = 176 B / avg = 8 B
-# current buf: size = 8162 B / used = 176 B / count = 21 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 19 / storage = 160 B / avg = 8 B
+# current buf: size = 8162 B / used = 160 B / count = 19 / avg = 8 B
 
-# strcache performance: lookups = 24 / hit rate = 12%
+# strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
-# Load=21/8192=0%, Rehash=0, Collisions=1/24=4%
-# Finished Make data base on Thu Aug 18 08:15:46 2022
+# Load=19/8192=0%, Rehash=0, Collisions=1/22=5%
+# Finished Make data base on Mon Sep  5 20:49:40 2022
 
  

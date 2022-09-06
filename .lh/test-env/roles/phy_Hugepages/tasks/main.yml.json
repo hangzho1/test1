@@ -1,0 +1,26 @@
+{
+    "sourceFile": "test-env/roles/phy_Hugepages/tasks/main.yml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1662426456751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662426461064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,7 +16,11 @@\n \n \n \n \n+    - name: copy log file\n+      copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang/\n+    - name: run shell\n+      shell: cd /home/sfdev/hang; chmod +x *.sh; ./HugePages.sh 3 1048576\n  \n - debug:    \n     msg: \"{{shell_result.stdout_lines}}\"  \n"
+                },
+                {
+                    "date": 1662426473374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n \n \n \n \n-    - name: copy log file\n-      copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang/\n-    - name: run shell\n-      shell: cd /home/sfdev/hang; chmod +x *.sh; ./HugePages.sh 3 1048576\n- \n+  - name: copy log file\n+    copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang/\n+  - name: run shell\n+    shell: cd /home/sfdev/hang; chmod +x *.sh; ./HugePages.sh 3 1048576\n+\n # - debug:    \n #     msg: \"{{shell_result.stdout_lines}}\"  \n"
+                }
+            ],
+            "date": 1662426456751,
+            "name": "Commit-0",
+            "content": "---\n# tasks file for phy_kernel\n- name: Create a directory if it does not exist\n  file:\n    path: \"{{ deployDir }}/kernel\"\n    state: directory\n\n- name: copy files from local to remote\n  copy:\n    src: files/\n    dest: \"{{ deployDir }}/kernel\"\n- name: update kernel\n  shell: cd \"{{ deployDir }}/kernel\";chmod +x *.sh ; ./update_kernel.sh\n  register: shell_result    \n    \n\n\n\n\n    \n- debug:    \n    msg: \"{{shell_result.stdout_lines}}\"  \n"
+        }
+    ]
+}

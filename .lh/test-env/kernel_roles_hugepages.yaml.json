@@ -1,0 +1,22 @@
+{
+    "sourceFile": "test-env/kernel_roles_hugepages.yaml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1662427086975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662427101332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n-- hosts: senhui\n+- hosts: senhuidev\n   become: yes\n   roles:\n     - phy_hugepages\n"
+                }
+            ],
+            "date": 1662427086975,
+            "name": "Commit-0",
+            "content": "- hosts: node\n  become: yes\n  roles:\n    - phy_\n"
+        }
+    ]
+}

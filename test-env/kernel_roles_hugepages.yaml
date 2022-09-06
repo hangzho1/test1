@@ -1,0 +1,4 @@
+- hosts: senhuidev
+  become: yes
+  roles:
+    - phy_hugepages
