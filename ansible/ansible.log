@@ -8479,3 +8479,8 @@ for more information.
 2022-09-05 21:20:36,969 p=558936 u=sfdev n=ansible | changed: [10.166.32.93]
 2022-09-05 21:20:37,011 p=558936 u=sfdev n=ansible | PLAY RECAP *************************************************************************************************************
 2022-09-05 21:20:37,012 p=558936 u=sfdev n=ansible | 10.166.32.93               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-08 03:10:50,628 p=875476 u=sfdev n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-08 03:10:50,638 p=875476 u=sfdev n=ansible |   hosts (2):
+2022-09-08 03:10:50,638 p=875476 u=sfdev n=ansible |     10.67.119.66
+2022-09-08 03:10:50,638 p=875476 u=sfdev n=ansible |     10.166.32.93
