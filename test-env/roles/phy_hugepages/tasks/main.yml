@@ -21,6 +21,6 @@
   copy: src=HugePages.sh dest=/home/sfdev/hang/
 - name: run shell
   shell: cd /home/sfdev/hang; chmod +x *.sh; ./HugePages.sh 4 2048
- 
+
 # - debug:    
 #     msg: "{{shell_result.stdout_lines}}"  

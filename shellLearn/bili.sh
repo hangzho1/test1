@@ -28,13 +28,19 @@
 # done
 
 
-HOST_INFO=host.info
-for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
+# HOST_INFO=host.info
+# for IP in $(awk '/^[^#]/{print $1}' $HOST_INFO); do
 
-    USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
-    PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
-    # PORT=$(awk '{print $3}' $HOST_INFO)
-    echo "${IP}" $USER $PORT
-done
+#     USER=$(awk -v ip=$IP 'ip==$1{print $2}' $HOST_INFO)
+#     PORT=$(awk -v ip=$IP 'ip==$1{print $3}' $HOST_INFO)
+#     # PORT=$(awk '{print $3}' $HOST_INFO)
+#     echo "${IP}" $USER $PORT
+# done
 
 
+echo
+echo -e "\tMenu\n"
+echo -e "1. Install Nginx" &&echo -e "2. Installdfsa PdfsHP"
+echo -e "3. Install MySQL"
+echo -e "4. Deploy LNMP"
+echo -e "9. Quit"

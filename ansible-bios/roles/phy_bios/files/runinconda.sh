@@ -5,8 +5,8 @@ set -x
 ENVNAME="bios"
 REQUIREMENTSFILE="requirements.txt"
 #./run.sh --set <Path to Config yaml> [-nc/--no-create] [-rd/--restore-default]
-# EXECCMD='./run.sh --set "config.yaml"'
-EXECCMD='./run.sh --find'
+EXECCMD='./run.sh --set "config.yaml"'
+# EXECCMD='./run.sh --search "Hyper"'
 
 
 USER=$(whoami)

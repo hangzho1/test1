@@ -51,12 +51,9 @@ kernelArgs='kernelhugepagesz=1G hugepagesz=1G hugepages=16'
 # bios args
 bios_update="true"
 biosArgs='BIOS_CONFIG: [
-{"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x1"}
+  {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
+  {"knob":"LlcPrefetchEnable" , "prompt": "LLC Prefetch", "value": "0x0"}
 ]'
-# biosArgs='BIOS_CONFIG: [
-#   {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
-#   {"knob":"LlcPrefetchEnable" , "prompt": "LLC Prefetch", "value": "0x0"}
-# ]'
 
 # virtual machine
 vm_deploy="false"

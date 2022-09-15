@@ -13,7 +13,7 @@ echo $HugePages_Total $Hugepagesize $HugePages_Free
 
 HugePaegs_judge(){
 
-    if [[ ${Hugepagesize} -ne ${Required_Size} || ${HugePages_Total} -lt ${Required_Size} ]]; then
+    if [[ ${Hugepagesize} -ne ${Required_Size} || ${HugePages_Total} -lt ${Required_HugePage } ]]; then
 
         sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz=${Required_Size}kB hugpagesz=${Required_Size}kB hugepages=${Required_HugePage}" && sudo reboot
         # exit 0

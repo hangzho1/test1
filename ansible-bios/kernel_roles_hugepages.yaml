@@ -1,0 +1,5 @@
+- hosts: hangzhouvm
+  become: yes
+  gather_facts: no
+  roles:
+    - phy_hugepages

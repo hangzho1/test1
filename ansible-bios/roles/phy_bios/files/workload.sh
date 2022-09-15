@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-deployDir="/auto_provision_services"
+deployDir="/mnt/auto_provision_services"
 jobId=220
 frontApi="http://10.67.119.211:8899/local/api/job/220/"
 # host machines to be deployed
@@ -50,13 +50,15 @@ kernelArgs_update="false"
 kernelArgs='kernelhugepagesz=1G hugepagesz=1G hugepages=16'
 # bios args
 bios_update="true"
-biosArgs='BIOS_CONFIG: [
-{"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x1"}
-]'
 # biosArgs='BIOS_CONFIG: [
 #   {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
-#   {"knob":"LlcPrefetchEnable" , "prompt": "LLC Prefetch", "value": "0x0"}
+#   {"knob":"LlcPrefetchEnable" , "prompt": "LLC Prefetch", "value": "0x0"},
 # ]'
+biosArgs='BIOS_CONFIG: [
+  {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
+  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"},
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x1"}
+]'
 
 # virtual machine
 vm_deploy="false"
