@@ -58,5 +58,5 @@ vmosArgs:
   disk:  
 sender: tao2.liu@intel.com
 receivers: tao2.liu@intel.com
-Required_HugePage: 5
+Required_HugePage: 9
 Required_Size: 2048

@@ -9023,3 +9023,592 @@ packages/ansible/modules
 2022-09-18 22:02:34,525 p=2595196 u=hangzhou n=ansible | META: ran handlers
 2022-09-18 22:02:34,526 p=2595196 u=hangzhou n=ansible | PLAY RECAP ****************************************************************************************************************
 2022-09-18 22:02:34,526 p=2595196 u=hangzhou n=ansible | 10.219.170.239             : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-18 23:12:43,869 p=2618439 u=hangzhou n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-18 23:12:43,874 p=2618439 u=hangzhou n=ansible |   hosts (4):
+2022-09-18 23:12:43,874 p=2618439 u=hangzhou n=ansible |     10.67.119.66
+2022-09-18 23:12:43,874 p=2618439 u=hangzhou n=ansible |     10.166.32.93
+2022-09-18 23:12:43,874 p=2618439 u=hangzhou n=ansible |     10.219.170.239
+2022-09-18 23:12:43,874 p=2618439 u=hangzhou n=ansible |     10.166.31.106
+2022-09-18 23:13:14,431 p=2618636 u=hangzhou n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-18 23:13:14,435 p=2618636 u=hangzhou n=ansible |   hosts (4):
+2022-09-18 23:13:14,435 p=2618636 u=hangzhou n=ansible |     10.67.119.66
+2022-09-18 23:13:14,435 p=2618636 u=hangzhou n=ansible |     10.166.32.93
+2022-09-18 23:13:14,435 p=2618636 u=hangzhou n=ansible |     10.219.170.239
+2022-09-18 23:13:14,435 p=2618636 u=hangzhou n=ansible |     10.166.31.106
+2022-09-18 23:13:19,559 p=2618677 u=hangzhou n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2022-09-18 23:13:19,563 p=2618677 u=hangzhou n=ansible |   hosts (4):
+2022-09-18 23:13:19,563 p=2618677 u=hangzhou n=ansible |     10.67.119.66
+2022-09-18 23:13:19,563 p=2618677 u=hangzhou n=ansible |     10.166.32.93
+2022-09-18 23:13:19,563 p=2618677 u=hangzhou n=ansible |     10.219.170.239
+2022-09-18 23:13:19,563 p=2618677 u=hangzhou n=ansible |     10.166.31.106
+2022-09-18 23:15:20,605 p=2619375 u=hangzhou n=ansible |   hosts (3):
+2022-09-18 23:15:20,605 p=2619375 u=hangzhou n=ansible |     10.166.32.93
+2022-09-18 23:15:20,606 p=2619375 u=hangzhou n=ansible |     10.219.170.239
+2022-09-18 23:15:20,606 p=2619375 u=hangzhou n=ansible |     10.166.31.106
+2022-09-18 23:21:41,420 p=2621795 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-18 23:21:41,421 p=2621795 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-18 23:21:41,461 p=2621795 u=hangzhou n=ansible | ERROR! the role 'phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - phy_hugepages
+      ^ here
+
+2022-09-18 23:22:10,947 p=2621970 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-18 23:22:10,947 p=2621970 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-18 23:22:10,987 p=2621970 u=hangzhou n=ansible | ERROR! the role 'phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - phy_hugepages
+      ^ here
+
+2022-09-18 23:23:38,298 p=2622622 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-18 23:23:38,299 p=2622622 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-18 23:23:38,339 p=2622622 u=hangzhou n=ansible | ERROR! the role '../phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - ../phy_hugepages
+      ^ here
+
+2022-09-19 01:11:35,806 p=2655362 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:11:35,806 p=2655362 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:11:35,806 p=2655362 u=hangzhou n=ansible | ERROR! the playbook: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml-e could not be found
+2022-09-19 01:11:46,399 p=2655464 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:11:46,399 p=2655464 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:11:46,440 p=2655464 u=hangzhou n=ansible | ERROR! the role '../phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - ../phy_hugepages
+      ^ here
+
+2022-09-19 01:16:08,356 p=2657060 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:16:08,356 p=2657060 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:16:08,356 p=2657060 u=hangzhou n=ansible | ERROR! the playbook: /home/hangzhou/hangz/test.yml could not be found
+2022-09-19 01:16:27,834 p=2657319 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:16:27,835 p=2657319 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:16:27,875 p=2657319 u=hangzhou n=ansible | ERROR! the role '../phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - ../phy_hugepages
+      ^ here
+
+2022-09-19 01:16:40,225 p=2657457 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:16:40,225 p=2657457 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:16:40,265 p=2657457 u=hangzhou n=ansible | ERROR! the role '/phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - /phy_hugepages
+      ^ here
+
+2022-09-19 01:16:48,951 p=2657577 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:16:48,951 p=2657577 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:16:49,023 p=2657577 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:16:49,023 p=2657577 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:16:49,023 p=2657577 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:16:49,023 p=2657577 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:16:49,023 p=2657577 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/test.yml
+2022-09-19 01:16:49,024 p=2657577 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:16:49,031 p=2657577 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:16:49,033 p=2657577 u=hangzhou n=ansible | TASK [phy_hugepages : get HugePages_Total] ***********************************************************************
+2022-09-19 01:16:57,806 p=2657577 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009742", "end": "2022-09-19 00:56:52.681542", "msg": "", "rc": 0, "start": "2022-09-19 00:56:52.671800", "stderr": "", "stderr_lines": [], "stdout": "4", "stdout_lines": ["4"]}
+2022-09-19 01:16:57,809 p=2657577 u=hangzhou n=ansible | TASK [phy_hugepages : get Hugepagesize] **************************************************************************
+2022-09-19 01:17:02,701 p=2657577 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.007989", "end": "2022-09-19 00:56:57.591376", "msg": "", "rc": 0, "start": "2022-09-19 00:56:57.583387", "stderr": "", "stderr_lines": [], "stdout": "1048576", "stdout_lines": ["1048576"]}
+2022-09-19 01:17:02,704 p=2657577 u=hangzhou n=ansible | TASK [phy_hugepages : get HugePages_Free] ************************************************************************
+2022-09-19 01:17:07,558 p=2657577 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.008936", "end": "2022-09-19 00:57:02.450079", "msg": "", "rc": 0, "start": "2022-09-19 00:57:02.441143", "stderr": "", "stderr_lines": [], "stdout": "4", "stdout_lines": ["4"]}
+2022-09-19 01:17:07,561 p=2657577 u=hangzhou n=ansible | TASK [phy_hugepages : Change Hugepages when conditions are met] **************************************************
+2022-09-19 01:17:07,566 p=2657887 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:17:12,216 p=2657577 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 01:17:12,217 p=2657577 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:17:12,217 p=2657577 u=hangzhou n=ansible | 10.166.31.106              : ok=3    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 01:23:34,074 p=2660281 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:23:34,074 p=2660281 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:23:34,114 p=2660281 u=hangzhou n=ansible | ERROR! the role 'phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - phy_hugepages
+      ^ here
+
+2022-09-19 01:28:17,886 p=2661948 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:28:17,886 p=2661948 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:28:17,886 p=2661948 u=hangzhou n=ansible | ERROR! the playbook: /home/hangzhou/hangz/ansible-bios/test.yml could not be found
+2022-09-19 01:28:43,318 p=2662213 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:28:43,318 p=2662213 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:28:43,390 p=2662213 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:28:43,390 p=2662213 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:28:43,390 p=2662213 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:28:43,390 p=2662213 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:28:43,391 p=2662213 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/tests/test.yml
+2022-09-19 01:28:43,391 p=2662213 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:28:43,398 p=2662213 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:28:43,400 p=2662213 u=hangzhou n=ansible | TASK [../roles/phy_hugepages : get HugePages_Total] **************************************************************
+2022-09-19 01:28:52,744 p=2662213 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.005715", "end": "2022-09-19 01:08:14.923102", "msg": "", "rc": 0, "start": "2022-09-19 01:08:14.917387", "stderr": "", "stderr_lines": [], "stdout": "4096", "stdout_lines": ["4096"]}
+2022-09-19 01:28:52,747 p=2662213 u=hangzhou n=ansible | TASK [../roles/phy_hugepages : get Hugepagesize] *****************************************************************
+2022-09-19 01:28:57,631 p=2662213 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.006908", "end": "2022-09-19 01:08:19.814519", "msg": "", "rc": 0, "start": "2022-09-19 01:08:19.807611", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 01:28:57,634 p=2662213 u=hangzhou n=ansible | TASK [../roles/phy_hugepages : get HugePages_Free] ***************************************************************
+2022-09-19 01:29:02,521 p=2662213 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.012592", "end": "2022-09-19 01:08:24.700113", "msg": "", "rc": 0, "start": "2022-09-19 01:08:24.687521", "stderr": "", "stderr_lines": [], "stdout": "4096", "stdout_lines": ["4096"]}
+2022-09-19 01:29:02,523 p=2662213 u=hangzhou n=ansible | TASK [../roles/phy_hugepages : Change Hugepages when conditions are met] *****************************************
+2022-09-19 01:29:02,529 p=2662532 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:29:07,248 p=2662213 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 01:29:07,249 p=2662213 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:29:07,250 p=2662213 u=hangzhou n=ansible | 10.166.31.106              : ok=3    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 01:31:25,423 p=2663656 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:31:25,423 p=2663656 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:31:25,463 p=2663656 u=hangzhou n=ansible | ERROR! the role '../phy_hugepages' was not found in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/roles:/home/hangzhou/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests
+
+The error appears to be in '/home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - ../phy_hugepages
+      ^ here
+
+2022-09-19 01:35:39,606 p=2665214 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:35:39,606 p=2665214 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:35:39,679 p=2665214 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:35:39,679 p=2665214 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:35:39,679 p=2665214 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:35:39,680 p=2665214 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:35:39,680 p=2665214 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 01:35:39,681 p=2665214 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:35:39,687 p=2665214 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:35:39,689 p=2665214 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 01:35:39,731 p=2665214 u=hangzhou n=ansible | fatal: [localhost]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.\r\nhangzhou@localhost: Permission denied (publickey,password).", "unreachable": true}
+2022-09-19 01:35:39,732 p=2665214 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:35:39,732 p=2665214 u=hangzhou n=ansible | localhost                  : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 01:36:08,865 p=2665518 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:36:08,866 p=2665518 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:36:08,937 p=2665518 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:36:08,937 p=2665518 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:36:08,937 p=2665518 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:36:08,937 p=2665518 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:36:08,937 p=2665518 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 01:36:08,938 p=2665518 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:36:08,945 p=2665518 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:36:08,947 p=2665518 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 01:36:18,396 p=2665518 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:36:18,399 p=2665518 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 01:36:24,407 p=2665518 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:36:24,410 p=2665518 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 01:36:30,399 p=2665518 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:36:30,401 p=2665518 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:36:30,406 p=2665844 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:36:36,345 p=2665518 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "sudo grubby --update-kernel=DEFAULT --args=\"default_hugepagesz=2048kB hugpagesz=2048kB hugepages=9\" && reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:36:36,347 p=2665518 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:36:36,353 p=2665938 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ HugePages_Free | int }} < {{ Required_HugePage }}
+
+2022-09-19 01:36:42,297 p=2665518 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:36:42,300 p=2665518 u=hangzhou n=ansible | META: 
+2022-09-19 01:36:42,302 p=2665518 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:36:42,304 p=2665518 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:36:42,305 p=2665518 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:36:42,305 p=2665518 u=hangzhou n=ansible | 10.166.31.106              : ok=0    changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2022-09-19 01:37:53,463 p=2666434 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:37:53,463 p=2666434 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:37:53,536 p=2666434 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:37:53,536 p=2666434 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:37:53,536 p=2666434 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:37:53,536 p=2666434 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:37:53,536 p=2666434 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 01:37:53,537 p=2666434 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:37:53,544 p=2666434 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:37:53,546 p=2666434 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 01:38:02,111 p=2666434 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.006587", "end": "2022-09-19 01:17:24.451982", "msg": "", "rc": 0, "start": "2022-09-19 01:17:24.445395", "stderr": "", "stderr_lines": [], "stdout": "19", "stdout_lines": ["19"]}
+2022-09-19 01:38:02,114 p=2666434 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 01:38:06,967 p=2666434 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.006736", "end": "2022-09-19 01:17:29.286333", "msg": "", "rc": 0, "start": "2022-09-19 01:17:29.279597", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 01:38:06,970 p=2666434 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 01:38:11,844 p=2666434 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009759", "end": "2022-09-19 01:17:34.178517", "msg": "", "rc": 0, "start": "2022-09-19 01:17:34.168758", "stderr": "", "stderr_lines": [], "stdout": "19", "stdout_lines": ["19"]}
+2022-09-19 01:38:11,846 p=2666434 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:38:11,852 p=2666877 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:38:16,680 p=2666434 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 01:38:16,681 p=2666434 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:38:16,681 p=2666434 u=hangzhou n=ansible | 10.166.31.106              : ok=3    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 01:54:38,906 p=2672555 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:54:38,906 p=2672555 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:54:38,951 p=2672555 u=hangzhou n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be 
+removed in version 2.16. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2022-09-19 01:54:38,952 p=2672555 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml
+2022-09-19 01:54:38,970 p=2672555 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 01:54:38,980 p=2672555 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:54:38,980 p=2672555 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:54:38,980 p=2672555 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:54:38,980 p=2672555 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:54:38,980 p=2672555 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 01:54:38,981 p=2672555 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:54:38,989 p=2672555 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:54:38,991 p=2672555 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 01:54:48,728 p=2672555 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:54:48,731 p=2672555 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 01:54:54,994 p=2672555 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:54:54,997 p=2672555 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 01:55:01,266 p=2672555 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:55:01,269 p=2672555 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:55:01,274 p=2672883 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:55:07,549 p=2672555 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "sudo grubby --update-kernel=DEFAULT --args=\"default_hugepagesz=1058576kB hugpagesz=1058576kB hugepages=5\" && reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:55:07,552 p=2672555 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:55:07,557 p=2672960 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ HugePages_Free | int }} < {{ Required_HugePage }}
+
+2022-09-19 01:55:13,767 p=2672555 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 01:55:13,769 p=2672555 u=hangzhou n=ansible | META: 
+2022-09-19 01:55:13,771 p=2672555 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:55:13,773 p=2672555 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:55:13,774 p=2672555 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:55:13,774 p=2672555 u=hangzhou n=ansible | 10.166.31.106              : ok=0    changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2022-09-19 01:56:00,342 p=2673436 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 01:56:00,343 p=2673436 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 01:56:00,387 p=2673436 u=hangzhou n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be 
+removed in version 2.16. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2022-09-19 01:56:00,388 p=2673436 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml
+2022-09-19 01:56:00,406 p=2673436 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 01:56:00,416 p=2673436 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 01:56:00,416 p=2673436 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 01:56:00,416 p=2673436 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 01:56:00,416 p=2673436 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 01:56:00,416 p=2673436 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 01:56:00,417 p=2673436 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 01:56:00,425 p=2673436 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 01:56:00,427 p=2673436 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 01:56:06,829 p=2673436 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.008475", "end": "2022-09-19 01:35:29.595387", "msg": "", "rc": 0, "start": "2022-09-19 01:35:29.586912", "stderr": "", "stderr_lines": [], "stdout": "9", "stdout_lines": ["9"]}
+2022-09-19 01:56:06,832 p=2673436 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 01:56:11,802 p=2673436 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.012547", "end": "2022-09-19 01:35:34.573291", "msg": "", "rc": 0, "start": "2022-09-19 01:35:34.560744", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 01:56:11,805 p=2673436 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 01:56:16,741 p=2673436 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.012404", "end": "2022-09-19 01:35:39.515811", "msg": "", "rc": 0, "start": "2022-09-19 01:35:39.503407", "stderr": "", "stderr_lines": [], "stdout": "9", "stdout_lines": ["9"]}
+2022-09-19 01:56:16,744 p=2673436 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 01:56:16,749 p=2673714 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 01:56:21,522 p=2673436 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 01:56:21,523 p=2673436 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 01:56:21,523 p=2673436 u=hangzhou n=ansible | 10.166.31.106              : ok=3    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 02:08:05,674 p=2677905 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 02:08:05,674 p=2677905 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 02:08:05,719 p=2677905 u=hangzhou n=ansible | [DEPRECATION WARNING]: "include" is deprecated, use include_tasks/import_tasks instead. This feature will be 
+removed in version 2.16. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2022-09-19 02:08:05,720 p=2677905 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml
+2022-09-19 02:08:05,738 p=2677905 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 02:08:05,748 p=2677905 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 02:08:05,748 p=2677905 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 02:08:05,748 p=2677905 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 02:08:05,748 p=2677905 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 02:08:05,748 p=2677905 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 02:08:05,749 p=2677905 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 02:08:05,757 p=2677905 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:08:05,759 p=2677905 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 02:08:15,196 p=2677905 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 02:08:15,198 p=2677905 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 02:08:21,253 p=2677905 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 02:08:21,256 p=2677905 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 02:08:27,313 p=2677905 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 02:08:27,315 p=2677905 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 02:08:27,321 p=2678251 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 02:08:33,405 p=2677905 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "sudo grubby --update-kernel=DEFAULT --args=\"default_hugepagesz=2048kB hugpagesz=2048kB hugepages=9\" && reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 02:08:33,408 p=2677905 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 02:08:33,413 p=2678338 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ HugePages_Free | int }} < {{ Required_HugePage }}
+
+2022-09-19 02:08:39,497 p=2677905 u=hangzhou n=ansible | skipping: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "reboot", "delta": null, "end": null, "msg": "Command would have run if not in check mode", "rc": 0, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2022-09-19 02:08:39,500 p=2677905 u=hangzhou n=ansible | META: 
+2022-09-19 02:08:39,502 p=2677905 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:08:39,504 p=2677905 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:08:39,505 p=2677905 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 02:08:39,505 p=2677905 u=hangzhou n=ansible | 10.166.31.106              : ok=0    changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2022-09-19 02:13:09,671 p=2680103 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 02:13:09,672 p=2680103 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 02:13:09,717 p=2680103 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 02:13:09,743 p=2680103 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 02:13:09,743 p=2680103 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 02:13:09,743 p=2680103 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 02:13:09,744 p=2680103 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 02:13:09,744 p=2680103 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 02:13:09,744 p=2680103 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 02:13:09,751 p=2680103 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:13:09,753 p=2680103 u=hangzhou n=ansible | TASK [../../phy_hugepages : include_tasks] ***********************************************************************
+2022-09-19 02:13:09,763 p=2680103 u=hangzhou n=ansible | included: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml for 10.166.31.106
+2022-09-19 02:13:09,766 p=2680103 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 02:13:18,638 p=2680103 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.006707", "end": "2022-09-19 01:52:40.538894", "msg": "", "rc": 0, "start": "2022-09-19 01:52:40.532187", "stderr": "", "stderr_lines": [], "stdout": "0", "stdout_lines": ["0"]}
+2022-09-19 02:13:18,640 p=2680103 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 02:13:23,671 p=2680103 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.008481", "end": "2022-09-19 01:52:45.574079", "msg": "", "rc": 0, "start": "2022-09-19 01:52:45.565598", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 02:13:23,674 p=2680103 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 02:13:28,683 p=2680103 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009629", "end": "2022-09-19 01:52:50.583967", "msg": "", "rc": 0, "start": "2022-09-19 01:52:50.574338", "stderr": "", "stderr_lines": [], "stdout": "0", "stdout_lines": ["0"]}
+2022-09-19 02:13:28,686 p=2680103 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 02:13:28,691 p=2680424 u=hangzhou n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:
+{{ Hugepagesize | int }}  != {{ Required_Size }} or {{ HugePages_Total | int }} < {{ Required_Size }}
+
+2022-09-19 02:13:33,616 p=2680103 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 02:13:33,617 p=2680103 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 02:13:33,617 p=2680103 u=hangzhou n=ansible | 10.166.31.106              : ok=4    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 02:20:25,364 p=2683150 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 02:20:25,365 p=2683150 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 02:20:25,411 p=2683150 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 02:20:25,437 p=2683150 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 02:20:25,437 p=2683150 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 02:20:25,437 p=2683150 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 02:20:25,437 p=2683150 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 02:20:25,437 p=2683150 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 02:20:25,438 p=2683150 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 02:20:25,445 p=2683150 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:20:25,447 p=2683150 u=hangzhou n=ansible | TASK [../../phy_hugepages : include_tasks] ***********************************************************************
+2022-09-19 02:20:25,456 p=2683150 u=hangzhou n=ansible | included: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml for 10.166.31.106
+2022-09-19 02:20:25,459 p=2683150 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 02:20:41,462 p=2683150 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009845", "end": "2022-09-19 02:00:03.455073", "msg": "", "rc": 0, "start": "2022-09-19 02:00:03.445228", "stderr": "", "stderr_lines": [], "stdout": "9", "stdout_lines": ["9"]}
+2022-09-19 02:20:41,465 p=2683150 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 02:20:46,456 p=2683150 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.011170", "end": "2022-09-19 02:00:08.462110", "msg": "", "rc": 0, "start": "2022-09-19 02:00:08.450940", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 02:20:46,459 p=2683150 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 02:20:51,449 p=2683150 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009500", "end": "2022-09-19 02:00:13.471317", "msg": "", "rc": 0, "start": "2022-09-19 02:00:13.461817", "stderr": "", "stderr_lines": [], "stdout": "9", "stdout_lines": ["9"]}
+2022-09-19 02:20:51,451 p=2683150 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 02:20:56,400 p=2683150 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 02:20:56,401 p=2683150 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 02:20:56,401 p=2683150 u=hangzhou n=ansible | 10.166.31.106              : ok=4    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2022-09-19 02:22:31,056 p=2684157 u=hangzhou n=ansible | ansible-playbook [core 2.12.2]
+  config file = /home/hangzhou/ansible.cfg
+  configured module search path = ['/home/hangzhou/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/hangzhou/.ansible/collections:/usr/share/ansible/collections
+  executable location = /bin/ansible-playbook
+  python version = 3.8.12 (default, Apr 24 2022, 17:56:33) [GCC 8.5.0 20210514 (Anolis 8.5.0-10.0.1)]
+  jinja version = 2.10.3
+  libyaml = True
+2022-09-19 02:22:31,056 p=2684157 u=hangzhou n=ansible | Using /home/hangzhou/ansible.cfg as config file
+2022-09-19 02:22:31,102 p=2684157 u=hangzhou n=ansible | statically imported: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/check_remote_hugepages.yml
+2022-09-19 02:22:31,129 p=2684157 u=hangzhou n=ansible | Skipping callback 'default', as we already have a stdout callback.
+2022-09-19 02:22:31,129 p=2684157 u=hangzhou n=ansible | Skipping callback 'minimal', as we already have a stdout callback.
+2022-09-19 02:22:31,129 p=2684157 u=hangzhou n=ansible | Skipping callback 'oneline', as we already have a stdout callback.
+2022-09-19 02:22:31,129 p=2684157 u=hangzhou n=ansible | PLAYBOOK: test.yml ***********************************************************************************************
+2022-09-19 02:22:31,129 p=2684157 u=hangzhou n=ansible | 1 plays in /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tests/test.yml
+2022-09-19 02:22:31,130 p=2684157 u=hangzhou n=ansible | PLAY [hangzhouvm] ************************************************************************************************
+2022-09-19 02:22:31,137 p=2684157 u=hangzhou n=ansible | META: ran handlers
+2022-09-19 02:22:31,139 p=2684157 u=hangzhou n=ansible | TASK [../../phy_hugepages : include_tasks] ***********************************************************************
+2022-09-19 02:22:31,148 p=2684157 u=hangzhou n=ansible | included: /home/hangzhou/hangz/ansible-bios/roles/phy_hugepages/tasks/local_hugepages.yml for 10.166.31.106
+2022-09-19 02:22:31,151 p=2684157 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Total] *****************************************************************
+2022-09-19 02:22:40,656 p=2684157 u=hangzhou n=ansible | changed: [10.166.31.106] => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "changed": true, "cmd": "grep HugePages_Total /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.013401", "end": "2022-09-19 02:02:02.476737", "msg": "", "rc": 0, "start": "2022-09-19 02:02:02.463336", "stderr": "", "stderr_lines": [], "stdout": "0", "stdout_lines": ["0"]}
+2022-09-19 02:22:40,658 p=2684157 u=hangzhou n=ansible | TASK [../../phy_hugepages : get Hugepagesize] ********************************************************************
+2022-09-19 02:22:45,606 p=2684157 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep Hugepagesize /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.006344", "end": "2022-09-19 02:02:07.445601", "msg": "", "rc": 0, "start": "2022-09-19 02:02:07.439257", "stderr": "", "stderr_lines": [], "stdout": "2048", "stdout_lines": ["2048"]}
+2022-09-19 02:22:45,609 p=2684157 u=hangzhou n=ansible | TASK [../../phy_hugepages : get HugePages_Free] ******************************************************************
+2022-09-19 02:22:50,635 p=2684157 u=hangzhou n=ansible | changed: [10.166.31.106] => {"changed": true, "cmd": "grep HugePages_Free /proc/meminfo | awk '{print $2}'", "delta": "0:00:00.009045", "end": "2022-09-19 02:02:12.452944", "msg": "", "rc": 0, "start": "2022-09-19 02:02:12.443899", "stderr": "", "stderr_lines": [], "stdout": "0", "stdout_lines": ["0"]}
+2022-09-19 02:22:50,638 p=2684157 u=hangzhou n=ansible | TASK [../../phy_hugepages : Change Hugepages when conditions are met] ********************************************
+2022-09-19 02:22:58,943 p=2684157 u=hangzhou n=ansible | fatal: [10.166.31.106]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Shared connection to 10.166.31.106 closed.", "unreachable": true}
+2022-09-19 02:22:58,944 p=2684157 u=hangzhou n=ansible | PLAY RECAP *******************************************************************************************************
+2022-09-19 02:22:58,944 p=2684157 u=hangzhou n=ansible | 10.166.31.106              : ok=4    changed=3    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
