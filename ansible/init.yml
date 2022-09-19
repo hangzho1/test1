@@ -1,4 +1,6 @@
 - hosts: biostest
+  # become: true
+  gather_facts: no
   vars: 
     XMLCLIREPO: github.com/intel-innersource/applications.validation.platform-automation.xmlcli.xmlcli
     REPOTOKEN: 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
@@ -9,35 +11,52 @@
     - /home/hangzhou/hangz/ansible-bios/roles/phy_bios/vars/main.yml
 
   tasks:
-    - name: Create a directory if it does not exist
-      file:
-        path: "{{ deployDirTest }}/bios"
-        # path: "/mnt/aaa/bios"
-        state: directory
+    # - name: Create a directory if it does not exist
+    #   file:
+    #     path: "{{ deployDirTest }}/bios"
+    #     # path: "/mnt/aaa/bios"
+    #     state: directory
 
 
     - name: update bios
       shell: cd "{{ deployDirTest }}/bios";touch c.txt a.txt b.txt;pwd
       register: shell_result
       # register: shell_result
-    - debug:
-        msg: "{{shell_result}}"
+    # - debug:
+    #     msg: "{{shell_result}}"
 
-    - name: test load
-      file:
-        path: a.txt
-        # path: "/mnt/aaa/bios"
-        state: absent
+    # - name: test load
+    #   file:
+    #     # chdir: "{{ deployDirTest }}/bios"
+    #     path: "{{ deployDirTest }}/bios/a.txt"
+    #     # path: "/mnt/aaa/bios"
+    #     state: absent
+
+
+      
+    - name: Ansible check file exists.
+      stat:
+        path: "{{ deployDirTest }}/bios/{{ BIOSREPONAME }}"
+      register: p
+
 
     - name: check BIOSManager repo ##难道每次运行的时候必须重新进入,还真是，我服了这个老六
       shell: cd "{{ deployDirTest }}/bios";rm -rf "{{ BIOSREPONAME }}";rm -rf c.txt
       # shell: rm -rf "{{ BIOSREPONAME }}";rm -rf c.txt
       # command: rm -rf "$BIOREPONAME" #使用command失败，说明还是得用shell脚本比较好
-      when: BIOSREPONAME is exists
+      when: p.stat.exists
+      # when: "{{ deployDirTest }}/bios/BIOSManager" is exists
+
 
     - name: check xmlclirepo ##为什么这里一直skipping
-      shell: cd "{{ deployDirTest }}/bios";rm -rf "{{ XMLCLIREPONAME }}";rm -rf b.txt
-      when: XMLCLIREPONAME is exists
+      # shell: cd "{{ deployDirTest }}/bios";rm -rf "{{ XMLCLIREPONAME }}";rm -rf b.txt
+      # when: XMLCLIREPONAME is exists
+      shell: |
+        cd "{{ deployDirTest }}/bios";
+        if [ -d "$XMLCLIREPONAME" ];then
+          rm -rf b.txt
+        fi
+
       
 
     

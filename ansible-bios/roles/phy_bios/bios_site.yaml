@@ -1,4 +1,0 @@
-- hosts: biostest
-  become: yes
-  roles:
-    - phy_bios
