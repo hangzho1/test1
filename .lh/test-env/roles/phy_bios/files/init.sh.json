@@ -1,0 +1,22 @@
+{
+    "sourceFile": "test-env/roles/phy_bios/files/init.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1663031548499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663031551126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n \tcd \"./$XMLCLIREPONAME\"\n \tcp -r \"./modules\" \"../$BIOSREPONAME\"\n \tcp -r \"./src\" \"../$BIOSREPONAME\"\n \n-}\n+}ch9\n \n Init\n \n"
+                }
+            ],
+            "date": 1663031548499,
+            "name": "Commit-0",
+            "content": "#!/usr/bin/env bash\n\nREPOTOKEN=\"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\"\nXMLCLIREPO=\"github.com/intel-innersource/applications.validation.platform-automation.xmlcli.xmlcli\"\nBIOSMANAGERREPO=\"github.com/intel-sandbox/BIOSManager.git\"\nfunction Init() {\n\tBIOSREPONAME=\"BIOSManager\"\n\tXMLCLIREPONAME=\"xmlclirepo\"\n\tif [ -d \"$BIOSREPONAME\" ];then\n\t\trm -rf \"$BIOSREPONAME\"\n\tfi\n\tif [ -d \"$XMLCLIREPONAME\" ];then\n\t\trm -rf \"$XMLCLIREPONAME\"\n\tfi\n\tgit clone https://oauth2:\"$REPOTOKEN\"@\"$BIOSMANAGERREPO\"\n\tcd \"$BIOSREPONAME\"\n\tgit switch auto_provision\n\tmkdir log\n\tcp \"../runinconda.sh\" \"./\"\n\t#pip3 install -r requirements.txt\n\tcd -\n\tsource\t\"./workload.sh\"\n\techo \"$biosArgs\" > \"./$BIOSREPONAME/config.yaml\"\n\n\tgit clone https://oauth2:\"$REPOTOKEN\"@\"$XMLCLIREPO\" \"$XMLCLIREPONAME\"\n\tcd \"./$XMLCLIREPONAME\"\n\tcp -r \"./modules\" \"../$BIOSREPONAME\"\n\tcp -r \"./src\" \"../$BIOSREPONAME\"\n\n}\n\nInit\n\n"
+        }
+    ]
+}

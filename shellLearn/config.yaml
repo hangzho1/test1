@@ -1,0 +1,4 @@
+BIOS_CONFIG: [
+{knob:ProcessorX2apic , prompt: Enable/disable extended APIC support, value: 0x0},
+{knob: SncEn, prompt: SNCdafdsfa (Sub NUMA), value: 0x04}
+]

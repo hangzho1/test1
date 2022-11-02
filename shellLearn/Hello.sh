@@ -69,3 +69,7 @@
 
 
 
+echo "BIOS_CONFIG: [" > config.yaml
+echo "{"knob":"ProcessorX2apic" , "prompt": "Enable/disable extended APIC support", "value": "0x0"}" >>config.yaml
+echo        {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x04"}, >>config.yaml
+echo "]" >> config.yaml

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "test-env/roles/phy_bios/vars/main.yml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1663031160868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1663031160868,
+            "name": "Commit-0",
+            "content": "deployDir: /auto_provision_services\njobId: 220\nfrontApi: \"http://10.67.119.211:8899/local/api/job/220/\"\ndeployHost:\n   - name: controller\n     ansible_host: 10.67.126.102\n     ip: 10.67.126.102\n     username: root\n     hostname: hostname\n     password: intel123\n   - name: node1\n     ansible_host: 10.67.126.81\n     ip: 10.67.126.81\n     username: root\n     hostname: hostname\n     password: intel123\nkubernetes_deploy: true\nkubernetesInstallMethod: host \nkubernetesArgs:\n  kube_version: 1.23.5  \n  kube_network_plugin:  calico \n  container_manager: docker \n  dashboard_enabled: false \n  helm_enabled: false \n  registry_enabled: false \n  ingress_nginx_enabled: false \n  ingress_nginx_host_network: false \n  krew_enabled: false\njenkins: true\nworkloadName: Kafka\njsfRepo: https://github.com/jo5Liu/applications.benchmarking.benchmark.platform-hero-features.git\ncommit: 7914f4f\nfilterCase: \"pkm\"\nregistry: 10.166.44.56:5000\nplatforms: ICX\nsoftwarepackage: \"false\"\nsoftwarePackageArgs:\n\nsystem_deploy: true\nos_update: false\nos: \nKernel_update: false\nkernelVersion: 5.8           \nkernelArgs_update: false\nkernelArgs: 'kernelhugepagesz=1G hugepagesz=1G hugepages=16'\nbios_update: true\nbiosArgs:\n  - {VTdSupport Intel(R) VT for Directed I/O 0x0}\n  - {LlcPrefetchEnable LLC Prefetch 0x0}\nvm_deploy: \"false\"\nvm_docker: \"\"\nvmosArgs:\n  osNumber: \"\" \n  osType: \"\" \n  vmName: \"\" \n  memory: \"\"\n  cpuNumber: \n  disk:  \nsender: tao2.liu@intel.com\nreceivers: tao2.liu@intel.com \n"
+        }
+    ]
+}

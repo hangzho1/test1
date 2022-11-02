@@ -1,0 +1,18 @@
+{
+    "sourceFile": "test-env/roles/phy_bios/files/runinconda.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1663034247214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1663034247214,
+            "name": "Commit-0",
+            "content": "#!/usr/bin/env bash\n\nset -x\n\nENVNAME=\"bios\"\nREQUIREMENTSFILE=\"requirements.txt\"\n#./run.sh --set <Path to Config yaml> [-nc/--no-create] [-rd/--restore-default]\nEXECCMD='./run.sh --set \"config.yaml\"'\n\n\nUSER=$(whoami)\n#USER=\"xianglingyu\"\n#INSTALLDIR=\"/$USER/miniconda\"\nINSTALLDIR=\"/miniconda\"\nBASHRC=\"/$USER/.bashrc\"\nif [ \"$USER\" != \"root\" ]; then\n\tINSTALLDIR=\"/home$INSTALLDIR\"\n\tBASHRC=\"/home$BASHRC\"\nfi\n\nMINICONDAPATH=\"$INSTALLDIR/bin/activate\"\n\nfunction InstallMiniconda () {\n\tlocal SCRIPTNAME=\"Miniconda_Install.sh\"\n\tlocal DOWNLOADURL=\"https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh\"  \n\twget --output-document \"$SCRIPTNAME\" \"$DOWNLOADURL\"\n\tbash Miniconda_Install.sh -b -f -p \"$INSTALLDIR\" \n\tcd \"$INSTALLDIR/bin\"\n\t./conda init\n\tcd -\n\tsource \"$BASHRC\"\n\techo \"$BASHRC\"\n}\n\nfunction CreateEnv () {\n\tsource \"$MINICONDAPATH\"\n\tconda create --name \"$ENVNAME\" -y\n\tsource \"$MINICONDAPATH\"\n\tconda activate \"$ENVNAME\"\n\tsource \"$MINICONDAPATH\"\n\t#createStatus=$(conda info --envs | awk -F' ' '{print $1}' | grep \"$ENVNAME\")\n\tpip3 install -r \"$REQUIREMENTSFILE\"\n\tpip3 list > result.txt\n\techo \"create env successed\"\t\n\tpython --version\n\teval \"$EXECCMD\"\n}\n\nfunction CheckEnv () {\n\t#source \"$MINICONDAPATH\"\n        if ! command -v conda >/dev/null 2>&1; then                  \n                echo \"start install miniconda......\"               \n\t\tInstallMiniconda\n        fi    \n}                 \n\nCheckEnv\nCreateEnv\n"
+        }
+    ]
+}
