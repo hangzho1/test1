@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: wordpress
+    role: website
+  name: wp-pod
+spec:
+  containers:
+  - image: wordpress:5
+    name: wp-pod
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 80
+    envFrom:
+    - prefix: 'WORDPRESS_DB_'
+      configMapRef:
+        name: wp-cm
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

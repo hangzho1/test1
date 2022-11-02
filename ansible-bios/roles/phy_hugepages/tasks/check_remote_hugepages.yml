@@ -1,8 +1,8 @@
 - name: Change Hugepages when conditions are met
-  shell: sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz={{ Required_Size }}kB hugpagesz={{ Required_Size }}kB hugepages={{ Required_HugePage }}" && reboot
-  when:  (Hugepagesize | int != Required_Size) or (HugePages_Total | int < Required_Size)
+  shell: sudo grubby --update-kernel=DEFAULT --args="default_hugepagesz={{ Required_Size }}kB hugpagesz={{ Required_Size }}kB hugepages={{ Required_HugePage }}"
+  when: (Hugepagesize | int != Required_Size) or (HugePages_Total | int < Required_Size)
 
 
-- name: Change Hugepages when conditions are met
-  shell:  reboot
-  when: HugePages_Free | int < Required_HugePage
+# - name: Check HugePages_Free
+#   shell: reboot
+#   when: HugePages_Free | int < Required_HugePage | int

@@ -1,2 +1,0 @@
-- name: start service 
-  service: name=httpd state=started enabled=yes

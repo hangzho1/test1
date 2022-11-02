@@ -1,2 +1,0 @@
-- name: install package
-  yum: name=nginx

@@ -3,4 +3,6 @@
   become: yes
   gather_facts: no
   roles:
-    - ../../phy_hugepages
+    - {role: ../../phy_hugepages,Required_HugePage: 5,Required_Size: 2048}
+    # - role: ../../phy_hugepages
+

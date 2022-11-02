@@ -1,5 +1,0 @@
-- include: group.yml
-- include: user.yml
-- include: install_package.yml
-- include: templ.yml
-- include: start.yml

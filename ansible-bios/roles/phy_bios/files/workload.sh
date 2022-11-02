@@ -55,14 +55,19 @@ bios_update="true"
 #   {"knob":"LlcPrefetchEnable" , "prompt": "LLC Prefetch", "value": "0x0"},
 # ]'
 biosArgs='BIOS_CONFIG: [
-  {"knob":"ProcessorX2apic" , "prompt": "Enable/disable extended APIC support", "value": "0x0"},
-  {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
-  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x0"},
-  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x01"},
-  {"knob": "SncEn", "prompt": "SNC (Sub NUMA)", "value": "0x04"},
-  {"knob": "PcieEnqCmdSupport", "prompt": "PCIe ENQCMD/ENQCMDS", "value": "0x00"}
+
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x01"}
 
 ]'
+# biosArgs='BIOS_CONFIG: [
+#   {"knob":"ProcessorX2apic" , "prompt": "Enable/disable extended APIC support", "value": "0x0"},
+#   {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"},
+#   {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x0"},
+#   {"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x01"},
+#   {"knob": "SncEn", "prompt": "SNC (Sub NUMA)", "value": "0x04"},
+#   {"knob": "PcieEnqCmdSupport", "prompt": "PCIe ENQCMD/ENQCMDS", "value": "0x00"}
+
+# ]'
 
 # virtual machine
 vm_deploy="false"

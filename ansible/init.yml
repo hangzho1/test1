@@ -57,6 +57,29 @@
           rm -rf b.txt
         fi
 
-      
 
+
+---
+# 删除某些文件
+- name: Ansible check file exists.
+  stat:
+    path: "{{ deployDirTest }}/bios/{{ BIOSREPONAME }}"
+  register: p
+
+- name: check BIOSManager repo ##难道每次运行的时候必须重新进入,还真是，我服了这个老六
+  shell: cd "{{ deployDirTest }}/bios";rm -rf "{{ BIOSREPONAME }}";rm -rf c.txt
+  file:
+    path: /etc/sysctl.d/99-wsf-sysctls.conf
+    state: absent
+  when: p.stat.exists
+
+      
+## 一种 可以再这里循环一个一个的弄(相当于循环多个,这种可以实现，但是不方便，另一种把所有的参数解析好)
+- name: copy files from local to remote
+  shell: |
+    cd "{{ deployDir }}/bios"
+    echo "BIOS_CONFIG: {{ BIOS_CONFIG }}" > config.yaml
+  with_items(loop):
+    - spec1
+    - spec2
     
