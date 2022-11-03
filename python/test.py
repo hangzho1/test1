@@ -764,8 +764,8 @@ import yaml
 
 
 
-# a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", "r"))
-# print(a)
+a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", "r"))
+print(a)
 # print("============================================")
 # b=a.get("BIOS_CONFIG")
 # print(b)
