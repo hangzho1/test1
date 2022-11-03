@@ -1,0 +1,191 @@
+
+
+
+# - hosts: hangzhou-test
+#   tasks:
+#     - name: create log file
+#       file: name=/home/hangzhou/{{ ansible_test }} state=touch
+
+
+# '''
+# 复制远程文件
+# - hosts: hangzhouvm
+#   remote_user: sfdev
+#   gather_facts: no
+#   vars:
+#     abe: 100
+#   tasks: 
+
+#     # - name: copy log file
+#     #   copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang/
+#     # - name: run shell
+#     #   shell: cd /home/sfdev/hang; chmod +x *.sh; ./HugePages.sh 3 1048576
+
+#     # - shell: echo {{ abe }} #true
+#     # - shell: echo {{abe}} #true
+#     # - shell: echo "{{ abe }}" #true
+#     # - shell: echo "{{abe}}" #true
+#     - name: dect aa 
+#       shell: . /etc/os-release; echo $PWD #false
+#         # cmd: echo {{ abe }} #false
+#         # cmd: ". /etc/os-release; echo $ID" #false
+#       register: return_value
+#       ignore_errors: true
+#       # msg: return_valu
+
+#     - name: get HugePages_Total
+#       shell: grep HugePages_Total /proc/meminfo | awk '{print $2}'
+#       register: HugePages_Total
+
+      
+#     - name: test vars and when
+#       shell: "ls -ahl"
+#       when: "{{ HugePages_Total | int }} < {{ abe }}" #true
+#       # when: "{{ HugePages_Total | int }} < {{abe}}" true
+#       # when: "{{ HugePages_Total | int }} < abe" #true
+#       # when: HugePages_Total.stdout | int < abe #true
+#       # when: HugePages_Total.stdout < abe #false
+#       register: testwhen
+#     - debug:
+#         msg: "{{testwhen}}"
+#     - debug:
+#         # msg: "{{ return_value }}" ## true
+#         msg: "{{return_value}}" ## true
+#     - debug: 
+#         msg: "{{ HugePages_Total }}"
+#         # msg: {{ return_value }} ## false
+#         # msg: {{return_value}} ## false
+
+
+
+#     # - name: copy shell file
+#     #   script: /home/sfdev/hangz/shellLearn/HugePages.sh 2 2048
+
+
+#       # copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang
+
+# - hosts: biostest
+#   remote_user: sfdev
+#   gather_facts: true
+#   vars:
+#     abe: 100
+#     users: 
+#       alice: female 
+#       bob: male
+#   tasks: 
+#     - debug:
+#         msg: "{{item.key}} is {{item.value}}"
+#       # with_dict: "{{users}}"
+#       loop: "{{lookup('dict',users)}}"
+#       when: ansible_distribution_version <= "8"
+
+
+    # - name: testdasf
+    #   shell: |
+    #       echo {{abe}}
+    #       echo {{abc}}
+    #   register: return_value
+    #   when: ansible_os_family == "RedHat"
+    # - block:
+    #   - debug:
+    #       msg: "{{return_value}}"
+    #   - debug:
+    #       msg: "{{return_value.rc}}"
+    #   - debug:
+    #       msg: "{{return_value.stdout}}"
+    #   - debug:
+    #       msg: "{{return_value.stdout_lines}}"
+    #   - debug:
+    #       msg: "{{return_value.stdout_lines[1]}}"
+    #   when: return_value.rc == 0
+    
+
+
+---
+- hosts: hangzhouvm
+  become: yes
+  gather_facts: no
+  tasks:
+  # - debug:
+  #     msg: "I execute normally"
+  #   become: yes
+  # - shell: "echo 'This is a string for testing error'"
+  #   register: return_value
+  #   failed_when: '"error" in return_value.stdout'
+  #   ignore_errors: yes
+  # - debug:
+  #     msg: "{{ return_value}}"
+
+  # - shell: "echo 'Tdfadfdsfdsa'"
+  #   failed_when: 'error in return_value.stdout'
+
+  # - debug:
+  #     msg: "I never execute,Because the playbook has stopped"
+
+
+
+  - name: test shell
+    shell: |
+      # cd ~
+      ls -ahl
+      # echo "dafdf" 
+      ls dafsdfsadf
+      ls dfasf
+      pwd
+    register: return_va
+    delegate_to: localhost
+    # failed_when: false
+    ignore_errors: true
+  - debug:
+      msg: "{{return_va}}"
+
+
+
+  - name: test 2
+    shell:  echo "dafdf";ls dfasf;pwd
+    register: return_va
+    delegate_to: localhost
+    failed_when: false
+
+  - debug:
+      msg: "{{return_va}}"
+
+
+  - name: reboot
+    command: "reboot"
+    async: 1
+    poll: 0
+    when: 
+
+    become: yes
+
+  - name: wait for the machine to come back
+    wait_for_connection:
+      connect_timeout: 10
+      sleep: 5
+      delay: 5
+      timeout: 900
+  - debug:
+      msg: "{{return_va}}"
+
+
+  - debug:
+      msg: "hello world"
+
+
+
+
+
+# ---
+
+# - hosts: hangzhouvm
+#   become: yes
+#   gather_facts: no
+#   tasks:
+#   - debug:
+#       msg: "index is {{item.0}} , value is {{item.1}}"
+#     with_indexed_items: ['a','b','c']
+
+#   - debug:
+#       msg: "index is {{item.0}} , value is {{item.1}}"
+#     loop: "{{ lookup('indexed_items',['a','b','c']) }}"

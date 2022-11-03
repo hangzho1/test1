@@ -6,7 +6,7 @@ ENVNAME="bios"
 REQUIREMENTSFILE="requirements.txt"
 #./run.sh --set <Path to Config yaml> [-nc/--no-create] [-rd/--restore-default]
 EXECCMD='./run.sh --set "config.yaml"'
-# EXECCMD='./run.sh --search "Hyper"'
+# EXECCMD='./run.sh --search "ProcessorHyperThreadingDisable"'
 
 
 USER=$(whoami)

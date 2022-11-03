@@ -1,4 +1,5 @@
 - hosts: biostest
   become: yes
+  gather_facts: no
   roles:
     - phy_bios

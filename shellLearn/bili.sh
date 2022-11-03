@@ -56,3 +56,16 @@ for IP in $ABNORMAL_IP; do
         echo "$(date +'%F_%T') $IP" >> /tmp/drop_ip.log
     fi
 done
+# echo
+# echo -e "\tMenu\n"
+# echo -e "1. Install Nginx" &&echo -e "2. Installdfsa PdfsHP"
+# echo -e "3. Install MySQL"
+# echo -e "4. Deploy LNMP"
+# echo -e "9. Quit"
+
+
+
+
+#!/usr/bin/env bash
+
+pwd

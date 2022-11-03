@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    app: wordpress
+    role: database 
+  name: maria-pod
+spec:
+  containers:
+  - image: mariadb:10
+    name: maria
+    imagePullPolicy: IfNotPresent
+    ports:
+    - containerPort: 3306
+    resources: {}
+
+    envFrom:  #envFrom字段相比env.valueFrom就是可以批量导入设置，并且能弄一下前缀
+    - prefix: 'MARIADB_'
+      configMapRef:
+        name: maria-cm
+  dnsPolicy: ClusterFirst  ## 默认政策
+  restartPolicy: Always
+status: {}
+
+

@@ -1,4 +1,5 @@
-deployDir: /home/hangzho1/auto_provision_services
+deployDir: /auto_provision_services
+# deployDir: /home/hangzho1/auto_provision_services
 jobId: 220
 frontApi: "http://10.67.119.211:8899/local/api/job/220/"
 deployHost:

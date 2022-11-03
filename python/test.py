@@ -735,10 +735,71 @@ print(max(dp))
 
 
 
+<<<<<<< HEAD
 # from datetime import datetime
 # import datetime
+=======
+from distutils.command.config import config
+import yaml
+
+# settings = yaml.safe_load(open(config, 'r'))['BIOS_CONFIG']
+# if self._backend == "xmlcli": 
+#     func = cli.CvRestoreModifyKnobs if restore else cli.CvProgKnobs
+#     arg = ",".join(["{}={}".format(setting['knob'], setting['value']) for setting in settings])
+#     cli.fwp.SecureProfileEditing = True
+#     # cli.clb.AuthenticateXmlCliApis = True
+#     ret = func(arg)
+#     if ret != 0: handler.handle("ERROR with config: {}".format(arg), critical=True)
+# elif self._backend == "syscfg":
+#     with open("syscfg_run.sh", "w") as f:
+#         if restore: 
+#             changed_knobs = self.find_changed_knobs()
+#             knobs_to_change = [setting['knob'] for setting in settings]
+#             for knob_to_restore in changed_knobs:
+#                 if knob_to_restore[0] in knobs_to_change: continue
+#                 if knob_to_restore[1] not in self._syscfg_knobs_name: 
+#                     handler.handle("Warning: {} not settable by syscfg.".format(knob_to_restore[0]))
+#                     continue
+#                 f.write("./syscfg /bcs \"\" \"{}\" {}\n".format(knob_to_restore[1], int(knob_to_restore[3], 16)))
+#         for setting in settings:
+#             if setting['prompt'] not in self._syscfg_knobs_name: handler.handle("Error: {} not settable by syscfg.".format(setting['prompt']), critical=True)
+#             f.write("./syscfg /bcs \"\" \"{}\" {}\n".format(setting['prompt'], int(setting['value'], 16)))
 
 
 
 
+# a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", "r"))
+# print(a)
+# print("============================================")
+# b=a.get("BIOS_CONFIG")
+# print(b)
+# d=a.get('BIOS_CONFIG')
+# print(d)
+# print("============================================")
+settings = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", 'r'))['BIOS_CONFIG']
+print(settings)
+print("============================================")
+arg = ",".join(["{}={}".format(setting['knob'], setting['value']) for setting in settings])
+print("value of arg {}".format(arg),len(arg))
+
+
+x = ["{}={}".format(setting['knob'], setting['value']) for setting in settings]
+print("value of x {}".format(x),len(x))
+
+>>>>>>> 8417ccfab69ac06672699f6ea37edc4575b79594
+
+
+knobs_to_change = [setting['knob'] for setting in settings]
+print("knobs_to_change {}".format(knobs_to_change),len(knobs_to_change))
+
+
+# a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", 'r'))
+# print(a)
+# print(a.get("gama"))
+# print(a["sigma"])
+# print("aaadf={}".format(a))
+# c = "aaadf={}".format(a)
+# print(c)
+# arg = ",".join("aaadf={}".format(a))
+# print(arg)
 

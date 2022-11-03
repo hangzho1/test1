@@ -1,0 +1,23 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sleep-job
+
+spec:
+  activeDeadlineSeconds: 15 #Pod的运行超时时间
+  backoffLimit: 2  # 设置Pod的失败重试次数
+  completions: 4   # Job完成需要运行多少个Pod,默认为1一个
+  parallelism: 2   # 表示并发的数量
+
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - image: busybox
+        name: echo-job
+        imagePullPolicy: IfNotPresent
+        command:
+          - sh
+          - -c
+          - sleep $(($RANDOM % 10 + 1)) && echo done

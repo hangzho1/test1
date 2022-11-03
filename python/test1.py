@@ -611,3 +611,7 @@ print(150)
 
 # c = "(0.000)"
 # print(c.strip("()"))
+
+print("第一行\na")
+changed_knobs=[['DelayedAuthenticationMode', 'Delayed Authentication Mode (DAM)', 'Enable/disable Delayed Authentication Mode (DAM)', '0x00', '0x01', 'Disabled: 0x0\nEnabled: 0x1'], ['SncEn', 'SNC', 'Disable supports 1-cluster and 4-IMC way\ninterleave. Enable SNC2 supports 2-clusters SNC\nand 2-way IMC interleave.  Enable SNC4 supports\n4-cluster and 1-IMC way interleave, Auto - Auto\ndecides based on Si Compatibility.', '0x0F', '0x00', 'AUTO: 0xF\nDisable: 0x0\nEnable SNC2 (2-clusters): 0x2\nEnable SNC4 (4-clusters): 0x4'], ['VTdSupport', 'Intel VT for Directed I/O', 'Enable/Disable Intel Virtualization Technology for\nDirected I/O (VT-d) by reporting the I/O device\nassignment to VMM through DMAR ACPI Tables. To\ndisable VT-d, X2APIC must also be disabled.', '0x01', '0x00', 'Enable: 0x1\nDisable: 0x0'], ['ProcessorX2apic', 'Extended APIC', 'Enable/disable extended APIC support    Note:\nWhen enabled, VT-d n Interrupt Remapping will be\nautomatically enabled.', '0x01', '0x00', 'Disable: 0x0\nEnable: 0x1']] 
+print(changed_knobs[0],changed_knobs[0][0],changed_knobs[0][1])

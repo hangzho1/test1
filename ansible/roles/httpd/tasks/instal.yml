@@ -1,2 +1,0 @@
-- name: install httpd package
-  yum: name=httpd

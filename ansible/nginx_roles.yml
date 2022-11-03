@@ -1,3 +1,0 @@
-- hosts: hangzhou-test
-  roles:
-    - role: nginx
