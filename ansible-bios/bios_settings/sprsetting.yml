@@ -1,0 +1,159 @@
+deployDir: /auto_provision_services
+bios_update: true
+
+# Common BIOS settings combination
+
+# HT: Enabled、Turbo: Enabled、SNC: Disabled
+workload1: >
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Intel(R) Hyper-Threading Tech", "value": "0x0"},
+  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"},
+  {"knob": "SncEn", "prompt": "SNC (Sub NUMA)", "value": "0x2"}
+
+
+# HT: Enable、Turbo: Enable、SNC: AUTO
+workload2: >
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Enable LP [Global]", "value": "0x1"},
+  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"},
+  {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0xF"}
+
+
+#（DSA_DPDK-Packetcopy) HT: OFF、Turbo: ON、SNC: OFF、Intel VT for directed I/O: ON、PCI ENQCMD/ENQCMDS: Yes
+workload3: >
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Enable LP [Global]", "value": "0x1"},
+  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"},
+  {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x0"},
+  {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x1"},
+  {"knob": "PcieEnqCmdSupport", "prompt": "PCIe ENQCMD/ENQCMDS", "value": "0x1"}
+
+#(Malconv) Hyperthreading: Disabled、Turbo Mode: Enabled、CPU C1 auto demotion: Enabled、CPU C1 auto undemotion: Enabled、CPU C6 report: Enabled、Enhanced Halt State (C1E): Enabled
+workload4: >
+  {"knob": "ProcessorHyperThreadingDisable", "prompt": "Enable LP [Global]", "value": "0x1"},
+  {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"},
+  {"knob": "C1AutoDemotion", "prompt": "CPU C1 auto demotion", "value": "0x1"},
+  {"knob": "C1AutoUnDemotion", "prompt": "CPU C1 auto undemotion", "value": "0x1"},
+  {"knob": "ProcessorC1eEnable", "prompt": "Enhanced Halt State (C1E)", "value": "0x1"}
+
+#SRP platform
+HT_Enable: {"knob": "ProcessorHyperThreadingDisable", "prompt": "Enable LP [Global]", "value": "0x0"}
+HT_Disable: {"knob": "ProcessorHyperThreadingDisable", "prompt": "Enable LP [Global]", "value": "0x1"}
+
+Turbo_Enable: {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x1"}
+Turbo_Disable: {"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x0"}
+
+SNC_Disable: {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x0"}
+SNC_Enable: {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x1"}
+SNC_AUTO: {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0xF"}
+SNC2: {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x02"}
+SNC4: {"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x04"}
+
+
+VTdSupport_Enable: {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x1"}
+VTdSupport_Disable: >
+  {"knob":"ProcessorX2apic" , "prompt": "Enable/disable extended APIC support", "value": "0x0"},
+  {"knob":"VTdSupport" , "prompt": "Intel(R) VT for Directed I/O", "value": "0x0"}
+
+
+
+PciEngCmd_Enable: {"knob": "PcieEnqCmdSupport", "prompt": "PCIe ENQCMD/ENQCMDS", "value": "0x1"}
+PciEngCmd_Disable: {"knob": "PcieEnqCmdSupport", "prompt": "PCIe ENQCMD/ENQCMDS", "value": "0x0"}
+
+
+ProcessorVmx_Enable: {"knob": "ProcessorVmxEnable", "prompt": "VMX", "value": "0x1"}
+ProcessorVmx_Disable: {"knob": "ProcessorVmxEnable", "prompt": "VMX", "value": "0x0"}
+
+
+EIST_PSD_HW_ALL: {"knob": "ProcessorEistPsdFunc", "prompt": "EIST PSD Function", "value": "0x0"}
+EIST_PSD_SW_ALL: {"knob": "ProcessorEistPsdFunc", "prompt": "EIST PSD Function", "value": "0x1"}
+
+
+Energy_Efficient_Turbo_Enable: {"knob": "EETurboDisable", "prompt": "Energy Efficient Turbo", "value": "0x0"}
+Energy_Efficient_Turbo_Disable: {"knob": "EETurboDisable", "prompt": "Energy Efficient Turbo", "value": "0x1"}
+
+
+BootP_MAX_Performance: {"knob": "BootPState", "prompt": "Boot performance mode", "value": "0x0"}
+BootP_MAX_Efficient: {"knob": "BootPState", "prompt": "Boot performance mode", "value": "0x1"}
+BootP_Set_by_Intel: {"knob": "BootPState", "prompt": "Boot performance mode", "value": "0x2"}
+
+
+C1_autodemotion_Enable: {"knob": "C1AutoDemotion", "prompt": "CPU C1 auto demotion", "value": "0x1"}
+C1_autodemotion_Disable: {"knob": "C1AutoDemotion", "prompt": "CPU C1 auto demotion", "value": "0x0"}
+
+C1_autoundemotion_Enable: {"knob": "C1AutoUnDemotion", "prompt": "CPU C1 auto undemotion", "value": "0x1"}
+C1_autoundemotion_Disable: {"knob": "C1AutoUnDemotion", "prompt": "CPU C1 auto undemotion", "value": "0x0"}
+
+
+C6_Enable: {"knob": "C6Enable", "prompt": "CPU C6 report", "value": "0x1"}
+C6_Disable: {"knob": "C6Enable", "prompt": "CPU C6 report", "value": "0x0"}
+C6_Auto: {"knob": "C6Enable", "prompt": "CPU C6 report", "value": "0xFF"}
+
+
+Workload_Balanced: {"knob": "WorkLdConfig", "prompt": "Workload Configuration", "value": "0x0"}
+Workload_IO_senstive: {"knob": "WorkLdConfig", "prompt": "Workload Configuration", "value": "0x2"}
+
+
+C0_1_State: {"knob": "PackageCState", "prompt": "Package C State", "value": "0x0"}
+C2_State: {"knob": "PackageCState", "prompt": "Package C State", "value": "0x1"}
+C6__non_Retention: {"knob": "PackageCState", "prompt": "Package C State", "value": "0x2"}
+C6_Retention: {"knob": "PackageCState", "prompt": "Package C State", "value": "0x3"}
+C_No_Limit: {"knob": "PackageCState", "prompt": "Package C State", "value": "0x7"}
+C_Auto_State: {"knob": "PackageCState", "prompt": "Package C State", "value": "0xFF"}
+
+
+C1E_Enable: {"knob": "ProcessorC1eEnable", "prompt": "Enhanced Halt State (C1E)", "value": "0x1"}
+C1E_Disable: {"knob": "ProcessorC1eEnable", "prompt": "Enhanced Halt State (C1E)", "value": "0x0"}
+
+
+HWP_Disable: {"knob": "ProcessorHWPMEnable", "prompt": "Hardware P-States", "value": "0x0"}
+HWP_Native_Mode: {"knob": "ProcessorHWPMEnable", "prompt": "Hardware P-States", "value": "0x1"}
+HWP_OfBand_Mode: {"knob": "ProcessorHWPMEnable", "prompt": "Hardware P-States", "value": "0x2"}
+HWP_Native_Mode_no_Legacy_Support: {"knob": "ProcessorHWPMEnable", "prompt": "Hardware P-States", "value": "0x3"}
+
+
+EnSpeedStep_Enable: {"knob": "ProcessorEistEnable", "prompt": "SpeedStep (Pstates)", "value": "0x1"}
+EnSpeedStep_Disable: {"knob": "ProcessorEistEnable", "prompt": "SpeedStep (Pstates)", "value": "0x0"}
+
+HWPrefetch_Enable: {"knob": "MlcStreamerPrefetcherEnable", "prompt": "Hardware Prefetcher", "value": "0x1"}
+HWPrefetch_Disable: {"knob": "MlcStreamerPrefetcherEnable", "prompt": "Hardware Prefetcher", "value": "0x0"}
+
+
+AdCaPrefetch_Enable: {"knob": "MlcSpatialPrefetcherEnable", "prompt": "Adjacent Cache Prefetch", "value": "0x0"}
+AdCaPrefetch_Disable: {"knob": "MlcSpatialPrefetcherEnable", "prompt": "Adjacent Cache Prefetch", "value": "0x1"}
+
+DCUStrPre_Enable: {"knob": "DCUStreamerPrefetcherEnable", "prompt": "DCU Streamer Prefetcher", "value": "0x1"}
+DCUStrPre_Disable: {"knob": "DCUStreamerPrefetcherEnable", "prompt": "DCU Streamer Prefetcher", "value": "0x0"}
+
+
+DCUIPPre_Enable: {"knob": "DCUIPPrefetcherEnable", "prompt": "DCU IP Prefetcher", "value": "0x1"}
+DCUIPPre_Disable: {"knob": "DCUIPPrefetcherEnable", "prompt": "DCU IP Prefetcher", "value": "0x0"}
+
+
+LLCPre_Enable: {"knob": "LlcPrefetchEnable", "prompt": "LLC Prefetch", "value": "0x1"}
+LLCPre_Disable: {"knob": "LlcPrefetchEnable", "prompt": "LLC Prefetch", "value": "0x0"}
+
+
+PG_Closed: {"knob": "PagePolicy", "prompt": "Page Policy", "value": "0x1"}
+PG_Adaptive: {"knob": "PagePolicy", "prompt": "Page Policy", "value": "0x2"}
+
+
+CpuL1NextPagePrefetcher_Enable: {"knob": "PagePCpuL1NextPagePrefetcherDisablelicy", "prompt": "L1 Next Page Prefetcher", "value": "0x0"}
+CpuL1NextPagePrefetcher_Disable: {"knob": "PagePCpuL1NextPagePrefetcherDisablelicy", "prompt": "L1 Next Page Prefetcher", "value": "0x1"}
+
+
+XptPrefetchEn_Enalbe: {"knob": "DfxXptPrefetchEn", "prompt": "XPT Prefetch", "value": "0x1"}
+XptPrefetchEn_Disalbe: {"knob": "DfxXptPrefetchEn", "prompt": "XPT Prefetch", "value": "0x0"}
+XptPrefetchEn_Auto: {"knob": "DfxXptPrefetchEn", "prompt": "XPT Prefetch", "value": "0x2"}
+
+
+AmpPrefetch_Enable: {"knob": "AmpPrefetchEnable", "prompt": "AMP Prefetch", "value": "0x1"}
+AmpPrefetch_Disable: {"knob": "AmpPrefetchEnable", "prompt": "AMP Prefetch", "value": "0x0"}
+
+AvxP1Level_Nominal: {"knob": "AvxP1Level", "prompt": "AVX P1", "value": "0x0"}
+AvxP1Level1: {"knob": "AvxP1Level", "prompt": "AVX P1", "value": "0x1"}
+AvxP1Level2: {"knob": "AvxP1Level", "prompt": "AVX P1", "value": "0x2"}
+
+
+GPSStimer_0us: {"knob": "GpssTimer", "prompt": "GPSS timer", "value": "0x0"}
+GPSStimer_50us: {"knob": "GpssTimer", "prompt": "GPSS timer", "value": "0x5"}
+GPSStimer_500us: {"knob": "GpssTimer", "prompt": "GPSS timer", "value": "0x32"}
+
+
