@@ -1,0 +1,5 @@
+BIOS_CONFIG: [
+{"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x0"},
+{"knob": "ProcessorHyperThreadingDisable", "value": "0x01"},
+{"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x04"},
+]

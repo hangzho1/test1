@@ -69,3 +69,14 @@
 
 
 
+echo 'BIOS_CONFIG: [' > config.yaml
+echo  '{"knob": "TurboMode", "prompt": "Intel(R) Turbo Boost Technology", "value": "0x0"}', >> config.yaml
+echo  '{"knob": "ProcessorHyperThreadingDisable", "value": "0x01"}', >> config.yaml
+echo  '{"knob": "SncEn", "prompt": "SNCdafdsfa (Sub NUMA)", "value": "0x04"}', >> config.yaml
+
+echo "]" >> config.yaml
+
+# abc=`${#cat config.yaml}`
+a="BIOS_CONFIG: [ "0x04"},"
+b=`echo ${a##*,}`
+echo $b $a

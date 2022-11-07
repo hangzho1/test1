@@ -607,6 +607,7 @@ b = a.split()
 print(b)
 print(b[-5])
 print(b[-1].strip("()"))
+print(150)
 
 # c = "(0.000)"
 # print(c.strip("()"))
