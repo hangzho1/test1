@@ -58,11 +58,7 @@
 
 
 
-#     # - name: copy shell file
-#     #   script: /home/sfdev/hangz/shellLearn/HugePages.sh 2 2048
 
-
-#       # copy: src=/home/sfdev/hangz/shellLearn/HugePages.sh dest=/home/sfdev/hang
 
 # - hosts: biostest
 #   remote_user: sfdev
@@ -80,98 +76,231 @@
 #       when: ansible_distribution_version <= "8"
 
 
-    # - name: testdasf
-    #   shell: |
-    #       echo {{abe}}
-    #       echo {{abc}}
-    #   register: return_value
-    #   when: ansible_os_family == "RedHat"
-    # - block:
-    #   - debug:
-    #       msg: "{{return_value}}"
-    #   - debug:
-    #       msg: "{{return_value.rc}}"
-    #   - debug:
-    #       msg: "{{return_value.stdout}}"
-    #   - debug:
-    #       msg: "{{return_value.stdout_lines}}"
-    #   - debug:
-    #       msg: "{{return_value.stdout_lines[1]}}"
-    #   when: return_value.rc == 0
-    
 
 
 ---
-- hosts: hangzhouvm
-  become: yes
-  gather_facts: no
+- hosts: localhost
+  # become: yes
+  gather_facts: yes
+
+  vars:
+    repos:
+      - name: repo1
+        os_list:
+          - centos
+          - rhel
+        major_distribution_list:
+          - 6
+          - 7
+          - 8
+        archs:
+          - noarch
+          - x86_64
   tasks:
-  # - debug:
-  #     msg: "I execute normally"
-  #   become: yes
-  # - shell: "echo 'This is a string for testing error'"
-  #   register: return_value
-  #   failed_when: '"error" in return_value.stdout'
+
+    - debug:
+        msg: "{{repo}}"
+      with_items: "{{ repos }}"
+      loop_control:
+        loop_var: repo
+    - debug:
+        msg: "{{repo.os_list}}"
+      with_items: "{{ repos }}"
+      loop_control:
+        loop_var: repo
+    - block:
+      - debug:
+          msg: "This machine does not support dsa"
+      # when: 1 == 1
+      - meta: end_play
+      when: 1 == 1
+
+    - fail:
+        msg: "This machine does not support dsa"
+      # - meta:
+      ignore_errors: yes
+      when: 1 == 1
+
+    - block:
+      # - debug:
+      #     msg: "{{item.key}} is {{item.value}}"
+      #   loop: "{{ users | dict2items }}"
+
+      # - shell:
+      #     echo "{{item.key}} is {{item.value}}"
+      #   loop: "{{ users | dict2items }}"
+      #   register: p
+      # - debug:
+      #     var: p.msg
+      - shell: 
+          cmd: |
+            ls -ahl
+
+        args:
+          chdir: "/home/hangzhou/hangz/ansible-bios"
+        ignore_errors: yes
+
+  
+    
+
+
+
+# # ---
+# - hosts: localhost
+
+#   # remote_user: root
+#   gather_facts: no
+#   tasks:
+#     - debug:
+#         msg: "{{hostvars.hangzhouvm.shellreturn.stdout}}"
+#   # - debug:
+#   #     msg: "{{hostvars.localhost.p.stdout}}"
+#     - debug:
+#         msg: "{{hostvars.hangzhouvm.p.stuout}}"
+#     - debug:
+#         msg: "{{hostvars.localhost.a}}"
+#   # delegate_to: localhost
+
+#   - debug:
+#       msg: "I execute normally"
+#     become: yes
+#   - shell: "echo 'This is a string for testing error'"
+#     register: return_value
+#     failed_when: '"error" in return_value.stdout'
+#     # ignore_errors: yes
+#   - debug:
+#       msg: "{{ return_value}}"
+
+
+  # - name: block_test
+  #   lineinfile:
+  #     path: "/home/hangzhou/hangz/ansible/testgrub.cfg"
+  #     # regex: "Processor"
+  #     line: "GRUB_DEFAULT=saveewr"
+      
+  #     insertbefore: "{'knob'"
+  #     # state: absent 
+  #     firstmatch: yes
+  #   register: kargs
+  #   delegate_to: localhost
   #   ignore_errors: yes
-  # - debug:
-  #     msg: "{{ return_value}}"
-
-  # - shell: "echo 'Tdfadfdsfdsa'"
-  #   failed_when: 'error in return_value.stdout'
 
   # - debug:
-  #     msg: "I never execute,Because the playbook has stopped"
+  #     # msg: "{{kargs.msg}}"
+  #     msg: "{{kargs}}"
+    # when: kargs.msg != ""
 
 
 
-  - name: test shell
-    shell: |
-      # cd ~
-      ls -ahl
-      # echo "dafdf" 
-      ls dafsdfsadf
-      ls dfasf
-      pwd
-    register: return_va
-    delegate_to: localhost
-    # failed_when: false
-    ignore_errors: true
-  - debug:
-      msg: "{{return_va}}"
+
+
+  # - block:
+  #   - name: set bios111111111111111
+  #     shell: 
+  #       cmd: echo 100000
+  #       executable: /bin/bash
+  #     # when: testpath1 is exists
+
+  #   - debug:
+  #         msg: "file exist"
+  #   when: testpath is exists
+  #   rescue:
+  #     - shell:
+  #         echo aaa
+
+
+    # - name: set bios with given configuration
+    #   shell: 
+    #     cmd: echo 1000
+    #     executable: /bin/bash
+    #   register: P
+    # - debug: 
+    #     msg: "{{P}}"
+    # - name: set bios with given configuration
+    #   shell: 
+    #     cmd: echo 10000
+    #     executable: /bin/bash
+    # delegate_to: localhost
+    # tags: t1
 
 
 
-  - name: test 2
-    shell:  echo "dafdf";ls dfasf;pwd
-    register: return_va
-    delegate_to: localhost
-    failed_when: false
-
-  - debug:
-      msg: "{{return_va}}"
+  # - name: judge qat lists
+  #   shell: lspci | grep -i 0b25
+  #   register: dsa_supported
+  #   ignore_errors: true
 
 
-  - name: reboot
-    command: "reboot"
-    async: 1
-    poll: 0
-    when: 
-
-    become: yes
-
-  - name: wait for the machine to come back
-    wait_for_connection:
-      connect_timeout: 10
-      sleep: 5
-      delay: 5
-      timeout: 900
-  - debug:
-      msg: "{{return_va}}"
+  # - fail:
+  #     # msg: "This machine does not support dsa"
+  #     msg: "{{dsa_supported}}"
+  #   when:
+  #     dsa_supported is failed
 
 
-  - debug:
-      msg: "hello world"
+  # - name: Detect OS
+  #   shell: 
+  #     cmd: ". /etc/os-release; echo $ID"
+  #     executable: /bin/bash
+  #   register: os
 
+  # - name: aaa
+  #   shell: |
+  #     echo 100
+  #   when: not os.stdout in ['centos', 'ubuntu']
+    # when: os.stdout in ['centos', 'ubuntu']
+      
+
+
+
+
+
+      # insertafter: djsafkldjfkla
+      # state: absent 
+
+
+  # - name: test shell
+  #   shell: 
+  #     rm -rf  abc;
+  #     cd ~;
+  #     ls -ahl;
+  #     ls dafsdfsadf;
+  #     ls dfasf;
+  #     pwd;
+  #   register: return_va
+  #   # delegate_to: localhost
+  #   # failed_when: false
+  #   ignore_errors: true
+  #   tags: t1
+  # - debug:
+  #     msg: "{{return_va}}"
+
+
+
+
+
+  # - name: Ansible check file exists.
+  #   stat:
+  #     # path: "/sys/bus/pci/drivers/vfio-pci"
+  #     path: "{{ testpath }}"
+  #   register: p
+  
+  # - debug:
+  #     msg: "{{ p }}"
+
+  # - name: aaaaarepo ##难道每次运行的时候必须重新进入,还真是，我服了这个老六
+  #   shell: |
+  #     echo "stat exist"
+  #   when: p.stat.exists == false
+
+  # - name: test 2
+  #   shell:  echo "dafdf";ls dfasf;pwd
+  #   register: return_va
+  #   delegate_to: localhost
+  #   failed_when: false
+  #   tags: t2
+  # - debug:
+  #     msg: "{{return_va}}"
 
 
 
@@ -189,3 +318,75 @@
 #   - debug:
 #       msg: "index is {{item.0}} , value is {{item.1}}"
 #     loop: "{{ lookup('indexed_items',['a','b','c']) }}"
+
+
+
+
+# - hosts: localhost
+#   # remote_user: root
+#   gather_facts: no
+#   # tasks:
+#   #   - debug:
+#   #       var: hostvars.hangzhou_validation.shellreturn
+#   #   - debug:
+#   #       var: "{{hostvars.hangzhou_validation.testvar}}"
+#   tasks:
+#   - file:
+#       path: "/test{{item}}"
+#       state: absent
+#     become: yes
+#     with_sequence: start=2 end=10 stride=2
+
+
+
+
+    # - shell: 
+    #     cmd: |
+    #       groupadd qat
+    #       usermod -a -G qat `whoami`
+    #       # sudo su -l $USER
+    #       echo 1000
+
+    #     executable: /bin/bash
+    #   ignore_errors: true
+    #   become: yes
+    
+
+
+# - hosts: ICX_junjunjie
+#   remote_user: root
+#   gather_facts: no
+#   tasks:
+#   - debug:
+#       msg: "{{ansible_version}}"
+#   - debug:
+#       msg: "{{shellreturn}}"
+#   - debug:
+#       msg: "{{hostvars.hangzhouvm.shellreturn.stdout}}"
+
+
+# - hosts: hangzhou_validation
+#   gather_facts: yes
+#   tasks:
+#   - debug:
+#       msg: "{{ ansible_os_family}}"
+# - hosts: 10.166.31.106
+#   gather_facts: yes
+#   tasks:
+#   - debug:
+#       msg: "{{ ansible_os_family}}"
+# - hosts: hangzhouvm
+#   gather_facts: yes
+#   tasks:
+#   - debug:
+#       msg: "{{ ansible_os_family}}"
+# - hosts: ICX_junjunjie
+#   gather_facts: yes
+#   tasks:
+#   - debug:
+#       msg: "{{ ansible_os_family}}"
+# - hosts: biostest
+#   gather_facts: yes
+#   tasks:
+#   - debug:
+#       msg: "{{ ansible_os_family}}"

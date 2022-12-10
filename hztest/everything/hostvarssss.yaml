@@ -1,0 +1,450 @@
+localhost | SUCCESS => {
+    "hostvars": {
+        "10.166.31.106": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_user": "sfdev",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "hangzhouvm"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "10.166.31.106",
+            "inventory_hostname_short": "10",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        },
+        "10.166.32.93": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_ssh_user": "sfdev",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "senhuidev"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "10.166.32.93",
+            "inventory_hostname_short": "10",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        },
+        "10.67.119.66": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_ssh_user": "hangzhou",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "hangzhou-test"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "10.67.119.66",
+            "inventory_hostname_short": "10",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        },
+        "ICX_junjunjie": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_ssh_host": "10.67.126.179",
+            "ansible_ssh_user": "raspadmin",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "biostest"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "ICX_junjunjie",
+            "inventory_hostname_short": "ICX_junjunjie",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        },
+        "SPR3470": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_ssh_host": "10.219.171.193",
+            "ansible_ssh_user": "raspadmin",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "biostest"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "SPR3470",
+            "inventory_hostname_short": "SPR3470",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        },
+        "dlb": {
+            "ansible_check_mode": false,
+            "ansible_config_file": "/etc/ansible/ansible.cfg",
+            "ansible_diff_mode": false,
+            "ansible_facts": {},
+            "ansible_forks": 5,
+            "ansible_inventory_sources": [
+                "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini"
+            ],
+            "ansible_playbook_python": "/usr/bin/python3.8",
+            "ansible_ssh_host": "10.166.31.106",
+            "ansible_ssh_user": "sfdev",
+            "ansible_verbosity": 0,
+            "ansible_version": {
+                "full": "2.12.2",
+                "major": 2,
+                "minor": 12,
+                "revision": 2,
+                "string": "2.12.2"
+            },
+            "group_names": [
+                "ungrouped"
+            ],
+            "groups": {
+                "all": [
+                    "dlb",
+                    "10.67.119.66",
+                    "10.166.32.93",
+                    "ICX_junjunjie",
+                    "SPR3470",
+                    "10.166.31.106"
+                ],
+                "biostest": [
+                    "ICX_junjunjie",
+                    "SPR3470"
+                ],
+                "hangzhou-test": [
+                    "10.67.119.66"
+                ],
+                "hangzhouvm": [
+                    "10.166.31.106"
+                ],
+                "senhuidev": [
+                    "10.166.32.93"
+                ],
+                "ungrouped": [
+                    "dlb"
+                ]
+            },
+            "inventory_dir": "/home/hangzhou/hangz/ansible-bios/inventory",
+            "inventory_file": "/home/hangzhou/hangz/ansible-bios/inventory/inventory.ini",
+            "inventory_hostname": "dlb",
+            "inventory_hostname_short": "dlb",
+            "omit": "__omit_place_holder__48e5983c72533a91b52aa738834bba5c5fab2342",
+            "playbook_dir": "/auto_provision_services/dsa/bios"
+        }
+    }
+}
+
+
+---
+- hosts: hangzhouvm
+  # become: yes
+  gather_facts: no
+  vars:
+    users:
+      alice: female
+      bob: male
+  tasks:
+  - block:
+    - debug:
+        msg: "{{item.key}} is {{item.value}}"
+      loop: "{{ users | dict2items }}"
+
+    - shell:
+        echo "{{item.key}} is {{item.value}}"
+      loop: "{{ users | dict2items }}"
+      register: p
+    - debug:
+        var: p.msg
+    - debug:
+        var: p
+    - debug:
+        var: p.results
+    - debug:
+        msg: "{{p}}"
+    - debug:
+        msg: "{{p.results}}"
+    - debug:
+        msg: "{{p.msg}}"
+    delegate_to: localhost
+---
+ok: [10.166.31.106 -> localhost] => {                                                                              
+    "p": {                                                                                                         
+        "changed": true,                                                                                           
+        "msg": "All items skipped",                                                                                
+        "results": [                                                                                               
+            {                                                                                                      
+                "ansible_loop_var": "item",                                                                        
+                "changed": true,                                                                                   
+                "cmd": "echo \"alice is female\"",                                                                 
+                "delta": null,                                                                                     
+                "end": null,                                                                                       
+                "failed": false,                                                                                   
+                "invocation": {                                                                                    
+                    "module_args": {                                                                               
+                        "_raw_params": "echo \"alice is female\"",                                                 
+                        "_uses_shell": true,                                                                       
+                        "argv": null,                                                                              
+                        "chdir": null,                                                                             
+                        "creates": null,                                                                           
+                        "executable": null,                                                                        
+                        "removes": null,                                                                           
+                        "stdin": null,                                                                             
+                        "stdin_add_newline": true,                                                                 
+                        "strip_empty_ends": true,                                                                  
+                        "warn": false                                                                              
+                    }                                                                                              
+                },                                                                                                 
+                "item": {                                                                                          
+                    "key": "alice",                                                                                
+                    "value": "female"                                                                              
+                },                                                                                                 
+                "msg": "Command would have run if not in check mode",                                              
+                "rc": 0,                                                                                           
+                "skipped": true,                                                                                   
+                "start": null,                                                                                     
+                "stderr": "",
+                "stderr_lines": [],
+                "stdout": "",
+                "stdout_lines": []
+            },
+            {
+                "ansible_loop_var": "item",
+                "changed": true,
+                "cmd": "echo \"bob is male\"",
+                "delta": null,
+                "end": null,
+                "failed": false,
+                "invocation": {
+                    "module_args": {
+                        "_raw_params": "echo \"bob is male\"",
+                        "_uses_shell": true,
+                        "argv": null,
+                        "chdir": null,
+                        "creates": null,
+                        "executable": null,
+                        "removes": null,
+                        "stdin": null,
+                        "stdin_add_newline": true,
+                        "strip_empty_ends": true,
+                        "warn": false
+                    }
+                },
+                "item": {
+                    "key": "bob",
+                    "value": "male"
+                },
+                "msg": "Command would have run if not in check mode",
+                "rc": 0,
+                "skipped": true,
+                "start": null,
+                "stderr": "",
+                "stderr_lines": [],
+                "stdout": "",
+                "stdout_lines": []
+            }
+        ],
+        "skipped": true
+    }
+}
