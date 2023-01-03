@@ -1,0 +1,9 @@
+vars_jenkins_home: /home/hangzhou/hangz/hztest/everything/temp
+
+vars_plugin_files:
+  - vars_plugin_name: base_function.sh
+    vars_plugin_checksum: 471787b86173cc6ef0a2243ec12f9a3419d1ac51
+  - vars_plugin_name: HugePages.sh
+    vars_plugin_checksum: 2d1b3f9961e5484bb70a45be8deb88d96fc0bf95
+  - vars_plugin_name: workload.sh
+    vars_plugin_checksum: 69d651b736ee06b18d9b0f3efe332ef0628dee37

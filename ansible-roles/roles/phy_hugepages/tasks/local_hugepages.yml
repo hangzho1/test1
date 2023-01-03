@@ -1,0 +1,11 @@
+- name: get HugePages_Total
+  shell: grep HugePages_Total /proc/meminfo | awk '{print $2}'
+  register: HugePages_Total
+
+- name: get Hugepagesize
+  shell: grep Hugepagesize /proc/meminfo | awk '{print $2}'
+  register: Hugepagesize
+
+- name: get HugePages_Free
+  shell: grep HugePages_Free /proc/meminfo | awk '{print $2}'
+  register: HugePages_Free

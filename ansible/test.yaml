@@ -79,11 +79,17 @@
 
 
 ---
-- hosts: localhost
-  # become: yes
-  gather_facts: yes
+
+- hosts: 10.219.170.236
+# - hosts: localhost
+# - hosts: ICX_junjunjie
+  become: yes
+  gather_facts: no
 
   vars:
+    dlb_zip_url: https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/dlb_release_ver_7.5.0.zip
+    dlb_zip: dlb_release_ver_7.5.0.zip
+    qat_firmware_repo: https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/pool/qatfirmware.tar
     repos:
       - name: repo1
         os_list:
@@ -97,98 +103,98 @@
           - noarch
           - x86_64
   tasks:
+    # - name: Ensure file exists
+    #   file:
+    #     path: "{{ startup_hugepage_actions[os.stdout]['grub_path'] }}"
+    #     state: touch
+    #   ignore_errors: yes
 
-    - debug:
-        msg: "{{repo}}"
-      with_items: "{{ repos }}"
-      loop_control:
-        loop_var: repo
-    - debug:
-        msg: "{{repo.os_list}}"
-      with_items: "{{ repos }}"
-      loop_control:
-        loop_var: repo
-    - block:
-      - debug:
-          msg: "This machine does not support dsa"
-      # when: 1 == 1
-      - meta: end_play
-      when: 1 == 1
+    # - name: block_test
+    #   blockinfile:
+    #     path: "/home/hangzhou/hangz/ansible/testgrub.cfg"
+    #     block: |
+    #       djsafkldjfkla
+    #     create: yes
+    #     state: present
+    #   register: kargs
+    #   # delegate_to: localhost
+    #   ignore_errors: yes
+    # - debug:
+    #     msg: "{{kargs}}"
 
-    - fail:
-        msg: "This machine does not support dsa"
-      # - meta:
+    - name: download qat firmwares
+      # get_url:
+      #   url: "{{dlb_zip_url}}"
+      #   dest: /usr/local/src
+      #   mode: 0644
+      #   force: yes 
+      # ignore_errors: true
+      # delegate_to: localhost
+      shell: 
+        cmd: |
+          flock /tmp/dlb.lock bash -c '[ -e /usr/local/src/qatfirmware.tgz ] || curl --retry 5 -o /usr/local/src/qatfirmware.tgz {{ qat_firmware_repo }}'
+        executable: /bin/bash
       ignore_errors: yes
-      when: 1 == 1
+      delegate_to: localhost
 
-    - block:
-      # - debug:
-      #     msg: "{{item.key}} is {{item.value}}"
-      #   loop: "{{ users | dict2items }}"
+    - name: unzip qat firmwares
+      unarchive:
+        src: /usr/local/src/qatfirmware.tgz
+        dest: /lib/firmware
+        copy: yes
+        mode: 0755
+      ignore_errors: true
 
-      # - shell:
-      #     echo "{{item.key}} is {{item.value}}"
-      #   loop: "{{ users | dict2items }}"
-      #   register: p
-      # - debug:
-      #     var: p.msg
-      - shell: 
-          cmd: |
-            ls -ahl
 
-        args:
-          chdir: "/home/hangzhou/hangz/ansible-bios"
-        ignore_errors: yes
+      
+    - shell: |
+        pwd
+        ls -ahl
 
-  
+
+
+
+
+
     
 
+#     # - fail:
+#     #     # msg: "This machine does not support dsa"
+#     #     msg: "{{dsa_supported}}"
+#     #   when: 1 = 1
 
 
-# # ---
+    # - block:
+    #   # - debug:
+    #   #     msg: "{{item.key}} is {{item.value}}"
+    #   #   loop: "{{ users | dict2items }}"
+
+    #   # - shell:
+    #   #     echo "{{item.key}} is {{item.value}}"
+    #   #   loop: "{{ users | dict2items }}"
+    #   #   register: p
+    #   # - debug:
+    #   #     var: p.msg
+      # - shell: 
+      #     cmd: |
+      #       ls -ahl
+
+      #   args:
+      #     chdir: "/home/hangzhou/hangz/ansible-bios"
+      #   ignore_errors: yes
+
 # - hosts: localhost
-
-#   # remote_user: root
-#   gather_facts: no
 #   tasks:
-#     - debug:
-#         msg: "{{hostvars.hangzhouvm.shellreturn.stdout}}"
-#   # - debug:
-#   #     msg: "{{hostvars.localhost.p.stdout}}"
-#     - debug:
-#         msg: "{{hostvars.hangzhouvm.p.stuout}}"
-#     - debug:
-#         msg: "{{hostvars.localhost.a}}"
-#   # delegate_to: localhost
-
-#   - debug:
-#       msg: "I execute normally"
-#     become: yes
-#   - shell: "echo 'This is a string for testing error'"
-#     register: return_value
-#     failed_when: '"error" in return_value.stdout'
-#     # ignore_errors: yes
-#   - debug:
-#       msg: "{{ return_value}}"
+#     - name: create log file
+#       debug:
+#         msg: "no influence"   
 
 
-  # - name: block_test
-  #   lineinfile:
-  #     path: "/home/hangzhou/hangz/ansible/testgrub.cfg"
-  #     # regex: "Processor"
-  #     line: "GRUB_DEFAULT=saveewr"
-      
-  #     insertbefore: "{'knob'"
-  #     # state: absent 
-  #     firstmatch: yes
-  #   register: kargs
-  #   delegate_to: localhost
-  #   ignore_errors: yes
 
-  # - debug:
-  #     # msg: "{{kargs.msg}}"
-  #     msg: "{{kargs}}"
-    # when: kargs.msg != ""
+
+
+
+
 
 
 
@@ -225,30 +231,6 @@
 
 
 
-  # - name: judge qat lists
-  #   shell: lspci | grep -i 0b25
-  #   register: dsa_supported
-  #   ignore_errors: true
-
-
-  # - fail:
-  #     # msg: "This machine does not support dsa"
-  #     msg: "{{dsa_supported}}"
-  #   when:
-  #     dsa_supported is failed
-
-
-  # - name: Detect OS
-  #   shell: 
-  #     cmd: ". /etc/os-release; echo $ID"
-  #     executable: /bin/bash
-  #   register: os
-
-  # - name: aaa
-  #   shell: |
-  #     echo 100
-  #   when: not os.stdout in ['centos', 'ubuntu']
-    # when: os.stdout in ['centos', 'ubuntu']
       
 
 
@@ -365,11 +347,7 @@
 #       msg: "{{hostvars.hangzhouvm.shellreturn.stdout}}"
 
 
-# - hosts: hangzhou_validation
-#   gather_facts: yes
-#   tasks:
-#   - debug:
-#       msg: "{{ ansible_os_family}}"
+
 # - hosts: 10.166.31.106
 #   gather_facts: yes
 #   tasks:
@@ -390,3 +368,7 @@
 #   tasks:
 #   - debug:
 #       msg: "{{ ansible_os_family}}"
+
+
+
+

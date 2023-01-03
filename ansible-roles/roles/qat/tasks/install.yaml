@@ -1,0 +1,181 @@
+---
+# tasks file for qat
+
+- name: Detect OS
+  shell: 
+    cmd: ". /etc/os-release; echo $ID"
+    executable: /bin/bash
+  register: os
+
+- name: Detect OS VERSION
+  shell: 
+    cmd: ". /etc/os-release; echo $VERSION_ID"
+    executable: /bin/bash
+  register: os_ver
+
+- name: check qat 4xx device
+  shell: lspci | grep 4940
+  ignore_errors: true
+  register: qat4xx_supported
+
+- name: check qat 401xx device
+  shell: lspci | grep 4942
+  ignore_errors: true
+  register: qat401xx_supported
+
+- fail:
+    msg: "This machine does not support qat"
+  when: (qat4xx_supported is failed and qat401xx_supported is failed)
+
+- fail:
+    msg: "OS not supported"
+  when: not os.stdout in ['centos', 'fedora', 'ubuntu', 'debian']
+
+- name: check qat.service file
+  stat:
+    path: "{{qat_service}}"
+  register: p
+
+
+- name:  check qat runing status
+  shell: |
+    systemctl status qat
+  register: qat_status
+  ignore_errors: true
+
+- block:
+  - name: confiure qat service
+    include_tasks: tasks/configure_qat.yml
+  - debug:
+      msg: "qat is loaded on this machine"
+  - meta: end_play
+  when: p.stat.exists and ('running' in qat_status.stdout)
+
+- name: Install dependencies on RedHat.
+  dnf:
+    name:
+      - gcc
+      - systemd-devel
+      - automake
+      - autoconf
+      - libtool
+      - openssl-devel
+      - zlib-devel
+      - yasm
+      - nasm
+      - wget
+      - tar
+      - dracut
+    state: present
+  register: dnfrc
+  until: dnfrc is success
+  retries: 10
+  delay: 10
+  become: true
+  ignore_errors: true
+  when: os.stdout in ['centos', 'fedora']
+
+- name: install dependencies on Debian.
+  apt:
+    name:
+      - build-essential
+      - cmake 
+      - g++ 
+      - pkg-config 
+      - wget 
+      - make 
+      - yasm 
+      - nasm 
+      - libboost-all-dev 
+      - libnl-genl-3-dev 
+      - zlib1g 
+      - zlib1g-dev
+      - systemd 
+      - m4 
+      - pkg-config 
+      - libudev-dev 
+      - libssl-dev 
+      - autoconf 
+      - libtool 
+      - tar 
+      - git
+    update_cache: true
+    state: present
+  register: aptrc
+  until: aptrc is success
+  retries: 10
+  delay: 10
+  ignore_errors: true
+  become: true
+  when: os.stdout in ['ubuntu', 'debian']
+
+- name: check firmware1
+  stat:
+    path: "{{qat_firmware1}}"
+  register: firm1
+
+- name: check firmware2
+  stat:
+    path: "{{qat_firmware1}}"
+  register: firm2
+
+- block:
+  - name: download qat firmwares
+    get_url:
+      url: "{{qat_firmware_repo}}"
+      dest: /usr/local/src
+      mode: 0644
+      force: yes 
+    ignore_errors: true
+    delegate_to: localhost
+
+  - name: unzip qat firmwares
+    unarchive:
+      src: "/usr/local/src/qatfirmware.tar"
+      dest: /lib/firmware
+      copy: yes
+      mode: 0755
+    ignore_errors: true
+
+  - name: reinstall kernel mod
+    shell:
+      cmd: |
+        rmmod qat_4xxx
+        modprobe qat_4xxx
+      executable: /bin/bash
+  - name: permanently enable kernel mod
+    shell: dracut --force
+    ignore_errors: true
+  become: true
+  when: (firm1.stat.exists == false or firm2.stat.exists == false)
+
+- block:
+  - name: insatll qatlib on fedora 34+
+    dnf:
+      name: qatlib-devel
+      state: present
+    register: dnfrc
+    until: dnfrc is success
+    retries: 10
+    delay: 10
+  - name: confiure qat
+    include_tasks: tasks/configure_qat.yml
+  - meta: end_play
+  become: true
+  when: (os.stdout=="fedora") and (os_ver.stdout | int >= 34)
+
+- name: build & install qatlib
+  shell:
+    cmd: |
+      git clone https://github.com/intel/qatlib
+      cd qatlib
+      ./autogen.sh
+      ./configure --prefix=/usr --enable-service
+      make -j
+      make install
+    executable: /bin/bash
+  ignore_errors: true
+  become: true
+
+- name: confiure qat
+  include_tasks: tasks/configure_qat.yml

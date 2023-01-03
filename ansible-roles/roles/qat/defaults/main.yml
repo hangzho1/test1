@@ -1,0 +1,8 @@
+---
+# defaults file for qat
+wl_kernel_args: {}
+qat_firmware1: /lib/firmware/qat_4xxx.bin
+qat_firmware2: /lib/firmware/qat_4xxx_mmp.bin
+qat_firmware_repo: https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/pool/qatfirmware.tar
+qat_service: /usr/lib/systemd/system/qat.service
+qat_policy: 0

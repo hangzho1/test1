@@ -1,0 +1,62 @@
+deployDir: /auto_provision_services
+jobId: 220
+frontApi: "http://10.67.119.211:8899/local/api/job/220/"
+deployHost:
+   - name: controller
+     ansible_host: 10.67.126.102
+     ip: 10.67.126.102
+     username: root
+     hostname: hostname
+     password: intel123
+   - name: node1
+     ansible_host: 10.67.126.81
+     ip: 10.67.126.81
+     username: root
+     hostname: hostname
+     password: intel123
+kubernetes_deploy: true
+kubernetesInstallMethod: host 
+kubernetesArgs:
+  kube_version: 1.23.5  
+  kube_network_plugin:  calico 
+  container_manager: docker 
+  dashboard_enabled: false 
+  helm_enabled: false 
+  registry_enabled: false 
+  ingress_nginx_enabled: false 
+  ingress_nginx_host_network: false 
+  krew_enabled: false
+jenkins: true
+workloadName: Kafka
+jsfRepo: https://github.com/jo5Liu/applications.benchmarking.benchmark.platform-hero-features.git
+commit: 7914f4f
+filterCase: "pkm"
+registry: 10.166.44.56:5000
+platforms: ICX
+softwarepackage: "false"
+softwarePackageArgs:
+
+system_deploy: true
+os_update: false
+os: 
+Kernel_update: false
+kernelVersion: 5.8           
+kernelArgs_update: false
+kernelArgs: 'kernelhugepagesz=1G hugepagesz=1G hugepages=16'
+bios_update: true
+biosArgs:
+  - {VTdSupport Intel(R) VT for Directed I/O 0x0}
+  - {LlcPrefetchEnable LLC Prefetch 0x0}
+vm_deploy: "false"
+vm_docker: ""
+vmosArgs:
+  osNumber: "" 
+  osType: "" 
+  vmName: "" 
+  memory: ""
+  cpuNumber: 
+  disk:  
+sender: tao2.liu@intel.com
+receivers: tao2.liu@intel.com
+Required_HugePage: 9
+Required_Size: 2048

@@ -1,8 +1,0 @@
----
-
-
-
-
-
-- include_tasks: copy_plugin.yml
-- include_tasks: stat_debug.yml

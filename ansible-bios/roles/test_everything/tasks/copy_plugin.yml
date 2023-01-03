@@ -1,6 +1,0 @@
-- name: Jenkins - Configuration | Copy plugin files
-  copy:
-    src: "files/{{item.vars_plugin_name}}"
-    dest: "{{ vars_jenkins_home }}"
-  loop: "{{ vars_plugin_files }}"
-  # notify: restart-jenkins
