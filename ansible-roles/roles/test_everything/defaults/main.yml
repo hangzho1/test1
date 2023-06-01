@@ -1,5 +1,5 @@
 vars_jenkins_home: /home/hangzhou/hangz/hztest/everything/temp
-
+# kvm_hugepages: ""
 vars_plugin_files:
   - vars_plugin_name: base_function.sh
     vars_plugin_checksum: 471787b86173cc6ef0a2243ec12f9a3419d1ac51
@@ -7,3 +7,42 @@ vars_plugin_files:
     vars_plugin_checksum: 2d1b3f9961e5484bb70a45be8deb88d96fc0bf95
   - vars_plugin_name: workload.sh
     vars_plugin_checksum: 69d651b736ee06b18d9b0f3efe332ef0628dee37
+
+
+
+kvm_packages:
+  debian:
+    - libvirt-clients
+    - qemu-kvm
+    - libvirt-daemon-system
+    - virtinst
+    - virt-manager
+  "rhel fedora":
+    - libvirt-client
+    - qemu-kvm
+    - libvirt-daemon
+    - libvirt-daemon-kvm
+    - virt-manager
+    - virt-install
+kvm_grub_actions:
+  "debian":
+    grub_path: /etc/default/grub.d/99-kvm-settings.cfg
+    update_grub_cmd: |
+        update-grub
+  "rhel fedora":
+    grub_path: /etc/default/grub
+    update_grub_cmd: |
+        grub2-mkconfig -o /boot/grub2/grub.cfg
+        grub2-mkconfig -o /etc/grub2.cfg
+kvm_hugepage_paths:
+  "2m":
+    mount_path: /dev/hugepages-2M
+    page_size: 2M
+    sysfs_path: /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+    hugepagesz: 2048k
+  "1g":
+    mount_path: /dev/hugepages-1G
+    page_size: 1024M
+    sysfs_path: /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+    hugepagesz: 1048576k
+kvm_reboot: false

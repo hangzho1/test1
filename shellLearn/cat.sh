@@ -45,3 +45,10 @@
 #         fi ;
 #         exit $? ;;
 # esac
+
+
+a=()
+a+=(100)
+a+=(1)
+echo $a
+echo ${a[@]}

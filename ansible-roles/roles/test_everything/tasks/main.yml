@@ -1,8 +1,35 @@
----
+- name: Detect OS
+  shell: 
+    cmd: ". /etc/os-release; echo $ID"
+    executable: /bin/bash
+  register: os
+
+- name: Detect OS VERSION
+  shell: 
+    cmd: ". /etc/os-release; echo $VERSION_ID"
+    executable: /bin/bash
+  register: os_ver
+
+- block:
+    - debug:
+        msg: "{{ os }}"
+
+    - debug:
+        msg: "{{ os_ver }}"
+
+    - name: Create hugepage mount point
+      debug:
+        msg: "{{ kvm_hugepage_paths[item.split('/')[0]]['mount_path'] }}"
+      loop: "{{ kvm_hugepages.split(',') }}"
 
 
+    - name: Create hugepage mount point
+      debug:
+        msg: "{{ kvm_hugepage_paths[item.split('/')[0]] }}"
+      loop: "{{ kvm_hugepages.split(',') }}"
 
+    - debug:
+        msg: "{{ item }}"
+      loop: "{{ kvm_hugepages.split(',') }}"
+  when: kvm_hugepages != ""
 
-
-- include_tasks: copy_plugin.yml
-- include_tasks: stat_debug.yml

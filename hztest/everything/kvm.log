@@ -1,0 +1,131 @@
+(base) [sfdev@owrlnxor0002 setup]$ bash ./setup-sut-kvm.sh raspadmin@10.219.170.236 --hugepage 2m/5023
+Setting up passwordless ssh to raspadmin@10.219.170.236...
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/sfdev/.ssh/id_rsa.pub"
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+                (if you think this is a mistake, you may want to use -f option)
+
+Setting up passwordless sudo...(sudo password might be required)
+Connection to 10.219.170.236 closed.
+ansible-playbook [core 2.14.2]
+  config file = /home/sfdev/setup_app/script/setup/ansible.cfg
+  configured module search path = ['/home/sfdev/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/sfdev/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.9.16 (main, Jan 17 2023, 18:53:15) [GCC 8.5.0 20210514 (Red Hat 8.5.0-18)] (/usr/bin/python3.9)
+  jinja version = 3.1.2
+  libyaml = True
+Using /home/sfdev/setup_app/script/setup/ansible.cfg as config file
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+
+PLAYBOOK: setup-sut-kvm.yaml ******************************************************************************************************************
+2 plays in ./setup-sut-kvm.yaml
+
+PLAY [kvm_hosts] ******************************************************************************************************************************
+
+TASK [check for essentials] *******************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/setup-sut-kvm.yaml:8
+
+TASK [check : check for internet connectivity as root] ****************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:2
+ok: [kvm-0] => (item=http://hub.docker.com) => {"ansible_facts": {"discovered_interpreter_python": "/usr/libexec/platform-python"}, "ansible_lot_type": "text/html; charset=utf-8", "cookies": {}, "cookies_string": "", "date": "Tue, 23 May 2023 03:31:10 GMT", "elapsed": 1, "etag": "W/\"9", "redirected": true, "server": "nginx", "status": 200, "strict_transport_security": "max-age=31536000", "url": "https://hub.docker.com/", "vaxss_protection": "1; mode=block"}
+ok: [kvm-0] => (item=https://hub.docker.com) => {"ansible_loop_var": "item", "changed": false, "connection": "close", "content_length": "2392",Tue, 23 May 2023 03:31:19 GMT", "elapsed": 0, "etag": "W/\"958-hGmT41pzJaVBYetU2B023BZLdV8\"", "item": "https://hub.docker.com", "msg": "OK (23ty": "max-age=31536000", "url": "https://hub.docker.com", "vary": "Accept-Encoding", "x_content_type_options": "nosniff", "x_frame_options": "d
+
+TASK [check : check for internet connectivity as a regular user] ******************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:11
+ok: [kvm-0] => (item=http://hub.docker.com) => {"ansible_loop_var": "item", "changed": false, "connection": "close", "content_length": "2392", ue, 23 May 2023 03:31:27 GMT", "elapsed": 1, "etag": "W/\"958-hGmT41pzJaVBYetU2B023BZLdV8\"", "item": "http://hub.docker.com", "msg": "OK (2392: "max-age=31536000", "url": "https://hub.docker.com/", "vary": "Accept-Encoding", "x_content_type_options": "nosniff", "x_frame_options": "den
+ok: [kvm-0] => (item=https://hub.docker.com) => {"ansible_loop_var": "item", "changed": false, "connection": "close", "content_length": "2392",Tue, 23 May 2023 03:31:36 GMT", "elapsed": 0, "etag": "W/\"958-hGmT41pzJaVBYetU2B023BZLdV8\"", "item": "https://hub.docker.com", "msg": "OK (23ty": "max-age=31536000", "url": "https://hub.docker.com", "vary": "Accept-Encoding", "x_content_type_options": "nosniff", "x_frame_options": "d
+
+TASK [check : get ~/.netrc permission] ********************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:18
+ok: [kvm-0] => {"changed": false, "stat": {"atime": 1684743762.3711283, "attr_flags": "", "attributes": [], "block_size": 4096, "blocks": 8, "c90976.6906781, "dev": 64514, "device_type": 0, "executable": false, "exists": true, "gid": 1000, "gr_name": "raspadmin", "inode": 9361062, "isb, "isreg": true, "issock": false, "isuid": false, "mimetype": "text/plain", "mode": "0600", "mtime": 1677490968.9598951, "nlink": 1, "path": "/lse, "rusr": true, "size": 263, "uid": 1000, "version": "1695167845", "wgrp": false, "woth": false, "writeable": true, "wusr": true, "xgrp": fa
+
+TASK [check : fail if the ~/.netrc permission is too permissive] ******************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:23
+skipping: [kvm-0] => {"changed": false, "skip_reason": "Conditional result was False"}
+
+TASK [check : check OS] ***********************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:31
+changed: [kvm-0] => {"changed": true, "cmd": ". /etc/os-release; echo $ID_LIKE", "delta": "0:00:00.006577", "end": "2023-05-22 23:31:42.640324"[], "stdout": "rhel fedora", "stdout_lines": ["rhel fedora"]}
+
+TASK [check : check apt-get/yum update functions] *********************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/check/tasks/main.yaml:37
+ok: [kvm-0] => {"ansible_facts": {"pkg_mgr": "dnf"}, "attempts": 1, "changed": false, "msg": "Cache updated", "rc": 0, "results": []}
+
+PLAY [kvm_hosts] ******************************************************************************************************************************
+
+TASK [Setup KVM] ******************************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/setup-sut-kvm.yaml:18
+
+TASK [kvm : Detect OS] ************************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:1
+changed: [kvm-0] => {"changed": true, "cmd": ". /etc/os-release; echo $ID_LIKE", "delta": "0:00:00.006791", "end": "2023-05-22 23:32:03.313554"[], "stdout": "rhel fedora", "stdout_lines": ["rhel fedora"]}
+
+TASK [kvm : Install libvirt packages] *********************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:7
+ok: [kvm-0] => {"changed": false, "msg": "Nothing to do", "rc": 0, "results": []}
+
+TASK [kvm : Validate support for QEMU drivers] ************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:11
+changed: [kvm-0] => {"changed": true, "cmd": ["virt-host-validate", "qemu"], "delta": "0:00:00.096737", "end": "2023-05-22 23:32:12.451041", "frr": "", "stderr_lines": [], "stdout": "  QEMU: Checking for hardware virtualization                                 : PASS\n  QEMU: Checking ice /dev/kvm is accessible                            : PASS\n  QEMU: Checking if device /dev/vhost-net exists                             : PASEMU: Checking for cgroup 'cpu' controller support                         : PASS\n  QEMU: Checking for cgroup 'cpuacct' controller support               : PASS\n  QEMU: Checking for cgroup 'memory' controller support                      : PASS\n  QEMU: Checking for cgroup 'devices' co support                       : PASS\n  QEMU: Checking for device assignment IOMMU support                         : PASS\n  QEMU: Checking ifre guest support                                    : WARN (Unknown if this platform has Secure Guest support)", "stdout_lines": ["  QEMU: Chec if device /dev/kvm exists                                   : PASS", "  QEMU: Checking if device /dev/kvm is accessible                        : PASS", "  QEMU: Checking if device /dev/net/tun exists                               : PASS", "  QEMU: Checking for cgroup 'cpu' controller support                     : PASS", "  QEMU: Checking for cgroup 'cpuset' controller support                      : PASS", "  QEMU: Checking fgroup 'devices' controller support                     : PASS", "  QEMU: Checking for cgroup 'blkio' controller support                       :S", "  QEMU: Checking if IOMMU is enabled by kernel                               : PASS", "  QEMU: Checking for secure guest support
+
+TASK [kvm : Disable security_driver] **********************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:17
+ok: [kvm-0] => {"backup": "", "changed": false, "msg": ""}
+
+TASK [kvm : Ensure group "libvirt libvirt-qemu kvm" exists] ***********************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:24
+ok: [kvm-0] => (item=libvirt) => {"ansible_loop_var": "item", "changed": false, "gid": 982, "item": "libvirt", "name": "libvirt", "state": "pre
+ok: [kvm-0] => (item=libvirt-qemu) => {"ansible_loop_var": "item", "changed": false, "gid": 1002, "item": "libvirt-qemu", "name": "libvirt-qemu
+ok: [kvm-0] => (item=kvm) => {"ansible_loop_var": "item", "changed": false, "gid": 36, "item": "kvm", "name": "kvm", "state": "present", "syste
+
+TASK [kvm : Add user to group libvirt and libvirt-qemu] ***************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:33
+ok: [kvm-0] => {"append": true, "changed": false, "comment": "raspadmin", "group": 1000, "groups": "libvirt,libvirt-qemu,kvm", "home": "/home/r", "uid": 1000}
+
+TASK [kvm : enable PCI passthrough] ***********************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:39
+ok: [kvm-0] => {"ansible_facts": {"kernel_args": "intel_iommu_on iommu=pt"}, "changed": false}
+
+TASK [kvm : Create hugepage mount point] ******************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:43
+changed: [kvm-0] => (item=2m/5023) => {"ansible_loop_var": "item", "changed": true, "gid": 0, "group": "root", "item": "2m/5023", "mode": "0777}
+
+TASK [kvm : Add hugepage mount point to /etc/fstab] *******************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:50
+changed: [kvm-0] => (item=2m/5023) => {"ansible_loop_var": "item", "changed": true, "item": "2m/5023", "msg": "Block inserted"}
+
+TASK [kvm : try setting huge pages] ***********************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:57
+changed: [kvm-0] => (item=2m/5023) => {"ansible_loop_var": "item", "attempts": 1, "changed": true, "cmd": "[ $(cat /sys/kernel/mm/hugepages/huges-2048kB/nr_hugepages\n  [ $(cat /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages) -ge 5023 ]\n)\n", "delta": "0:00:00.026112", "end": ":32:32.993531", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+
+TASK [kvm : mount hugetlbfs] ******************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:75
+changed: [kvm-0] => {"changed": true, "cmd": ["mount", "-a"], "delta": "0:00:00.010532", "end": "2023-05-22 23:32:35.444689", "msg": "", "rc": stdout_lines": []}
+
+TASK [kvm : append to kernel args] ************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:78
+ok: [kvm-0] => (item=2m/5023) => {"ansible_facts": {"kernel_args": "intel_iommu_on iommu=pt hugepagesz=2048k hugepages=5023"}, "ansible_loop_va
+
+TASK [kvm : add to grub.conf] *****************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:85
+changed: [kvm-0] => {"changed": true, "msg": "Block inserted"}
+
+TASK [kvm : update grub] **********************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:93
+changed: [kvm-0] => {"changed": true, "cmd": "grub2-mkconfig -o /boot/grub2/grub.cfg\ngrub2-mkconfig -o /etc/grub2.cfg\n", "delta": "0:00:09.2240.447956", "stderr": "Generating grub configuration file ...\nAdding boot menu entry for EFI firmware configuration\ndone\nGenerating grub conlines": ["Generating grub configuration file ...", "Adding boot menu entry for EFI firmware configuration", "done", "Generating grub configurat"", "stdout_lines": []}
+
+TASK [kvm : enable and start libvirt service] *************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:99
+changed: [kvm-0] => {"changed": true, "enabled": true, "name": "libvirtd", "state": "started", "status": {"ActiveEnterTimestamp": "Tue 2023-05-2023-05-16 06:22:03 EDT", "ActiveExitTimestampMonotonic": "146875177", "ActiveState": "inactive", "After": "remote-fs.target dbus.service iptab.service sysinit.target libvirtd-ro.socket virtlockd.service virtlogd-admin.socket systemd-machined.service virtlockd.socket xencommons.servicertd-admin.socket virtlogd.socket systemd-journald.socket ip6tables.service system.slice", "AllowIsolate": "no", "AllowedCPUs": "", "AllowedMemo3-05-16 06:20:03 EDT", "AssertTimestampMonotonic": "26295161", "Before": "multi-user.target shutdown.target libvirt-guests.service", "BlockIOAcPUAffinityFromNUMA": "no", "CPUQuotaPerSecUSec": "infinity", "CPUQuotaPeriodUSec": "infinity", "CPUSchedulingPolicy": "0", "CPUSchedulingPriori set]", "CPUWeight": "[not set]", "CacheDirectoryMode": "0755", "CanFreeze": "yes", "CanIsolate": "no", "CanReload": "yes", "CanStart": "yes", cap_fowner cap_fsetid cap_kill cap_setgid cap_setuid cap_setpcap cap_linux_immutable cap_net_bind_service cap_net_broadcast cap_net_admin cap_ne cap_sys_pacct cap_sys_admin cap_sys_boot cap_sys_nice cap_sys_resource cap_sys_time cap_sys_tty_config cap_mknod cap_lease cap_audit_write caock_suspend cap_audit_read cap_perfmon cap_bpf", "CollectMode": "inactive", "ConditionResult": "yes", "ConditionTimestamp": "Tue 2023-05-16 06:, "Conflicts": "xendomains.service shutdown.target", "ControlGroup": "/system.slice/libvirtd.service", "ControlPID": "0", "DefaultDependencies" "Virtualization daemon", "DevicePolicy": "auto", "Documentation": "man:libvirtd(8) https://libvirt.org", "DynamicUser": "no", "EffectiveCPUs":s=yes)", "ExecMainCode": "1", "ExecMainExitTimestamp": "Tue 2023-05-16 06:22:03 EDT", "ExecMainExitTimestampMonotonic": "146874740", "ExecMainPmpMonotonic": "26299698", "ExecMainStatus": "0", "ExecReload": "{ path=/bin/kill ; argv[]=/bin/kill -HUP $MAINPID ; ignore_errors=no ; start_ti/sbin/libvirtd ; argv[]=/usr/sbin/libvirtd $LIBVIRTD_ARGS ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; statu/systemd/system/libvirtd.service", "FreezerState": "running", "GID": "[not set]", "GuessMainPID": "yes", "IOAccounting": "no", "IOSchedulingClaressBytes": "18446744073709551615", "IPEgressPackets": "18446744073709551615", "IPIngressBytes": "18446744073709551615", "IPIngressPackets": "1yes", "InactiveEnterTimestamp": "Tue 2023-05-16 06:22:03 EDT", "InactiveEnterTimestampMonotonic": "146875177", "InactiveExitTimestamp": "Tue 203e29993341d9aacbd508950fa789", "JobRunningTimeoutUSec": "infinity", "JobTimeoutAction": "none", "JobTimeoutUSec": "infinity", "KeyringMode": "pinfinity", "LimitCORE": "infinity", "LimitCORESoft": "0", "LimitCPU": "infinity", "LimitCPUSoft": "infinity", "LimitDATA": "infinity", "LimitDA"infinity", "LimitLOCKSSoft": "infinity", "LimitMEMLOCK": "67108864", "LimitMEMLOCKSoft": "67108864", "LimitMSGQUEUE": "819200", "LimitMSGQUEUEESoft": "8192", "LimitNPROC": "2062536", "LimitNPROCSoft": "2062536", "LimitRSS": "infinity", "LimitRSSSoft": "infinity", "LimitRTPRIO": "0", "ENDING": "2062536", "LimitSIGPENDINGSoft": "2062536", "LimitSTACK": "infinity", "LimitSTACKSoft": "8388608", "LoadState": "loaded", "LockPerson", "LogsDirectoryMode": "0755", "MainPID": "0", "MemoryAccounting": "yes", "MemoryCurrent": "[not set]", "MemoryDenyWriteExecute": "no", "MemorMemoryMin": "0", "MemorySwapMax": "infinity", "MountAPIVFS": "no", "MountFlags": "", "NFileDescriptorStore": "0", "NRestarts": "0", "NUMAMask":", "NoNewPrivileges": "no", "NonBlocking": "no", "NotifyAccess": "main", "OOMScoreAdjust": "0", "OnFailureJobMode": "replace", "PermissionsStarwork": "no", "PrivateTmp": "no", "PrivateUsers": "no", "ProtectControlGroups": "no", "ProtectHome": "no", "ProtectKernelModules": "no", "Protec": "no", "RemainAfterExit": "no", "RemoveIPC": "no", "Requires": "virtlockd.socket virtlogd.socket sysinit.target system.slice", "Restart": "onestrictSUIDSGID": "no", "Result": "success", "RootDirectoryStartOnly": "no", "RuntimeDirectoryMode": "0755", "RuntimeDirectoryPreserve": "no", o", "SendSIGKILL": "yes", "Slice": "system.slice", "StandardError": "inherit", "StandardInput": "null", "StandardInputData": "", "StandardOutpu: "10s", "StartupBlockIOWeight": "[not set]", "StartupCPUShares": "[not set]", "StartupCPUWeight": "[not set]", "StartupIOWeight": "[not set]",46875177", "StateDirectoryMode": "0755", "StatusErrno": "0", "StopWhenUnneeded": "no", "SubState": "dead", "SuccessAction": "none", "SyslogFaciCallErrorNumber": "0", "TTYReset": "no", "TTYVHangup": "no", "TTYVTDisallocate": "no", "TasksAccounting": "yes", "TasksCurrent": "[not set]", "ackNSec": "50000", "Transient": "no", "TriggeredBy": "libvirtd-ro.socket libvirtd.socket libvirtd-admin.socket", "Type": "notify", "UID": "[not": "init", "WantedBy": "libvirt-guests.service multi-user.target", "Wants": "libvirtd-ro.socket libvirtd.socket libvirtd-admin.socket systemd-m
+
+TASK [kvm : reboot] ***************************************************************************************************************************
+task path: /home/sfdev/setup_app/script/setup/roles/kvm/tasks/main.yaml:105
+skipping: [kvm-0] => {"changed": false, "skip_reason": "Conditional result was False"}
+
+PLAY RECAP ************************************************************************************************************************************
+kvm-0                      : ok=20   changed=10   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
