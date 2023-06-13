@@ -47,8 +47,14 @@
 # esac
 
 
-a=()
-a+=(100)
-a+=(1)
-echo $a
-echo ${a[@]}
+# a=()
+# a+=(100)
+# a+=(1)
+# echo $a
+# echo ${a[@]}
+
+
+
+my_array=(A B "C" D)
+
+echo $my_array $my_array[1] ${my_array[1]} ${my_array[@]} ${my_array}
