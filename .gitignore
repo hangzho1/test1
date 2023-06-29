@@ -1,2 +1,14 @@
 ansible/ansible.log
 ansible/ansible.log
+ansible/ansible.log
+ansible/ansible.log
+ansible/ansible.log
+/home/sfdev/hangz/ansible/ansible.log
+**.log
+build*/*
+*__pycache__*
+*.pyc
+.idea
+logs/
+result/
+.vscode/*
