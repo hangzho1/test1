@@ -1,0 +1,18 @@
+################################################################
+#  ExecStart is the monitor agent script path 
+# 
+[Unit]
+Description=offline bind dpdk port.
+After=network-pre.target
+ 
+[Service]
+EnvironmentFile=/etc/environment 
+ExecStart=/bin/bash /opt/intel/offline_bind_dpdk.sh
+Restart=on-failure
+Type=forking
+User=root
+WorkingDirectory=/opt/intel
+ 
+[Install]
+WantedBy=multi-user.target
+ ###################################################################
