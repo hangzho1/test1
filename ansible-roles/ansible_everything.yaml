@@ -6,4 +6,4 @@
     - role: test_everything
       vars:
         # k8s_plugins: [nfd-dp-dlb,abc,'def',"dfadf"]
-        k8s_plugins: '[nfd-dp-dlb,nfd-dp-qat]'
+        wl_logs_dir: abc

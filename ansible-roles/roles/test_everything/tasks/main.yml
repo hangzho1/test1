@@ -1,35 +1,49 @@
-- name: Detect OS
-  shell: 
-    cmd: ". /etc/os-release; echo $ID"
-    executable: /bin/bash
-  register: os
+# - name: Detect OS
+#   shell: 
+#     cmd: ". /etc/os-release; echo $ID"
+#     executable: /bin/bash
+#   register: os
 
-- name: Detect OS VERSION
-  shell: 
-    cmd: ". /etc/os-release; echo $VERSION_ID"
-    executable: /bin/bash
-  register: os_ver
+# - name: Detect OS VERSION
+#   shell: 
+#     cmd: ". /etc/os-release; echo $VERSION_ID"
+#     executable: /bin/bash
+#   register: os_ver
 
-- block:
-    - debug:
-        msg: "{{ os }}"
+# - block:
+#     - debug:
+#         msg: "{{ os }}"
 
-    - debug:
-        msg: "{{ os_ver }}"
+#     - debug:
+#         msg: "{{ os_ver }}"
 
-    - name: Create hugepage mount point
-      debug:
-        msg: "{{ kvm_hugepage_paths[item.split('/')[0]]['mount_path'] }}"
-      loop: "{{ kvm_hugepages.split(',') }}"
+#     - name: Create hugepage mount point
+#       debug:
+#         msg: "{{ kvm_hugepage_paths[item.split('/')[0]]['mount_path'] }}"
+#       loop: "{{ kvm_hugepages.split(',') }}"
 
 
-    - name: Create hugepage mount point
-      debug:
-        msg: "{{ kvm_hugepage_paths[item.split('/')[0]] }}"
-      loop: "{{ kvm_hugepages.split(',') }}"
+#     - name: Create hugepage mount point
+#       debug:
+#         msg: "{{ kvm_hugepage_paths[item.split('/')[0]] }}"
+#       loop: "{{ kvm_hugepages.split(',') }}"
 
-    - debug:
-        msg: "{{ item }}"
-      loop: "{{ kvm_hugepages.split(',') }}"
-  when: kvm_hugepages != ""
+#     - debug:
+#         msg: "{{ item }}"
+#       loop: "{{ kvm_hugepages.split(',') }}"
+#   when: kvm_hugepages != ""
 
+
+    # - name: docker_auth_pass_keyring_dir
+    #   shell:
+    #     cmd:
+    #       echo {{ pwd }}
+
+    - name: Record timing
+      shell:
+        cmd: |
+          echo "k8s_setup_start: \"$(date -Ins)\"" > {{ wl_logs_dir}}/timing.yaml
+          echo k8s_setup_start: $(date -Ins) >> {{ wl_logs_dir}}/timing.yaml
+          # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
+          # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
+        executable: /bin/bash
