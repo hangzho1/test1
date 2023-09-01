@@ -735,8 +735,8 @@ print(max(dp))
 
 
 
-from distutils.command.config import config
-import yaml
+# from distutils.command.config import config
+# import yaml
 
 # settings = yaml.safe_load(open(config, 'r'))['BIOS_CONFIG']
 # if self._backend == "xmlcli": 
@@ -764,28 +764,28 @@ import yaml
 
 
 
-a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", "r"))
-print(a)
+# a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", "r"))
+# print(a)
 # print("============================================")
 # b=a.get("BIOS_CONFIG")
 # print(b)
 # d=a.get('BIOS_CONFIG')
 # print(d)
 # print("============================================")
-settings = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", 'r'))['BIOS_CONFIG']
-print(settings)
-print("============================================")
-arg = ",".join(["{}={}".format(setting['knob'], setting['value']) for setting in settings])
-print("value of arg {}".format(arg),len(arg))
+# settings = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", 'r'))['BIOS_CONFIG']
+# print(settings)
+# print("============================================")
+# arg = ",".join(["{}={}".format(setting['knob'], setting['value']) for setting in settings])
+# print("value of arg {}".format(arg),len(arg))
 
 
-x = ["{}={}".format(setting['knob'], setting['value']) for setting in settings]
-print("value of x {}".format(x),len(x))
+# x = ["{}={}".format(setting['knob'], setting['value']) for setting in settings]
+# print("value of x {}".format(x),len(x))
 
 
 
-knobs_to_change = [setting['knob'] for setting in settings]
-print("knobs_to_change {}".format(knobs_to_change),len(knobs_to_change))
+# knobs_to_change = [setting['knob'] for setting in settings]
+# print("knobs_to_change {}".format(knobs_to_change),len(knobs_to_change))
 
 
 # a = yaml.safe_load(open("/home/hangzhou/hangz/python/config.yaml", 'r'))
@@ -798,3 +798,700 @@ print("knobs_to_change {}".format(knobs_to_change),len(knobs_to_change))
 # arg = ",".join("aaadf={}".format(a))
 # print(arg)
 
+import json
+import os
+import re
+import requests
+import yaml
+import subprocess
+import pathlib
+import operator
+import hashlib
+os.environ['WORKSPACE'] = "/home/hangz/validation"
+print(os.getenv('WORKSPACE'))
+
+
+
+def execute_cmd(cmd):
+    """
+    execute shell command
+    :param cmd:
+    :return: return exit code and output
+    """
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    output, err = p.communicate()
+    status = 1 if err else 0
+    return status, output
+
+
+def sha256(content=None):
+    if content is None:
+        return ''
+    sha256gen = hashlib.sha256()
+    sha256gen.update(content.encode())
+    sha256code = sha256gen.hexdigest()
+    sha256gen = None
+    return sha256code
+
+def generate_infra_benchmark_execution_info(session_id, platform, workload, config, infra_case):
+    '''
+    generate test result for each benchmark run
+    :param platform:
+    :param workload:
+    :param config:
+    :return:
+    '''
+    benchmark_execution_info = {}
+    benchmark_execution_info['execution'] = {}
+    build_id = os.getenv('BUILD_ID', '49')
+    performance = os.getenv("performance", 'false')
+    backend = os.getenv("backend", 'terraform')
+    test_config = os.getenv("workload_test_config_yaml", '')
+
+    items = session_id.split('_')
+    test_config = test_config if test_config else 'default'
+
+    if len(items) == 5:
+        wiki_platform_commit = items[-2]
+    else:
+        wiki_platform_commit = 'master'
+
+    test_result_folder = os.path.join(os.environ['WORKSPACE'], "result")
+    customer = os.getenv('customer', 'main')
+    if customer == 'ali':
+        art_log_url = 'https://af01p-sh.devtools.intel.com/artifactory/platform_hero_ali-sh-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    elif customer == 'tencent':
+        art_log_url = 'https://af01p-sh.devtools.intel.com/artifactory/platform_hero_tencent-sh-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    else:
+        art_log_url = 'https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    ctest_folder = os.path.join(test_result_folder, 'ctest')
+    # check test case details from ctest folder, pass/fail
+    failed_test_case = []
+    #If test was aborted, the test log file name end with .tmp
+    failed_test_log = os.path.join(ctest_folder, "LastTestsFailed.log")
+    if not os.path.exists(failed_test_log):
+        failed_test_log = os.path.join(ctest_folder, "LastTestsFailed.log.tmp")
+    all_test_log = os.path.join(ctest_folder, "LastTest.log")
+    if not os.path.exists(all_test_log):
+        all_test_log = os.path.join(ctest_folder, "LastTest.log.tmp")
+    if os.path.exists(failed_test_log):
+        with open(failed_test_log, 'r') as fl:
+            for line in fl:
+                failed_case_name = line.strip("\n").split(":")[1]
+                failed_test_case.append(failed_case_name)
+
+    # get all test case info
+    if os.path.exists(all_test_log):
+        with open(all_test_log, 'r') as all:
+            for line in all:
+                if "Testing: test_" in line:
+                    # for cloud case, case name is test_aws-machine-type_case
+                    case_name = line.strip("\n").split(" ")[2]
+                    cluster_type = case_name.split("_")[1]
+                    if '-' in cluster_type:
+                        cluster_type = cluster_type.split("-")[0]
+                    logs_folder_name = "logs-" + case_name.split("test_")[-1]
+                    test_platform = platform + '_' + cluster_type.upper()
+                    if cluster_type == 'baremetal' or cluster_type == 'static':
+                        test_platform = platform
+                    if cluster_type in ['aws', 'gcp', 'azure']:
+                        test_platform = platform + '_' + cluster_type.upper()
+                    if cluster_type.lower() == 'gaudi':
+                        test_platform = platform + '_AWS'
+                    if cluster_type.lower() == 'inf':
+                        test_platform = platform + '_AWS'
+                    if cluster_type.lower() == 't4':
+                        test_platform = platform + '_AWS'
+                    if test_platform not in benchmark_execution_info['execution']:
+                        benchmark_execution_info['execution'][test_platform] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Blocked'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['no_run_test_case'] = []
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] + 1
+
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['log_url'] = art_log_url
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['machine_config'] = config
+
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'].append(
+                        case_name)
+
+                    # no_label_case as no_run case
+                    label_not_found_file = os.path.join(test_result_folder, logs_folder_name, 'no_label_found')
+                    emon_not_found_file = os.path.join(test_result_folder, logs_folder_name, 'no_emon_found')
+                    timeout_wait_for_server_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'timout_wait_for_server')
+                    no_enough_workers_cluster_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'no_enough_workers_cluster')
+                    skip_specified_num_nodes_case_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'skip_specified_num_nodes_case')
+
+                    if os.path.exists(label_not_found_file) or os.path.exists(
+                            emon_not_found_file) or os.path.exists(
+                            timeout_wait_for_server_file) or os.path.exists(
+                            no_enough_workers_cluster_file) or os.path.exists(skip_specified_num_nodes_case_file):
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                            'no_run_test_case'].append(case_name)
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = \
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] + 1
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = \
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] - 1
+                    else:
+                        if case_name in failed_test_case:
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                                'failed_test_case'].append(case_name)
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                        else:
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                                'passed_test_case'].append(
+                                case_name)
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] + 1
+
+    # get kpi info
+    for root, dirs, files in os.walk(os.path.join(test_result_folder)):
+        if "pkb.log" in files or "tfplan.logs" in files:
+            folder_name = os.path.basename(root)
+            folder_list = root.split("/")
+            for folder in folder_list:
+                if 'logs-' in folder:
+                    folder_name = folder
+            benchmark_list = folder_name.split('logs-')
+            if len(benchmark_list) == 1:
+                benchmark_name = workload
+                test_name = workload.lower()
+            else:
+                benchmark_name = benchmark_list[1]
+                test_name = benchmark_name
+            cluster_type = test_name.split("_")[0]
+            # for cloud case, case name is test_aws-machine-type_case
+            if '-' in cluster_type:
+                cluster_type = cluster_type.split("-")[0]
+
+            if backend == 'cumulus':
+                f = open("%s/workload-config.yaml" % root.split('runs')[0], 'r')
+            else:
+                f = open("%s/workload-config.yaml" % root, 'r')
+            result = f.read()
+            case_workload_config = yaml.safe_load(result)
+            case_sha256 = sha256(str(case_workload_config['tunables']))
+
+            test_platform = platform + '_' + cluster_type.upper()
+            if cluster_type == 'baremetal' or cluster_type == 'static':
+                test_platform = platform
+            if cluster_type in ['aws', 'gcp', 'azure']:
+                test_platform = platform + '_' + cluster_type.upper()
+            if cluster_type.lower() == 'gaudi':
+                test_platform = platform + '_AWS'
+            if cluster_type.lower() == 'inf':
+                test_platform = platform + '_AWS'
+            if cluster_type.lower() == 't4':
+                test_platform = platform + '_AWS'
+
+            if test_platform not in benchmark_execution_info['execution']:
+                benchmark_execution_info['execution'][test_platform] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Blocked'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['no_run_test_case'] = []
+
+            pkb_log = os.path.join(root, 'pkb.log')
+            if os.path.exists("%s/intel_publisher/perfKitRuns.json" % root):
+                with open("%s/intel_publisher/perfKitRuns.json" % root, 'r') as fp:
+                    run_details = json.load(fp)
+                run_uri = run_details['uri']
+            else:
+                run_uri = ''
+
+            if backend == 'cumulus':
+                cmd = "cat %s | grep 'End to End Runtime' | grep seconds | awk '{print $5}'" % pkb_log
+                ret, output = execute_cmd(cmd)
+                test_time = output.decode('ascii').strip().split('\n')
+                if len(test_time) > 0:
+                    execution_time = test_time[0]
+                else:
+                    execution_time = ''
+            else:
+                execution_time_log = os.path.join(root,'execution_time')
+                if os.path.exists(execution_time_log):
+                    with open(execution_time_log, 'r') as fl:
+                        execution_time = fl.read().split("\n")[0]
+                else:
+                    execution_time = ''
+
+            if test_name not in benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'].keys():
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics'] = {}
+            cumulus_url = "https://wsf-dashboards.intel.com/services-framework/run_uri/%s" % run_uri
+
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'cumulus_url'] = cumulus_url
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'test_time'] = execution_time
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['sha256'] = case_sha256
+            # get hw config
+            hw_config_file = os.path.join(test_result_folder, folder_name, 'cluster_config')
+
+            if os.path.exists(hw_config_file):
+                with open(hw_config_file, 'r') as fl:
+                    hw_config = fl.read().split("\n")[0]
+            else:
+                hw_config = '0'
+
+            cumulus_config = os.path.join(test_result_folder, folder_name, 'cumulus-config.yaml')
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['config'] = hw_config
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['test_config'] = test_config
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'wiki_platform_version'] = wiki_platform_commit
+
+            # add all kpi
+            # kpi_log_name = "kpi_*%s.log" % (benchmark_name.lower())
+            kpi_log_name = "kpi_*%s.log" % (benchmark_name)
+            kpi_log = os.path.join(test_result_folder, "kpi/%s" % kpi_log_name)
+            all_metrics_cmd = "cat %s" % (str(kpi_log))
+            if performance == 'true':
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['itr'] = {}
+            ret_code, metrics_info = execute_cmd(all_metrics_cmd)
+            metrics = metrics_info.decode('ascii').strip().split('\n')
+
+            for metric in metrics:
+                if metric.startswith('*') and ':' in metric:
+                    info = metric.split(':')
+                    metric_name = info[0].replace('*', '')
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics'][
+                        metric_name] = info[1]
+                else:
+                    if performance == 'true':
+                        if 'itr' in metric.split(' ')[0]:
+                            itr = metric.split(' ')[0]
+                            if ':' not in metric:
+                                itr_value = ' '
+                            else:
+                                itr_value = metric.split(':')[1]
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['itr'][itr] = itr_value
+
+            # case return fail if no kpi
+            if not bool(
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics']) and os.getenv('type', 'workload') == 'workload':
+                real_case_name = 'test_' + test_name
+                if real_case_name in benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                    'passed_test_case']:
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'].remove(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'].append(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] - 1
+                    os.system(
+                        "echo %s >> %s/logs/ctest/LastTestsFailed.log" % (real_case_name, os.environ['WORKSPACE']))
+    #if test failed with no pkb.log, also mark it as failed
+    for item in os.listdir(test_result_folder):
+        test_dir = os.path.join(test_result_folder, item)
+        if os.path.isdir(test_dir) and item.startswith('logs-'):
+            # test_dir = os.path.join(test_result_folder,item)
+            # if not find pkb.log
+            if not sorted(pathlib.Path(test_dir).glob('**/pkb.log')):
+                test_name = item.replace('logs-','')
+                cluster_type = test_name.split("_")[0]
+                if '-' in cluster_type:
+                    cluster_type = cluster_type.split("-")[0]
+                test_platform = platform + '_' + cluster_type.upper()
+                if cluster_type == 'baremetal' or cluster_type == 'static':
+                    test_platform = platform
+                if cluster_type in ['aws', 'gcp', 'azure']:
+                    test_platform = platform + '_' + cluster_type.upper()
+                if cluster_type.lower() == 'gaudi':
+                    test_platform = platform + '_AWS'
+                real_case_name = 'test_' + test_name
+                if real_case_name in benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case']:
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'].remove(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'].append(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] - 1
+                    os.system(
+                        "echo %s >> %s/logs/ctest/LastTestsFailed.log" % (real_case_name, os.environ['WORKSPACE']))
+    # get bom info
+    bom_folder = os.path.join(test_result_folder, "bom")
+    if os.path.exists(bom_folder):
+        for bom_file in os.listdir(bom_folder):
+            bom = os.path.join(bom_folder, bom_file)
+            with open(bom) as file:
+                for line in file:
+                    line = line.rstrip("\n")
+                    bom_name = line.split(' ')[0]
+                    bom_value = line.split(' ')[1]
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'][bom_name] = bom_value
+
+    print(benchmark_execution_info)
+
+    json_str = json.dumps(benchmark_execution_info, indent=4)
+    execution_json_file = os.path.join(os.environ['WORKSPACE'], "%s_%s.json" % (platform, workload))
+    with open('%s' % execution_json_file, 'w') as json_file:
+        json_file.write(json_str)
+
+infra_case = "test_aws_icx_sanity"
+print(generate_infra_benchmark_execution_info("Infra_automation_08-10-2023_49_e31c5836","ICX","Nginx","", infra_case))
+def generate_infra_benchmark_execution_info(session_id, platform, workload, config, infra_case):
+    '''
+    generate test result for each benchmark run
+    :param platform:
+    :param workload:
+    :param config:
+    :return:
+    '''
+    benchmark_execution_info = {}
+    benchmark_execution_info['execution'] = {}
+    build_id = os.getenv('BUILD_ID', '49')
+    performance = os.getenv("performance", 'false')
+    backend = os.getenv("backend", 'terraform')
+    test_config = os.getenv("workload_test_config_yaml", '')
+
+    items = session_id.split('_')
+    test_config = test_config if test_config else 'default'
+
+    if len(items) == 5:
+        wiki_platform_commit = items[-2]
+    else:
+        wiki_platform_commit = 'master'
+
+    test_result_folder = os.path.join(os.environ['WORKSPACE'], "result")
+    customer = os.getenv('customer', 'main')
+    if customer == 'ali':
+        art_log_url = 'https://af01p-sh.devtools.intel.com/artifactory/platform_hero_ali-sh-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    elif customer == 'tencent':
+        art_log_url = 'https://af01p-sh.devtools.intel.com/artifactory/platform_hero_tencent-sh-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    else:
+        art_log_url = 'https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/%s/%s_%s_%s/logs' % (
+            session_id, platform, workload, build_id)
+    ctest_folder = os.path.join(test_result_folder, 'ctest')
+    # check test case details from ctest folder, pass/fail
+    failed_test_case = []
+    #If test was aborted, the test log file name end with .tmp
+    failed_test_log = os.path.join(ctest_folder, "LastTestsFailed.log")
+    if not os.path.exists(failed_test_log):
+        failed_test_log = os.path.join(ctest_folder, "LastTestsFailed.log.tmp")
+    all_test_log = os.path.join(ctest_folder, "LastTest.log")
+    if not os.path.exists(all_test_log):
+        all_test_log = os.path.join(ctest_folder, "LastTest.log.tmp")
+    if os.path.exists(failed_test_log):
+        with open(failed_test_log, 'r') as fl:
+            for line in fl:
+                failed_case_name = line.strip("\n").split(":")[1]
+                failed_test_case.append(failed_case_name)
+
+    # get all test case info
+    if os.path.exists(all_test_log):
+        with open(all_test_log, 'r') as all:
+            for line in all:
+                if "Testing: test_" in line:
+                    # for cloud case, case name is test_aws-machine-type_case
+                    case_name = line.strip("\n").split(" ")[2]
+                    cluster_type = case_name.split("_")[1]
+                    if '-' in cluster_type:
+                        cluster_type = cluster_type.split("-")[0]
+                    logs_folder_name = "logs-" + case_name.split("test_")[-1]
+                    test_platform = platform + '_' + cluster_type.upper()
+                    if cluster_type == 'baremetal' or cluster_type == 'static':
+                        test_platform = platform
+                    if cluster_type in ['aws', 'gcp', 'azure']:
+                        test_platform = platform + '_' + cluster_type.upper()
+                    if cluster_type.lower() == 'gaudi':
+                        test_platform = platform + '_AWS'
+                    if cluster_type.lower() == 'inf':
+                        test_platform = platform + '_AWS'
+                    if cluster_type.lower() == 't4':
+                        test_platform = platform + '_AWS'
+                    if test_platform not in benchmark_execution_info['execution']:
+                        benchmark_execution_info['execution'][test_platform] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'] = {}
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Blocked'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = 0
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'] = []
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['no_run_test_case'] = []
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] + 1
+
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['log_url'] = art_log_url
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['machine_config'] = config
+
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'].append(
+                        case_name)
+
+                    # no_label_case as no_run case
+                    label_not_found_file = os.path.join(test_result_folder, logs_folder_name, 'no_label_found')
+                    emon_not_found_file = os.path.join(test_result_folder, logs_folder_name, 'no_emon_found')
+                    timeout_wait_for_server_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'timout_wait_for_server')
+                    no_enough_workers_cluster_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'no_enough_workers_cluster')
+                    skip_specified_num_nodes_case_file = os.path.join(test_result_folder, logs_folder_name,
+                                                                'skip_specified_num_nodes_case')
+
+                    if os.path.exists(label_not_found_file) or os.path.exists(
+                            emon_not_found_file) or os.path.exists(
+                            timeout_wait_for_server_file) or os.path.exists(
+                            no_enough_workers_cluster_file) or os.path.exists(skip_specified_num_nodes_case_file):
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                            'no_run_test_case'].append(case_name)
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = \
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] + 1
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = \
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] - 1
+                    else:
+                        if case_name in failed_test_case:
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                                'failed_test_case'].append(case_name)
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                        else:
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                                'passed_test_case'].append(
+                                case_name)
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] + 1
+
+    # get kpi info
+    for root, dirs, files in os.walk(os.path.join(test_result_folder)):
+        if "pkb.log" in files or "tfplan.logs" in files:
+            folder_name = os.path.basename(root)
+            folder_list = root.split("/")
+            for folder in folder_list:
+                if 'logs-' in folder:
+                    folder_name = folder
+            benchmark_list = folder_name.split('logs-')
+            if len(benchmark_list) == 1:
+                benchmark_name = workload
+                test_name = workload.lower()
+            else:
+                benchmark_name = benchmark_list[1]
+                test_name = benchmark_name
+            cluster_type = test_name.split("_")[0]
+            # for cloud case, case name is test_aws-machine-type_case
+            if '-' in cluster_type:
+                cluster_type = cluster_type.split("-")[0]
+
+            if backend == 'cumulus':
+                f = open("%s/workload-config.yaml" % root.split('runs')[0], 'r')
+            else:
+                f = open("%s/workload-config.yaml" % root, 'r')
+            result = f.read()
+            case_workload_config = yaml.safe_load(result)
+            case_sha256 = sha256(str(case_workload_config['tunables']))
+
+            test_platform = platform + '_' + cluster_type.upper()
+            if cluster_type == 'baremetal' or cluster_type == 'static':
+                test_platform = platform
+            if cluster_type in ['aws', 'gcp', 'azure']:
+                test_platform = platform + '_' + cluster_type.upper()
+            if cluster_type.lower() == 'gaudi':
+                test_platform = platform + '_AWS'
+            if cluster_type.lower() == 'inf':
+                test_platform = platform + '_AWS'
+            if cluster_type.lower() == 't4':
+                test_platform = platform + '_AWS'
+
+            if test_platform not in benchmark_execution_info['execution']:
+                benchmark_execution_info['execution'][test_platform] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Total'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Blocked'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['Attempted'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['No_Run'] = 0
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['all_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'] = []
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['no_run_test_case'] = []
+
+            pkb_log = os.path.join(root, 'pkb.log')
+            if os.path.exists("%s/intel_publisher/perfKitRuns.json" % root):
+                with open("%s/intel_publisher/perfKitRuns.json" % root, 'r') as fp:
+                    run_details = json.load(fp)
+                run_uri = run_details['uri']
+            else:
+                run_uri = ''
+
+            if backend == 'cumulus':
+                cmd = "cat %s | grep 'End to End Runtime' | grep seconds | awk '{print $5}'" % pkb_log
+                ret, output = execute_cmd(cmd)
+                test_time = output.decode('ascii').strip().split('\n')
+                if len(test_time) > 0:
+                    execution_time = test_time[0]
+                else:
+                    execution_time = ''
+            else:
+                execution_time_log = os.path.join(root,'execution_time')
+                if os.path.exists(execution_time_log):
+                    with open(execution_time_log, 'r') as fl:
+                        execution_time = fl.read().split("\n")[0]
+                else:
+                    execution_time = ''
+
+            if test_name not in benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'].keys():
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name] = {}
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics'] = {}
+            cumulus_url = "https://wsf-dashboards.intel.com/services-framework/run_uri/%s" % run_uri
+
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'cumulus_url'] = cumulus_url
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'test_time'] = execution_time
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['sha256'] = case_sha256
+            # get hw config
+            hw_config_file = os.path.join(test_result_folder, folder_name, 'cluster_config')
+
+            if os.path.exists(hw_config_file):
+                with open(hw_config_file, 'r') as fl:
+                    hw_config = fl.read().split("\n")[0]
+            else:
+                hw_config = '0'
+
+            cumulus_config = os.path.join(test_result_folder, folder_name, 'cumulus-config.yaml')
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['config'] = hw_config
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['test_config'] = test_config
+            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name][
+                'wiki_platform_version'] = wiki_platform_commit
+
+            # add all kpi
+            # kpi_log_name = "kpi_*%s.log" % (benchmark_name.lower())
+            kpi_log_name = "kpi_*%s.log" % (benchmark_name)
+            kpi_log = os.path.join(test_result_folder, "kpi/%s" % kpi_log_name)
+            all_metrics_cmd = "cat %s" % (str(kpi_log))
+            if performance == 'true':
+                benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['itr'] = {}
+            ret_code, metrics_info = execute_cmd(all_metrics_cmd)
+            metrics = metrics_info.decode('ascii').strip().split('\n')
+
+            for metric in metrics:
+                if metric.startswith('*') and ':' in metric:
+                    info = metric.split(':')
+                    metric_name = info[0].replace('*', '')
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics'][
+                        metric_name] = info[1]
+                else:
+                    if performance == 'true':
+                        if 'itr' in metric.split(' ')[0]:
+                            itr = metric.split(' ')[0]
+                            if ':' not in metric:
+                                itr_value = ' '
+                            else:
+                                itr_value = metric.split(':')[1]
+                            benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['itr'][itr] = itr_value
+
+            # case return fail if no kpi
+            if not bool(
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['kpi'][test_name]['metrics']) and os.getenv('type', 'workload') == 'workload':
+                real_case_name = 'test_' + test_name
+                if real_case_name in benchmark_execution_info['execution'][test_platform][infra_case][workload][
+                    'passed_test_case']:
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'].remove(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'].append(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] - 1
+                    os.system(
+                        "echo %s >> %s/logs/ctest/LastTestsFailed.log" % (real_case_name, os.environ['WORKSPACE']))
+    #if test failed with no pkb.log, also mark it as failed
+    for item in os.listdir(test_result_folder):
+        test_dir = os.path.join(test_result_folder, item)
+        if os.path.isdir(test_dir) and item.startswith('logs-'):
+            # test_dir = os.path.join(test_result_folder,item)
+            # if not find pkb.log
+            if not sorted(pathlib.Path(test_dir).glob('**/pkb.log')):
+                test_name = item.replace('logs-','')
+                cluster_type = test_name.split("_")[0]
+                if '-' in cluster_type:
+                    cluster_type = cluster_type.split("-")[0]
+                test_platform = platform + '_' + cluster_type.upper()
+                if cluster_type == 'baremetal' or cluster_type == 'static':
+                    test_platform = platform
+                if cluster_type in ['aws', 'gcp', 'azure']:
+                    test_platform = platform + '_' + cluster_type.upper()
+                if cluster_type.lower() == 'gaudi':
+                    test_platform = platform + '_AWS'
+                real_case_name = 'test_' + test_name
+                if real_case_name in benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case']:
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['passed_test_case'].remove(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['failed_test_case'].append(
+                        real_case_name)
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Failed'] + 1
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] = \
+                        benchmark_execution_info['execution'][test_platform][infra_case][workload]['Passed'] - 1
+                    os.system(
+                        "echo %s >> %s/logs/ctest/LastTestsFailed.log" % (real_case_name, os.environ['WORKSPACE']))
+    # get bom info
+    bom_folder = os.path.join(test_result_folder, "bom")
+    if os.path.exists(bom_folder):
+        for bom_file in os.listdir(bom_folder):
+            bom = os.path.join(bom_folder, bom_file)
+            with open(bom) as file:
+                for line in file:
+                    line = line.rstrip("\n")
+                    bom_name = line.split(' ')[0]
+                    bom_value = line.split(' ')[1]
+                    benchmark_execution_info['execution'][test_platform][infra_case][workload]['bom'][bom_name] = bom_value
+
+    print(benchmark_execution_info)
+
+    json_str = json.dumps(benchmark_execution_info, indent=4)
+    execution_json_file = os.path.join(os.environ['WORKSPACE'], "%s_%s.json" % (platform, workload))
+    with open('%s' % execution_json_file, 'w') as json_file:
+        json_file.write(json_str)
+
+infra_case = "test_aws_icx_sanity"
+print(generate_infra_benchmark_execution_info("Infra_automation_08-10-2023_49_e31c5836","ICX","Nginx","", infra_case))

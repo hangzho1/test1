@@ -39,11 +39,43 @@
     #     cmd:
     #       echo {{ pwd }}
 
-    - name: Record timing
-      shell:
-        cmd: |
-          echo "k8s_setup_start: \"$(date -Ins)\"" > {{ wl_logs_dir}}/timing.yaml
-          echo k8s_setup_start: $(date -Ins) >> {{ wl_logs_dir}}/timing.yaml
-          # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
-          # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
-        executable: /bin/bash
+    # - name: Record timing
+    #   shell:
+    #     cmd: |
+    #       echo "k8s_setup_start: \"$(date -Ins)\"" > {{ wl_logs_dir}}/timing.yaml
+    #       echo k8s_setup_start: $(date -Ins) >> {{ wl_logs_dir}}/timing.yaml
+    #       # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
+    #       # echo "k8s_setup_start: \"$(date -Ins)\"" >> {{ wl_logs_dir}}/timing.yaml
+    #     executable: /bin/bash
+
+
+- name: detect if local provisioner already be installed or not
+  command: "kubectl get pods -A |grep local-volume-provisioner"
+  register: lsp_installed
+
+
+
+- name: Determine whether has been loaded
+  shell: |
+    lsmod | grep dlb
+  register: dlb_loaded
+  ignore_errors: true
+
+- debug:
+    msg: "dlb is loaded on this machine"
+  when: dlb_loaded.stdout != ""
+
+- block:
+    - name: install kernel module
+      shell: |
+        modprobe dlb2
+      register: kernel_dlb_installed
+      ignore_errors: true
+
+    - debug:
+        msg: "{{kernel_dlb_installed}}"
+
+    - debug:
+        msg: "no kernel dlb driver"
+      when: "'not found' in kernel_dlb_installed.stderr"
+  when: dlb_loaded.stdout == ""
