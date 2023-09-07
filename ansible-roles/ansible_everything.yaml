@@ -1,10 +1,11 @@
 ---
 # - hosts: localhost
-- hosts: 10.219.170.13
+# - hosts: 10.219.170.236
+- hosts: 172.17.29.21
   become: yes
   gather_facts: no
   roles:
     - role: test_everything
       vars:
         # k8s_plugins: [nfd-dp-dlb,abc,'def',"dfadf"]
-        k8s_local_static_provisioner_app_label: local-volume-provisioner
+        # k8s_local_static_provisioner_app_label: local-volume-provisioner
