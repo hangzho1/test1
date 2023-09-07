@@ -1,0 +1,285 @@
+{
+    "execution": {
+        "test_gcp_milan_sanity": {
+            "MILAN_GCP": {
+                "Nginx": {
+                    "kpi": {
+                        "gcp-n2-standard-16_official_nginx_original_MILAN_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 1037.13"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/0165616d-23dd-44c8-bef9-b61f75c1b288",
+                            "test_time": "921.979976",
+                            "sha256": "76ae33381f2f7bbb23369f052080ea59a85b01e794599b5fe18a76c7693a6ffc",
+                            "config": "n2-standard-16",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_gcp-n2-standard-16_official_nginx_original_MILAN_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_gcp-n2-standard-16_official_nginx_original_MILAN_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/MILAN_Nginx_34/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_azure_armv9_sanity": {
+            "ARMv9_AZURE": {
+                "Nginx": {
+                    "kpi": {
+                        "azure-Standard-D32s-v3_official_nginx_original_ARMv9_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 301.81"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/e94d25aa-fef6-4f00-92d8-2ed8cbe25a37",
+                            "test_time": "1829.517498",
+                            "sha256": "0e45a7e3df1d120e7917b7bc3b024672012900f7ddce8ac354bc1ee731e3602f",
+                            "config": "Standard_D32s_v3",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_azure-Standard-D32s-v3_official_nginx_original_ARMv9_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_azure-Standard-D32s-v3_official_nginx_original_ARMv9_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/ARMv9_Nginx_35/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_aws_icx_sanity": {
+            "ICX_AWS": {
+                "Nginx": {
+                    "kpi": {
+                        "aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 1892.72"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/fe073d1c-3a30-4abf-9f7b-e1246039d204",
+                            "test_time": "736.099199",
+                            "sha256": "a7cb349c235bb5093475f9fa313330d8d22b39683f2df695e0a8fbf523c7cedb",
+                            "config": "m6i.4xlarge",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/ICX_Nginx_32/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_aws_milan_sanity": {
+            "MILAN_AWS": {
+                "Nginx": {
+                    "kpi": {
+                        "aws-m6i-4xlarge_official_nginx_original_MILAN_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 1010.08"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/16e619c3-e769-4c27-af22-d6ce1333affc",
+                            "test_time": "802.530796",
+                            "sha256": "5bc1f647ab9d69207eb73ac630fe838e65ad4a8d2fc89a24912fc30905f6a928",
+                            "config": "m6i.4xlarge",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_aws-m6i-4xlarge_official_nginx_original_MILAN_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_aws-m6i-4xlarge_official_nginx_original_MILAN_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/MILAN_Nginx_33/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_aws_specify_cpu_model_positive": {
+            "ICX_AWS": {
+                "Nginx": {
+                    "kpi": {
+                        "aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 1901.54"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/1e2ae391-b026-49a9-9d78-f780653013c9",
+                            "test_time": "720.661677",
+                            "sha256": "a7cb349c235bb5093475f9fa313330d8d22b39683f2df695e0a8fbf523c7cedb",
+                            "config": "m6i.4xlarge",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/ICX_Nginx_37/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_aws_os_type_ubuntu2204_to_rhel9": {
+            "ICX_AWS": {
+                "Nginx": {
+                    "kpi": {
+                        "aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https": {
+                            "metrics": {
+                                "Total requests per second (Requests/s)": " 1874.23"
+                            },
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/0e510d87-6e30-43bd-a2ef-20b2cabbd994",
+                            "test_time": "794.230187",
+                            "sha256": "a7cb349c235bb5093475f9fa313330d8d22b39683f2df695e0a8fbf523c7cedb",
+                            "config": "m6i.4xlarge",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 1,
+                    "Failed": 0,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "passed_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "failed_test_case": [],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/ICX_Nginx_36/logs",
+                    "machine_config": ""
+                }
+            }
+        },
+        "test_aws_specify_cpu_model_negative": {
+            "ICX_AWS": {
+                "Nginx": {
+                    "kpi": {
+                        "aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https": {
+                            "metrics": {},
+                            "cumulus_url": "https://wsf-dashboards.intel.com/services-framework/run_uri/3e484bd3-b788-4917-8694-1f47685710c1",
+                            "test_time": "364.183744",
+                            "sha256": "a7cb349c235bb5093475f9fa313330d8d22b39683f2df695e0a8fbf523c7cedb",
+                            "config": "m6i.4xlarge",
+                            "test_config": "default",
+                            "wiki_platform_version": "63"
+                        }
+                    },
+                    "bom": {},
+                    "Total": 1,
+                    "Passed": 0,
+                    "Failed": 1,
+                    "Blocked": 0,
+                    "Attempted": 1,
+                    "No_Run": 0,
+                    "all_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "passed_test_case": [],
+                    "failed_test_case": [
+                        "test_aws-m6i-4xlarge_intel_async_nginx_qatsw_off_2node_https"
+                    ],
+                    "no_run_test_case": [],
+                    "log_url": "https://af01p-igk.devtools.intel.com/artifactory/platform_hero-igk-local/benchmark_test_result/Infra_automation_08-28-2023_63_08dedd3b/ICX_Nginx_38/logs",
+                    "machine_config": ""
+                }
+            }
+        }
+    },
+    "all_test_case": [
+        "test_gcp_milan_sanity",
+        "test_azure_armv9_sanity",
+        "test_aws_icx_sanity",
+        "test_aws_milan_sanity",
+        "test_aws_specify_cpu_model_positive",
+        "test_aws_os_type_ubuntu2204_to_rhel9",
+        "test_aws_specify_cpu_model_negative"
+    ],
+    "passed_test_case": [
+        "test_gcp_milan_sanity",
+        "test_azure_armv9_sanity",
+        "test_aws_icx_sanity",
+        "test_aws_milan_sanity",
+        "test_aws_specify_cpu_model_positive",
+        "test_aws_os_type_ubuntu2204_to_rhel9"
+    ],
+    "failed_test_case": [
+        "test_aws_specify_cpu_model_negative"
+    ],
+    "revision": "08dedd3b",
+    "build_id": "63",
+    "run_count": 7,
+    "attempted_cases": 7,
+    "total_cases": 7,
+    "failed_cases": 1,
+    "no_run_cases": 0,
+    "blocked_cases": 0,
+    "passed_cases": 6,
+    "passed_rate": "85.71%",
+    "attempted_rate": "100.00%"
+}

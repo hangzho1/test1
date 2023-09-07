@@ -49,33 +49,56 @@
     #     executable: /bin/bash
 
 
-- name: detect if local provisioner already be installed or not
-  command: "kubectl get pods -A |grep local-volume-provisioner"
-  register: lsp_installed
+# - name: detect if local provisioner already be installed or not
+#   command: "kubectl get pods -A |grep local-volume-provisioner"
+#   register: lsp_installed
 
 
 
-- name: Determine whether has been loaded
-  shell: |
-    lsmod | grep dlb
-  register: dlb_loaded
-  ignore_errors: true
+# - name: Determine whether has been loaded
+#   shell: |
+#     lsmod | grep dlb
+#   register: dlb_loaded
+#   ignore_errors: true
 
-- debug:
-    msg: "dlb is loaded on this machine"
-  when: dlb_loaded.stdout != ""
+# - debug:
+#     msg: "dlb is loaded on this machine"
+#   when: dlb_loaded.stdout != ""
 
-- block:
-    - name: install kernel module
-      shell: |
-        modprobe dlb2
-      register: kernel_dlb_installed
-      ignore_errors: true
+# - block:
+#     - name: install kernel module
+#       shell: |
+#         modprobe dlb2
+#       register: kernel_dlb_installed
+#       ignore_errors: true
 
-    - debug:
-        msg: "{{kernel_dlb_installed}}"
+#     - debug:
+#         msg: "{{kernel_dlb_installed}}"
 
-    - debug:
-        msg: "no kernel dlb driver"
-      when: "'not found' in kernel_dlb_installed.stderr"
-  when: dlb_loaded.stdout == ""
+#     - debug:
+#         msg: "no kernel dlb driver"
+#       when: "'not found' in kernel_dlb_installed.stderr"
+#   when: dlb_loaded.stdout == ""
+
+
+
+
+- name: Wait for system to become reachable
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 1
+    delay: 1
+    timeout: 1800
+
+- name: reboot
+  command: reboot
+  async: 5
+  poll: 0
+  become: true
+
+- name: wait for the machine to come back
+  wait_for_connection:
+    connect_timeout: 20
+    sleep: 1
+    delay: 15
+    timeout: 1800

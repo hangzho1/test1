@@ -626,91 +626,7 @@ import subprocess
 os.environ['WORKSPACE'] = "/home/hangz/validation"
 print(os.getenv('WORKSPACE'))
 # sys.exit()
-def get_platforms(run_folder):
-    """
-    get platform list from benchmark run
-    :param run_folder:
-    :return:
-    """
-    platform_list = []
-    for run in os.listdir(run_folder):
-        if run != 'execution.json':
-            platform = run.split("_")[0]
-            platform_list.append(platform)
-    return list(set(platform_list))
 
-def check_case_support_in_workload_execution(workload_execution, platform, workload):
-    """
-    check all test case in the execution to see if supported in current version or not, if not, remove the case info
-    :param workload_execution:
-    :param platform:
-    :param workload:
-    :return:
-    """
-    updated_workload_execution = workload_execution
-    remove_case_list = []
-    test_type = workload_execution['all_test_case'][0].split('_')[1]
-    test_type = test_type.split('-')[0]
-
-    support_case_list = []
-    platform_name = platform.split('_')[0]
-    cmd = "%s/script/automation/post-validation/workload.sh get_workload_case %s %s %s" % (
-        os.environ['WORKSPACE'], platform_name, workload, test_type)
-    p = subprocess.Popen(
-        cmd,
-        shell=True,
-        cwd="%s/script/automation/post-validation" % os.environ['WORKSPACE'],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT
-    )
-    try:
-        while True:
-            line = p.stdout.readline()
-            line_info = line.decode('ascii').strip().split('\n')[0]
-            if "test_%s" % test_type in line_info:
-                support_case_list.append(line_info)
-            if not line:
-                break
-    except Exception as e:
-        print(e)
-    for case in workload_execution['all_test_case']:
-        test_type = case.split('_')[1]
-        case_name = test_type + case.split('test_%s' % test_type)[-1]
-        real_ctest_case_name = "test_" + test_type.split('-')[0] + case.split('test_%s' % test_type)[-1]
-
-        if real_ctest_case_name not in support_case_list:
-            remove_case_list.append(case)
-            workload_execution['Total'] = workload_execution['Total'] - 1
-            if case in workload_execution['passed_test_case']:
-                workload_execution['Attempted'] = workload_execution['Attempted'] - 1
-                workload_execution['Passed'] = workload_execution['Passed'] - 1
-                workload_execution['passed_test_case'].remove(case)
-                if case_name in workload_execution['kpi']:
-                    del workload_execution['kpi'][case_name]
-            elif case in workload_execution['failed_test_case']:
-                workload_execution['Attempted'] = workload_execution['Attempted'] - 1
-                workload_execution['Failed'] = workload_execution['Failed'] - 1
-                workload_execution['failed_test_case'].remove(case)
-                if case_name in workload_execution['kpi']:
-                    del workload_execution['kpi'][case_name]
-            else:
-                workload_execution['No_Run'] = workload_execution['No_Run'] - 1
-                workload_execution['no_run_test_case'].remove(case)
-    for case in remove_case_list:
-        workload_execution['all_test_case'].remove(case)
-    return updated_workload_execution
-
-
-def execute_cmd(cmd):
-    """
-    execute shell command
-    :param cmd:
-    :return: return exit code and output
-    """
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    output, err = p.communicate()
-    status = 1 if err else 0
-    return status, output
 def check_result_exist(test_result_folder):
     '''
     check test result json exist or not, if yes, check the run_count
@@ -739,12 +655,16 @@ def get_infra_session_execution_info(session_id, forced=False):
     :return: all execution info in the test session
     """
     session_info = {}
+    session_info["execution"] = {}
     session_info['all_test_case'] = []
     session_info['passed_test_case'] = []
     session_info['failed_test_case'] = []
     total_cases = 0
     passed_cases = 0
     failed_cases = 0
+    attempted_cases = 0
+    blocked_cases = 0
+    no_run_cases = 0
 
     test_result_folder = os.path.join(os.environ['WORKSPACE'], session_id)
     print("test_result_folder value %s" %test_result_folder)
@@ -778,7 +698,6 @@ def get_infra_session_execution_info(session_id, forced=False):
             benchmark_runs.append(f"{key}_{value}.json")
         print("benchmark_run value %s" %benchmark_runs, len(benchmark_runs))
 
-        total_cases = len(benchmark_runs)
         for run in benchmark_runs:
             if run != 'execution.json' and "dummy" not in run:
                 json_file = os.path.join(test_result_folder, run)
@@ -792,23 +711,35 @@ def get_infra_session_execution_info(session_id, forced=False):
 
                 for platform, execution_info in benchmark_execution['execution'].items():
 
+                    session_info['execution'][case_name] = benchmark_execution['execution']
+                    passed_cases += benchmark_execution['execution'][platform][workload]['Passed']
+                    total_cases += benchmark_execution['execution'][platform][workload]['Total']
+                    failed_cases += benchmark_execution['execution'][platform][workload]['Failed']
+                    attempted_cases += benchmark_execution['execution'][platform][workload]['Attempted']
+                    blocked_cases += benchmark_execution['execution'][platform][workload]['Blocked']
+                    no_run_cases += benchmark_execution['execution'][platform][workload]['No_Run']
+
                     if benchmark_execution['execution'][platform][workload]['Total'] == benchmark_execution['execution'][platform][workload]['Passed']:
                         session_info['passed_test_case'].append(case_name)
                         session_info['all_test_case'].append(case_name)
-                        passed_cases += 1
+
                     else :
                         session_info['failed_test_case'].append(case_name)
                         session_info['all_test_case'].append(case_name)
-                        failed_cases += 1
 
+        session_info['attempted_cases'] = attempted_cases
         session_info['total_cases'] = total_cases
-        session_info['passed_cases'] = passed_cases
         session_info['failed_cases'] = failed_cases
+        session_info['no_run_cases'] = no_run_cases
+        session_info['blocked_cases'] = blocked_cases
+        session_info['passed_cases'] = passed_cases
 
         if total_cases == 0 :
             session_info['passed_rate'] = '0.00%'
+            session_info['attempted_cases'] = '0.00%'
         else:
-            session_info['passed_rate'] = '{:.2f}%'.format(passed_cases / total_cases * 100)
+            session_info['passed_rate'] = '{:.2f}%'.format(passed_cases / attempted_cases * 100)
+            session_info['attempted_rate'] = '{:.2f}%'.format(attempted_cases / total_cases * 100)
 
         # dump to json file
         json_str = json.dumps(session_info, indent=4)
@@ -820,67 +751,112 @@ def get_infra_session_execution_info(session_id, forced=False):
             execution = json.load(json_file)
             return execution
 
-print(get_infra_session_execution_info("Infra_automation"))
+# print(get_infra_session_execution_info("Infra_automation_08-28-2023_63_08dedd3b"))
 
 
+import time
+import sys
+CURRENTLY_WEEK = int(time.strftime("%W")) + 1
+CURRENTLY_YEAR = int(time.strftime("%Y"))
+LOCAL_VALIDATION_FOLDER = os.path.join(os.environ['WORKSPACE'],
+                                       'wiki/validation/local_validation/validation-%s-ww%s' % (
+                                           CURRENTLY_YEAR, CURRENTLY_WEEK))
+def get_execution_status(execution_result):
+    """
+    generate validation report
+    :param execution_result:
+    :return:
+    """
+    head_line = r'| Category | Platform | Test Case | Result |'
+    format_line = '| :------------ |:------------|:------------ |:-----|'
+    print("==================")
+    workload_line = ''
+    wiki_info = {}
+    for case_name, details in execution_result['execution'].items():
+        infra_category = case_name.split('_')[1].upper()
+        if infra_category not in wiki_info.keys():
+            wiki_info[infra_category] = {}
 
+        for platform, case_value in details.items():
+            infra_platform = platform.split('_')[0]
+            for workload, result in case_value.items():
+                for kpi, kpi_value in result['kpi'].items():
+                    if case_name not in wiki_info[infra_category].keys():
+                        wiki_info[infra_category][case_name]={}
+                        wiki_info[infra_category][case_name]['platform'] = infra_platform
+                        wiki_info[infra_category][case_name]['result'] = "Passed" if case_name in execution_result['passed_test_case'] else "Failed"
+                        wiki_info[infra_category][case_name]['cumulus_url'] = kpi_value['cumulus_url']
+                        wiki_info[infra_category][case_name]['log_url'] = result['log_url']
 
-# def update_development_report(session_id):
-#     """
-#     create validation report per week.
-#     :param report:
-#     :param session_id:
-#     :return:
-#     """
+    for wiki_info_category, wiki_info_details in wiki_info.items():
+        for test_name, show_result in wiki_info_details.items():
+            print(wiki_info_category, show_result['platform'], test_name, show_result['cumulus_url'], show_result['result'], show_result['log_url'])
+            # if wiki_info_category not in workload_line:
+            line = '| {} | {} | [{}]({}) | [{}]({}) |'.format(wiki_info_category, show_result['platform'], test_name, show_result['cumulus_url'], show_result['result'], show_result['log_url'])
+            # else :
+            #     line = '| | {} | [{}]({}) | [{}]({}) |'.format(show_result['platform'], test_name, show_result['cumulus_url'], show_result['result'], show_result['log_url'])
+            # print(line)            
 
-#     session_info = get_infra_session_execution_info(session_id)
+            if workload_line == '':
+                workload_line = line
+            else:
+                workload_line = workload_line + '\n' + line
 
-#     if not os.path.exists(LOCAL_VALIDATION_FOLDER):
-#         os.makedirs(LOCAL_VALIDATION_FOLDER)
+    return '**Test Execution Status**  \n%s\n%s\n%s' % (head_line, format_line, workload_line)
 
-#     validation_file = (
-#     LOCAL_VALIDATION_FOLDER + '/' + 'validation-local-%s-ww%s.md' % (CURRENTLY_YEAR, CURRENTLY_WEEK))
+def update_development_report(session_id):
+    """
+    create validation report per week.
+    :param report:
+    :param session_id:
+    :return:
+    """
 
-#     if 'revision' not in session_info.keys():
-#         revision_info = ''
-#     else:
-#         revision_info = 'Platform hero features revision: %s  \n' % session_info['revision']
+    session_info = get_infra_session_execution_info(session_id)
+    if not os.path.exists(LOCAL_VALIDATION_FOLDER):
+        os.makedirs(LOCAL_VALIDATION_FOLDER)
+    validation_file = (
+    LOCAL_VALIDATION_FOLDER + '/' + 'validation-local-%s-ww%s.md' % (CURRENTLY_YEAR, CURRENTLY_WEEK))
+
+    print(validation_file)
+    
+    if 'revision' not in session_info.keys():
+        revision_info = ''
+    else:
+        revision_info = 'Platform hero features revision: %s  \n' % session_info['revision']
 
     
-#     validation_summary_info = '**Summary**   \n\n{}\n\nTotal {} tests, {} run, {} passed, {} failed.  \n\n'.format(
-#         revision_info, session_info['total_cases'], session_info['attempted_cases'],
-#         session_info['passed_cases'], session_info['failed_cases'])
+    validation_summary_info = '**Summary**   \n\n{}\n\nTotal {} tests, {} passed, {} failed.  \n\n'.format(
+        revision_info, session_info['total_cases'], session_info['passed_cases'], session_info['failed_cases'])
 
-#     execution_info = get_execution_status(session_info['execution'])
-#     execution_summary = '| Summary | | %d | %d | %d | %d | %d | %d | %s | %s |  |' % (session_info['attempted_cases'],
-#                                                                                       session_info['blocked_cases'],
-#                                                                                       session_info['no_run_cases'],
-#                                                                                       session_info['failed_cases'],
-#                                                                                       session_info['passed_cases'],
-#                                                                                       session_info['total_cases'],
-#                                                                                       session_info['attempted_rate'],
-#                                                                                       session_info['passed_rate'])
+    execution_info = get_execution_status(session_info)
+    execution_summary = '| Summary | | %d | %d | %d | %d | %d | %d | %s | %s |  |' % (session_info['attempted_cases'],
+                                                                                    session_info['blocked_cases'],
+                                                                                    session_info['no_run_cases'],
+                                                                                    session_info['failed_cases'],
+                                                                                    session_info['passed_cases'],
+                                                                                    session_info['total_cases'],
+                                                                                    session_info['attempted_rate'],
+                                                                                    session_info['passed_rate'])
 
-#     kpi_info = get_kpi_status(session_info['execution'])
-#     date = sys.argv[2].replace('cloud_', '').replace('main_', '').replace('ali_', '').replace('tencent_', '').split("_")[0] + "_" + os.environ['BUILD_ID']
-#     if not os.path.exists(validation_file):
-#         os.system("touch %s" % validation_file)
 
-#     with open(validation_file, 'r+') as f:
-#         content = f.read()
-#         f.seek(0, 0)
-#         f.write('### %s\n%s  \n\n%s  \n%s  \n\n' % (
-#             date, validation_summary_info, execution_info, execution_summary) + content)
+    # date = sys.argv[0].replace('cloud_', '').replace('main_', '').replace('ali_', '').replace('tencent_', '').split("_")[0] + "_" + os.environ['BUILD_ID']
+    date = 2023
+    if not os.path.exists(validation_file):
+        os.system("touch %s" % validation_file)
 
-#     if not os.path.exists(kpi_file):
-#         os.system("touch %s" % kpi_file)
+    with open(validation_file, 'r+') as f:
+        content = f.read()
+        f.seek(0, 0)
+        f.write('### %s\n%s  \n\n%s \n\n' % (
+            date, validation_summary_info, execution_info) + content)
 
-#     with open(kpi_file, 'r+') as f:
-#         content = f.read()
-#         f.seek(0, 0)
-#         f.write('%s  \n\n' % kpi_info + content)
 
-#     update_link_file(report, session_info)
+
+    # update_link_file(report, session_info)
+
+# update_development_report("Infra_automation_08-28-2023_63_08dedd3b")
+print(update_development_report("Infra_automation_08-28-2023_63_08dedd3b"))
 
 
 
