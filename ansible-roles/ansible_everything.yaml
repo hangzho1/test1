@@ -1,7 +1,7 @@
 ---
 # - hosts: localhost
 # - hosts: 10.219.170.236
-- hosts: 172.17.29.21
+- hosts: 10.67.119.246
   become: yes
   gather_facts: no
   roles:

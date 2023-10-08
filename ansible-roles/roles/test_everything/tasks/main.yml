@@ -83,22 +83,18 @@
 
 
 
-- name: Wait for system to become reachable
-  wait_for_connection:
-    connect_timeout: 20
-    sleep: 1
-    delay: 1
-    timeout: 1800
+  - name: download dlb_zip
+    shell: 
+      cmd: |
+        [ -e /usr/local/src/dlb.tgz ] || curl --retry 5 -o /usr/local/src/dlb.tgz https://downloadmirror.intel.com/787629/dlb_linux_src_release_8.5.1.txz
+      executable: /bin/bash
+    ignore_errors: true
+    # delegate_to: localhost
+    run_once: true
 
-- name: reboot
-  command: reboot
-  async: 5
-  poll: 0
-  become: true
 
-- name: wait for the machine to come back
-  wait_for_connection:
-    connect_timeout: 20
-    sleep: 1
-    delay: 15
-    timeout: 1800
+  # - debug: 
+  #     msg: "{{ datetime.stdout_lines | first }}"
+
+  # - debug: 
+  #     msg: "{{ datetime.stdout_lines | last }}"
