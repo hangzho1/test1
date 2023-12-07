@@ -94,15 +94,18 @@
 #         echo 100
 # fi   
 
-PS3="Choose the package manager: "   #select选项提示符
-select ITEM in bower npm gem pip     #select循环，已编号和字符串的形式标出
-do
-echo -n "Enter the package name: " && read PACKAGE  #不换行输入想要安装的包
-case ${ITEM} in                      ##
-  bower) bower install ${PACKAGE} ;; 
-  npm) npm install ${PACKAGE} ;;
-  gem) gem install ${PACKAGE} ;;
-  pip) pip install ${PACKAGE} ;;
-esac
-break # 避免无限循环
-done
+# PS3="Choose the package manager: "   #select选项提示符
+# select ITEM in bower npm gem pip     #select循环，已编号和字符串的形式标出
+# do
+# echo -n "Enter the package name: " && read PACKAGE  #不换行输入想要安装的包
+# case ${ITEM} in                      ##
+#   bower) bower install ${PACKAGE} ;; 
+#   npm) npm install ${PACKAGE} ;;
+#   gem) gem install ${PACKAGE} ;;
+#   pip) pip install ${PACKAGE} ;;
+# esac
+# break # 避免无限循环
+# done
+
+hosts=("example.com:8080" "test.com:9090" "another.net:7070")
+echo ${hosts[@]:8080#}

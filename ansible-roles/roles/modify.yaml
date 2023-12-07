@@ -1,0 +1,20 @@
+# - hosts: localhost
+- hosts: 10.67.127.183
+  gather_facts: no
+  become: false
+
+  tasks:
+
+    - name: which 
+      command: "which python3"
+      delegate_to: localhost
+
+    - name: configure dpdk
+      command: "python3 --version"
+      environment:
+        PATH: "/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+      delegate_to: localhost
+      
+
+    - debug:
+        msg: "{{ ansible_user }}"

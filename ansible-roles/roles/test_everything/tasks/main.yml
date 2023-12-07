@@ -84,14 +84,7 @@
 
 
   - name: download dlb_zip
-    shell: 
-      cmd: |
-        [ -e /usr/local/src/dlb.tgz ] || curl --retry 5 -o /usr/local/src/dlb.tgz https://downloadmirror.intel.com/787629/dlb_linux_src_release_8.5.1.txz
-      executable: /bin/bash
-    ignore_errors: true
-    # delegate_to: localhost
-    run_once: true
-
+    command: python3 /tmp/cek/config_dpdk_link.py
 
   # - debug: 
   #     msg: "{{ datetime.stdout_lines | first }}"
