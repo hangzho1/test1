@@ -110,4 +110,4 @@
 hosts=("example.com:8080" "test.com:9090" "another.net:7070")
 echo ${hosts[@]:8080#}
 echo 1
-echo "${myArray[@]}"
+
